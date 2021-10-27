@@ -3,8 +3,6 @@ package com.project.Main;
 import java.io.*;
 import java.util.*;
 
-
-
 public class Main {
 	private static Scanner scan;
 	static {
@@ -41,7 +39,6 @@ public class Main {
 
 	private static String getState() {
 		try {
-			
 			//티켓예매정보.txt 파일 참조
 			String path = "C:\\Users\\u_011\\git\\DragonLand\\DragonLand\\data\\티켓예매정보.txt";
 			BufferedReader reader = new BufferedReader(new FileReader(path));
@@ -83,7 +80,6 @@ public class Main {
 	}
 	
 	private static void pause() {
-		
 		System.out.println("(엔터를 누르면 메뉴로 이동합니다.)");
 		scan.nextLine();
 	}
