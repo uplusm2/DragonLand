@@ -1,4 +1,4 @@
-package com.project.Main;
+package com.project.main;
 
 import java.io.*;
 import java.util.*;
@@ -40,7 +40,7 @@ public class Main {
 	private static String getState() {
 		try {
 			//티켓예매정보.txt 파일 참조
-			String path = "C:\\Users\\u_011\\git\\DragonLand\\DragonLand\\data\\티켓예매정보.txt";
+			String path = "data\\티켓예매정보2.txt";
 			BufferedReader reader = new BufferedReader(new FileReader(path));
 			
 			//오늘 날짜 YYYYMMDD 형태로 String 변수에 저장
@@ -50,7 +50,7 @@ public class Main {
 			//혼잡도 비교를 위한 변수
 			int total = 0;
 
-			//파일 한 줄씩 읽으며 오늘 날짜랑 티켓 예매일이 겹치면 total에 인원수 추가
+			//파일 한 줄씩 읽으며 오늘 날짜와 예매일이 일치하면 total에 인원수 추가
 			String line = null;
 			while ((line = reader.readLine()) != null) {
 				String[] temp = line.split("■");
