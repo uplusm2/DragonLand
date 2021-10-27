@@ -13,7 +13,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		System.out.println("Dragon Land"); //임시
-		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", getState());
+//		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", getState());
 		boolean loop = true;
 		while(loop) {
 			menu();
@@ -21,11 +21,16 @@ public class Main {
 			String sel = scan.nextLine();
 			System.out.println();
 			
-			if(sel.equals("1")) {		//용용랜드 정보
-			}else if(sel.equals("2")){	//로그인
-			}else if(sel.equals("3")){	//회원가입
-			}else if(sel.equals("4")){	//ID,PW찾기
-			}else if(sel.equals("5")){	//종료
+			if(sel.equals("1")) {		
+				//용용랜드 정보
+			}else if(sel.equals("2")){	
+				//로그인
+			}else if(sel.equals("3")){	
+				//회원가입
+			}else if(sel.equals("4")){	
+				//ID,PW찾기
+			}else if(sel.equals("5")){	
+				//종료
 				loop = false;
 			}else {
 				System.out.println("다시 입력해주세요.");
@@ -41,7 +46,7 @@ public class Main {
 			String path = "C:\\Users\\u_011\\git\\DragonLand\\DragonLand\\data\\티켓예매정보.txt";
 			BufferedReader reader = new BufferedReader(new FileReader(path));
 			
-			//오늘 날짜 YYYYMMDD 형태로
+			//오늘 날짜 YYYYMMDD 형태로 String 변수에 저장
 			Calendar c = Calendar.getInstance();
 			String today = String.format("%tF", c).replace("-", "");
 			
