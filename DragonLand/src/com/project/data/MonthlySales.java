@@ -68,7 +68,7 @@ public class MonthlySales {
 	public String getKidPrice() {
 		return kidPrice;
 	}
-	public void setKedPrice(String kidPrice) {
+	public void setKidPrice(String kidPrice) {
 		this.kidPrice = kidPrice;
 	}
 	public String getTotalCount() {
