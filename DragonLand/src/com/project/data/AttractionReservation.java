@@ -10,8 +10,7 @@ public class AttractionReservation {
 	private String ReserveNums;
 	private String mNum;
 	
-	public AttractionReservation(String code, String mtDate, String date,
-								 String hour, String ReserveNums, String mNum) {
+	public AttractionReservation(String code, String mtDate, String date, String hour, String ReserveNums, String mNum) {
 		this.code = code;
 		this.mtDate = mtDate;
 		this.date = date;
