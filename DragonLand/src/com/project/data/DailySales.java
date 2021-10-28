@@ -1,9 +1,9 @@
 package com.project.data;
 
 public class DailySales {
-	//날짜(YYYYMMDD)■성인매수■청소년매수■어린이매수■성인금액■청소년금액■어린이금액■일별 총 인원■일별 총 금액
+	//날짜(YYYYMMDD)■성인매수■청소년매수■어린이매수■성인금액■청소년금액■어린이금액■일별 총 인원■일별 총 금액....
 
-	private String Date;
+	private String date;
 	private String adultCount;
 	private String youthCount;
 	private String kidCount;
@@ -15,11 +15,25 @@ public class DailySales {
 	
 	
 	
+	public DailySales(String date, String adultCount, String youthCount, String kidCount, String adultPrice,
+			String youthPrice, String kidPrice, String totalCount, String totalPrice) {
+		
+		this.date = date;
+		this.adultCount = adultCount;
+		this.youthCount = youthCount;
+		this.kidCount = kidCount;
+		this.adultPrice = adultPrice;
+		this.youthPrice = youthPrice;
+		this.kidPrice = kidPrice;
+		this.totalCount = totalCount;
+		this.totalPrice = totalPrice;
+	}
+	
 	public String getDate() {
-		return Date;
+		return date;
 	}
 	public void setDate(String date) {
-		Date = date;
+		this.date = date;
 	}
 	public String getAdultCount() {
 		return adultCount;
