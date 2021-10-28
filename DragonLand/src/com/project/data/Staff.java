@@ -68,4 +68,5 @@ public class Staff {
 	public void setPlace(String place) {
 		this.place = place;
 	}
+	
 }
