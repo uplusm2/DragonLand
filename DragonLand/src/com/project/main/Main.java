@@ -12,7 +12,6 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("Dragon Land"); //임시
 		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", getState());
-	
 		boolean loop = true;
 		while(loop) {
 			menu();
@@ -41,7 +40,7 @@ public class Main {
 	private static String getState() {
 		try {
 			//티켓예매정보.txt 파일 참조
-			String path = "data\\티켓예매정보2.txt";
+			String path = "data\\티켓예매정보.txt";
 			BufferedReader reader = new BufferedReader(new FileReader(path));
 			
 			//오늘 날짜 YYYYMMDD 형태로 String 변수에 저장
