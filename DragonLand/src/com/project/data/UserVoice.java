@@ -1,13 +1,13 @@
 package com.project.data;
 
-public class Voice {
+public class UserVoice {
 	
 	private String seq;
 	private String date;
 	private String content;
 	
 	
-	public Voice(String seq, String date, String content) {
+	public UserVoice(String seq, String date, String content) {
 		super();
 		this.seq = seq;
 		this.date = date;
@@ -45,7 +45,7 @@ public class Voice {
 	}
 
 
-	public Voice() {
+	public UserVoice() {
 		this("", "", "");
 	}
 
