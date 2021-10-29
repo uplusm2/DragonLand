@@ -25,6 +25,26 @@ public class Save {
 		writer.close();
 	}
 
+	public static void saveDailySales(ArrayList<DailySales> list) throws Exception {
+		writer = new BufferedWriter(new FileWriter(Path.dailySales));
+
+		for (DailySales dailysales : list) {
+			String line = String.format("%s■%s■%s■%s■%s■%s■%s■%s■%s"
+									, dailysales.getDate()
+									, dailysales.getAdultCount()
+									, dailysales.getYouthCount()
+									, dailysales.getKidCount()
+									, dailysales.getAdultPrice()
+									, dailysales.getYouthPrice()
+									, dailysales.getKidPrice()
+									, dailysales.getTotalCount()
+									, dailysales.getTotalPrice());
+			writer.write(line);
+			writer.newLine();
+		}
+		writer.close();
+	}
+	
 	public static void saveMonthlySales(ArrayList<MonthlySales> list) throws Exception {
 		writer = new BufferedWriter(new FileWriter(Path.monthlySales));
 
