@@ -108,7 +108,7 @@ public class Employee {
 		System.out.println("\t\t\t\t[직원 근무지 배치 및 수정]");
 		System.out.println("====================================================================================\n");
 		
-		System.out.println("직원 번호를 입력하세요.\nB. 뒤로 가기");
+		System.out.println("직원 번호를 입력하세요."); //뒤로가기?
 		select();
 		
 		BufferedReader reader = new BufferedReader(new FileReader(Path.staff));
@@ -163,7 +163,7 @@ public class Employee {
 		
 		Staff s = new Staff(seq,name,age,address,phoneNum,workPlace);
 		list.add(s);
-		Save.saveStaff(list);
+		Save.saveStaff(list);//ArrayList를 파일에 저장
 		
 		System.out.println("직원이 추가되었습니다.");
 		pause();
