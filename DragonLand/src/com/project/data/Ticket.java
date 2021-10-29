@@ -28,5 +28,9 @@ public class Ticket {
 		return note;
 	}
 
-
+	@Override
+	public String toString() {
+		return "Ticket [userType=" + userType + ", price=" + price + ", note=" + note + "]";
+	}
+	
 }

@@ -13,8 +13,6 @@ public class DailySales {
 	private String totalCount;
 	private String totalPrice;
 	
-	
-	
 	public DailySales(String date, String adultCount, String youthCount, String kidCount, String adultPrice,
 			String youthPrice, String kidPrice, String totalCount, String totalPrice) {
 		
@@ -83,6 +81,11 @@ public class DailySales {
 	public void setTotalPrice(String totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "[date=" + date + ", adultCount=" + adultCount + ", youthCount=" + youthCount + ", kidCount="
+				+ kidCount + ", adultPrice=" + adultPrice + ", youthPrice=" + youthPrice + ", kidPrice=" + kidPrice
+				+ ", totalCount=" + totalCount + ", totalPrice=" + totalPrice + "]";
+	}
 }

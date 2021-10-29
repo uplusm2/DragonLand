@@ -85,6 +85,12 @@ public class MonthlySales {
 	public void setTotalPrice(String totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "MonthlySales [date=" + date + ", adultCount=" + adultCount + ", youthCount=" + youthCount
+				+ ", kidCount=" + kidCount + ", adultPrice=" + adultPrice + ", youthPrice=" + youthPrice + ", kidPrice="
+				+ kidPrice + ", totalCount=" + totalCount + ", totalPrice=" + totalPrice + "]";
+	}
 	
 }

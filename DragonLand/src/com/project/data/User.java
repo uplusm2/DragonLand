@@ -89,6 +89,11 @@ public class User {
 	public void setVote(Boolean vote) {
 		this.vote = vote;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "User [seq=" + seq + ", id=" + id + ", pw=" + pw + ", name=" + name + ", jumin=" + jumin + ", phoneNum="
+				+ phoneNum + ", address=" + address + ", vote=" + vote + "]";
+	}
 	
 }

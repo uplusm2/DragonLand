@@ -6,7 +6,6 @@ public class UserVoice {
 	private String date;
 	private String content;
 	
-	
 	public UserVoice(String seq, String date, String content) {
 		super();
 		this.seq = seq;
@@ -48,5 +47,13 @@ public class UserVoice {
 	public UserVoice() {
 		this("", "", "");
 	}
+
+
+	@Override
+	public String toString() {
+		return "UserVoice [seq=" + seq + ", date=" + date + ", content=" + content + "]";
+	}
+	
+	
 
 }
