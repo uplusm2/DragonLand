@@ -1,14 +1,14 @@
 package com.project.data;
 
 public class Ticket {
-	private String userType;
-	private String ticketPrice;
-	private String note;
+	private String userType; // 성인,청소년,어린이
+	private String price; //가격
+	private String note; //비고
 
-	public Ticket(String userType, String ticketPrice, String note) {
+	public Ticket(String userType, String price, String note) {
 
 		this.userType = userType;
-		this.ticketPrice = ticketPrice;
+		this.price = price;
 		this.note = note;
 	}
 
@@ -20,24 +20,17 @@ public class Ticket {
 		return userType;
 	}
 
-	public void setUserType(String userType) {
-		this.userType = userType;
-	}
-
-	public String getTicketPrice() {
-		return ticketPrice;
-	}
-
-	public void setTicketPrice(String ticketPrice) {
-		this.ticketPrice = ticketPrice;
+	public String getPrice() {
+		return price;
 	}
 
 	public String getNote() {
 		return note;
 	}
 
-	public void setNote(String note) {
-		this.note = note;
+	@Override
+	public String toString() {
+		return "Ticket [userType=" + userType + ", price=" + price + ", note=" + note + "]";
 	}
-
+	
 }
