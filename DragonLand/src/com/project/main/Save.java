@@ -82,8 +82,9 @@ public class Save {
 	}
 	   
 	public static void saveStaff(ArrayList<Staff> list) throws Exception{
+		writer = new BufferedWriter(new FileWriter(Path.staff));
+		
 		for(Staff staff : list) {
-			writer = new BufferedWriter(new FileWriter(Path.staff));
 			String line = String.format("%s■%s■%s■%s■%s■%s"
 									, staff.getSeq()
 									, staff.getName()
