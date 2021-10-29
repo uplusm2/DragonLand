@@ -18,8 +18,6 @@ public class Main {
 		
 		boolean loop = true;
 		while(loop) {
-			ArrayList<UserVoice> list = Load.loadUserVoice();
-			list.stream().forEach(name -> System.out.println(name.getSeq()));
 			menu();
 			System.out.print("👉 ");
 			String sel = scan.nextLine();
