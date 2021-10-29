@@ -58,10 +58,9 @@ public class Employee {
 	}//main
 	
 	private static void delete() throws Exception {
-		
-		System.out.println("============================");
-		System.out.println("\t[직원 삭제]");
-		System.out.println("============================\n");
+		System.out.println("====================================================================================");
+		System.out.println("\t\t\t\t[직원 삭제]");
+		System.out.println("====================================================================================\n");
 		
 		System.out.println("삭제할 직원의 번호를 입력하세요.");
 		select();
@@ -80,6 +79,7 @@ public class Employee {
 				select();
 				
 				if(sel.equals("N")) {
+					System.out.println("삭제를 취소합니다.");
 					pause();
 					return;
 				}
@@ -104,9 +104,9 @@ public class Employee {
 	}//delete
 
 	private static void edit() throws Exception {
-		System.out.println("============================");
-		System.out.println("\t[직원 근무지 배치 및 수정]");
-		System.out.println("============================\n");
+		System.out.println("====================================================================================");
+		System.out.println("\t\t\t\t[직원 근무지 배치 및 수정]");
+		System.out.println("====================================================================================\n");
 		
 		System.out.println("직원 번호를 입력하세요.\nB. 뒤로 가기");
 		select();
@@ -144,9 +144,9 @@ public class Employee {
 	}//edit
 
 	private static void add() throws Exception {
-		System.out.println("============================");
-		System.out.println("\t[직원 추가]");
-		System.out.println("============================\n");
+		System.out.println("====================================================================================");
+		System.out.println("\t\t\t\t[직원 추가]");
+		System.out.println("====================================================================================\n");
 		
 		System.out.print("이름:");
 		String name = scan.nextLine();
@@ -169,61 +169,44 @@ public class Employee {
 		pause();
 	}//add
 
-	private static void select() {
-		System.out.print("👉 ");
-		sel = scan.nextLine();
-		System.out.println();
-	}//select
-
 	private static void search() {
-		System.out.println("============================");
-		System.out.println("\t[직원 검색]");
-		System.out.println("============================\n");
+		System.out.println("====================================================================================");
+		System.out.println("\t\t\t\t[직원 검색]");
+		System.out.println("====================================================================================\n");
 		
 		System.out.println("검색할 직원의 이름을 입력하세요.");
 		select();
 		
-		System.out.printf("%s\t|%s\t|%s\t|%s\t\t\t\t|%s\t|%s%n"
-				,"고유번호","이름","나이","주소","핸드폰 번호","근무지");
 		
 		list.stream()
 			.filter(s -> s.getName().equals(sel))
 			.forEach(s -> {
-				System.out.printf("%s\t|%s\t|%s\t|%s\t|%s\t|%s%n"
+				System.out.printf("%s\t|%s\t|%s\t|%s\t\t\t\t|%s\t|%s%n"
+						,"고유번호","이름","나이","주소","핸드폰 번호","근무지");
+				System.out.printf("%s\t|%s\t|%s\t|%s\t\t|%s\t|%s%n"
 								, s.getSeq()
 								, s.getName()
 								, s.getAge()
 								, s.getAddress()
 								, s.getPhoneNum()
 								, s.getWorkPlace());
+				pause();
+				return;
 			}); //검색한 직원이 존재하지 않을 경우는 어떻게 하면 좋을까?
+		
+		System.out.println("존재하지 않는 직원입니다.");
 		pause();
 	}//search
 
-	private static void pause() {
+	private static void select() {
+		System.out.print("👉 ");
+		sel = scan.nextLine();
 		System.out.println();
-		System.out.println("(엔터를 누르면 메뉴로 이동합니다.)");
-		scan.nextLine();
-	}//pause
-
-	private static void menu() throws Exception {
-		System.out.println("============================");
-		System.out.println("\t[직원 관리]");
-		System.out.println("============================\n");
-		list();
-		
-		System.out.println("< 이전 페이지 | 다음 페이지 > ");
-		System.out.println("1. 직원 검색");
-		System.out.println("2. 직원 추가");
-		System.out.println("3. 직원 근무지 배치 및 수정");
-		System.out.println("4. 직원 삭제");
-		System.out.println("B. 뒤로 가기");
-	}//menu
+	}//select
 
 	private static void list() throws Exception {
 		System.out.printf("%s\t|%s\t|%s\t|%s\t\t\t\t|%s\t|%s%n"//"%-8s|%-8s|%-8s|%-25s|%-13s|%-8s%n"
 						,"고유번호","이름","나이","주소","핸드폰 번호","근무지");
-		
 		for(int i=page*10; i<page*10+10; i++) {
 			if(list.get(i).getSeq().equals("")) {
 				break;
@@ -239,4 +222,24 @@ public class Employee {
 		
 		System.out.printf("\t\t\t\t\t%d/%d%n", page+1, 10);
 	}//list
+	
+	private static void pause() {
+		System.out.println();
+		System.out.println("(엔터를 누르면 메뉴로 이동합니다.)");
+		scan.nextLine();
+	}//pause
+	
+	private static void menu() throws Exception {
+		System.out.println("====================================================================================");
+		System.out.println("\t\t\t\t[직원 관리]");
+		System.out.println("====================================================================================\n");
+		list();
+		
+		System.out.println("< 이전 페이지 | 다음 페이지 > ");
+		System.out.println("1. 직원 검색");
+		System.out.println("2. 직원 추가");
+		System.out.println("3. 직원 근무지 배치 및 수정");
+		System.out.println("4. 직원 삭제");
+		System.out.println("B. 뒤로 가기");
+	}//menu
 }
