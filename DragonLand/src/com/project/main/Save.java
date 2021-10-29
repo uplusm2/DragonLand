@@ -64,6 +64,22 @@ public class Save {
 		}
 		writer.close();
 	}
+	
+	public static void saveParade(ArrayList<Parade> list) throws Exception {
+		writer = new BufferedWriter(new FileWriter(Path.monthlySales));
+
+		for (Parade parade : list) {
+			String line = String.format("%s■%s■%s■%s■%s"
+									, parade.getTitle()
+									, parade.getStartDate()
+									, parade.getEndData()
+									, parade.getContent()
+									, parade.getLocate());
+			writer.write(line);
+			writer.newLine();
+		}
+		writer.close();
+	}
 	   
 	public static void saveStaff(ArrayList<Staff> list) throws Exception{
 		for(Staff staff : list) {

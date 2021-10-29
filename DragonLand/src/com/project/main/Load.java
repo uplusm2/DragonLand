@@ -98,6 +98,19 @@ public class Load {
 		reader.close();
 		return list;
 	}
+	
+	public static ArrayList loadParade() throws Exception {
+		reader = new BufferedReader(new FileReader(Path.monthlySales));
+		ArrayList<Parade> list = new ArrayList<Parade>();
+
+		String line = null;
+		while ((line = reader.readLine()) != null) {
+			String[] tmp = line.split("■");
+			list.add(new Parade(tmp[0], tmp[1], tmp[2], tmp[3], tmp[4]));
+		}
+		reader.close();
+		return list;
+	}
 
 	public static ArrayList loadStaff() throws Exception {
 		reader = new BufferedReader(new FileReader(Path.staff));
@@ -160,6 +173,7 @@ public class Load {
 		while ((line = reader.readLine()) != null) {
 			String[] tmp = line.split("■");
 			list.add(new UserVoice(tmp[0], tmp[1], tmp[2]));
+			System.out.println(line);
 		}
 		reader.close();
 		return list;
