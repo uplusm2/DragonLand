@@ -27,4 +27,10 @@ public class Card {
 	public String getDiscount() {
 		return discount;
 	}
+
+	@Override
+	public String toString() {
+		return "Card [seq=" + seq + ", name=" + name + ", discount=" + discount + "]";
+	}
+	
 }

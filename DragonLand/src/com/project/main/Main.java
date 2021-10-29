@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 import com.project.data.Attraction;
+import com.project.data.Path;
 
 public class Main {
 	private static Scanner scan;
@@ -17,15 +18,15 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		
 		System.out.println("Dragon Land"); //임시
-//		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", getState());
+		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", getState());
 		System.out.println(" d");
 		
 		boolean loop = true;
 		while(loop) {
-			ArrayList<Attraction> list = Load.loadAttraction();
-			for(Attraction a : list) {
-				System.out.println(a.toString());
-			}
+//			ArrayList<Attraction> list = Load.loadAttraction();
+//			for(Attraction a : list) {
+//				System.out.println(a.toString());
+//			}
 			menu();
 			System.out.print("👉 ");
 			String sel = scan.nextLine();
@@ -52,8 +53,7 @@ public class Main {
 	private static String getState() {
 		try {
 			//티켓예매정보.txt 파일 참조
-			String path = "data\\티켓예매정보.txt";
-			BufferedReader reader = new BufferedReader(new FileReader(path));
+			BufferedReader reader = new BufferedReader(new FileReader(Path.ticketReservation));
 			
 			//오늘 날짜 YYYYMMDD 형태로 String 변수에 저장
 			Calendar c = Calendar.getInstance();
