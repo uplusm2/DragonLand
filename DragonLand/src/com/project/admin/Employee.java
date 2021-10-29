@@ -220,7 +220,7 @@ public class Employee {
 							, list.get(i).getWorkPlace());
 		}
 		
-		System.out.printf("\t\t\t\t\t%d/%d%n", page+1, 10);
+		System.out.printf("\t\t\t\t\t%d/%d%n", page+1, list.size()/10+1);
 	}//list
 	
 	private static void pause() {
