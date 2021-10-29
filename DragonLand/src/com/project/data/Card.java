@@ -27,6 +27,4 @@ public class Card {
 	public String getDiscount() {
 		return discount;
 	}
-	
-	
 }
