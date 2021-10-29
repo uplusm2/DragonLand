@@ -7,12 +7,10 @@ public class UserVoice {
 	private String content;
 	
 	public UserVoice(String seq, String date, String content) {
-		super();
 		this.seq = seq;
 		this.date = date;
 		this.content = content;
 	}
-
 
 	public String getSeq() {
 		return seq;
