@@ -1,13 +1,9 @@
 package com.project.main;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
-import com.project.data.Attraction;
-import com.project.data.Path;
+import com.project.data.*;
 
 public class Main {
 	private static Scanner scan;
@@ -19,14 +15,11 @@ public class Main {
 		
 		System.out.println("Dragon Land"); //임시
 		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", getState());
-		System.out.println(" d");
 		
 		boolean loop = true;
 		while(loop) {
-//			ArrayList<Attraction> list = Load.loadAttraction();
-//			for(Attraction a : list) {
-//				System.out.println(a.toString());
-//			}
+			ArrayList<Attraction> list = Load.loadAttraction();
+			list.stream().forEach(name -> System.out.println(name.getName()));
 			menu();
 			System.out.print("👉 ");
 			String sel = scan.nextLine();
@@ -67,14 +60,12 @@ public class Main {
 			while ((line = reader.readLine()) != null) {
 				String[] temp = line.split("■");
 				if(temp[1].equals(today)) {
-					int adult = Integer.parseInt(temp[2]);
-					int teen = Integer.parseInt(temp[3]);
-					int kid = Integer.parseInt(temp[4]);
-					total += adult + teen + kid;
+					total += Integer.parseInt(temp[2]);
+					total += Integer.parseInt(temp[3]);
+					total += Integer.parseInt(temp[4]);
 				}
 			}
 			reader.close();
-			
 			//500을 기준으로 혼잡도 return
 			return total < 500 ? "쾌적" : "혼잡";
 		} catch (Exception e) {
