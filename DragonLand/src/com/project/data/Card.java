@@ -1,43 +1,32 @@
 package com.project.data;
 
 public class Card {
-	private String cardNum;
-	private String cardName;
-	private String cardDiscount;
+	private String seq;
+	private String name;
+	private String discount;
 
 	public Card() {
 		this("", "", "");
 	}
+
+	public Card(String seq, String name, String discount) {
+		super();
+		this.seq = seq;
+		this.name = name;
+		this.discount = discount;
+	}
+
+	public String getSeq() {
+		return seq;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getDiscount() {
+		return discount;
+	}
 	
-	public Card(String cardNum, String cardName, String cardDiscount) {
-
-		this.cardNum = cardNum;
-		this.cardName = cardName;
-		this.cardDiscount = cardDiscount;
-	}
-
-	public String getCardNum() {
-		return cardNum;
-	}
-
-	public void setCardNum(String cardNum) {
-		this.cardNum = cardNum;
-	}
-
-	public String getCardName() {
-		return cardName;
-	}
-
-	public void setCardName(String cardName) {
-		this.cardName = cardName;
-	}
-
-	public String getCardDiscount() {
-		return cardDiscount;
-	}
-
-	public void setCardDiscount(String cardDiscount) {
-		this.cardDiscount = cardDiscount;
-	}
-
+	
 }
