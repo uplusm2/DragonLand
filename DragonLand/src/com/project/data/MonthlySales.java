@@ -15,6 +15,10 @@ public class MonthlySales {
 	
 	
 	
+	public MonthlySales() {
+		this("", "", "", "", "", "", "", "", "");
+	}
+
 	public MonthlySales(String date, String adultCount, String youthCount, String kidCount, String adultPrice,
 			String youthPrice, String kidPrice, String totalCount, String totalPrice) {
 		

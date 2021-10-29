@@ -1,7 +1,7 @@
 package com.project.data;
 
 public class DailySales {
-	//날짜(YYYYMMDD)■성인매수■청소년매수■어린이매수■성인금액■청소년금액■어린이금액■일별 총 인원■일별 총 금액....
+	//날짜(YYYYMMDD)■성인매수■청소년매수■어린이매수■성인금액■청소년금액■어린이금액■일별 총 인원■일별 총 금액
 
 	private String date;
 	private String adultCount;
