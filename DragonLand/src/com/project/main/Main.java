@@ -1,7 +1,12 @@
 package com.project.main;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Scanner;
+
+import com.project.data.Attraction;
 
 public class Main {
 	private static Scanner scan;
@@ -9,14 +14,18 @@ public class Main {
 		scan = new Scanner(System.in);
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		System.out.println("Dragon Land"); //임시
-		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", getState());
+//		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", getState());
 		System.out.println(" d");
 		
 		boolean loop = true;
 		while(loop) {
+			ArrayList<Attraction> list = Load.loadAttraction();
+			for(Attraction a : list) {
+				System.out.println(a.toString());
+			}
 			menu();
 			System.out.print("👉 ");
 			String sel = scan.nextLine();
