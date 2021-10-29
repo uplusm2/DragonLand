@@ -14,4 +14,5 @@ public class Path {
 	public static String ticket = "data\\티켓요금.txt";
 	public static String facility = "data\\편의시설정보.txt";
 	public static String card = "data\\카드정보.txt";
+	public static String parade = "data\\퍼레이드정보.txt";
 }
