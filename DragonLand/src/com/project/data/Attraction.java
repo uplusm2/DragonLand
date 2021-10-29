@@ -1,36 +1,38 @@
 package com.project.data;
 
 public class Attraction {
-	private String code;
+	private String seq;
 	private String name;
-	private String type;
+	private String attractionType;
 	private String capacity;
 	private String runTime;
-	private String location;
+	private String locateSeq;
+	private String waitTime;
 	private String vote;
 	private String on;
 	
-	public Attraction(String code, String name, String type, String capacity, String runTime, String location, String vote, String on) {
-		this.code = code;
+	public Attraction(String seq, String name, String attractionType, String capacity, String runTime, String locateSeq, String waitTime, String vote, String on) {
+		this.seq = seq;
 		this.name = name;
-		this.type = type;
+		this.attractionType = attractionType;
 		this.capacity = capacity;
 		this.runTime = runTime;
-		this.location = location;
+		this.locateSeq = locateSeq;
+		this.waitTime = waitTime;
 		this.vote = vote;
 		this.on = on;
 	}
-
-	public String getCode() {
-		return code;
+	
+	public String getSeq() {
+		return seq;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public String getType() {
-		return type;
+	public String getAttractionType() {
+		return attractionType;
 	}
 
 	public String getCapacity() {
@@ -41,8 +43,12 @@ public class Attraction {
 		return runTime;
 	}
 
-	public String getLocation() {
-		return location;
+	public String getLocateSeq() {
+		return locateSeq;
+	}
+
+	public String getWaitTime() {
+		return waitTime;
 	}
 
 	public String getVote() {
@@ -51,5 +57,16 @@ public class Attraction {
 
 	public String getOn() {
 		return on;
+	}
+
+	public void setWaitTime(String waitTime) {
+		this.waitTime = waitTime;
+	}
+	
+	@Override
+	public String toString() {
+		return "[seq=" + seq + ", name=" + name + ", attractionType=" + attractionType + ", capacity="
+				+ capacity + ", runTime=" + runTime + ", locateSeq=" + locateSeq + ", waitTime=" + waitTime + ", vote="
+				+ vote + ", on=" + on + "]";
 	}
 }

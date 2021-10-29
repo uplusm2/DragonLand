@@ -1,56 +1,49 @@
 package com.project.data;
 
 public class TicketReservation {
-	private String mtNum;
-	private String mtDate;
-	private String adultCount;
-	private String youthCount;
-	private String kidCount;
-	private String cardNum;
-	private String mtPrice;
-	private String mNum;
+	private String seq; // 티켓예약번호
+	private String date; // 예약한 날짜
+	private String adultCount; // 성인매수
+	private String youthCount; // 청소년매수
+	private String kidCount; // 어린이매수
+	private String cardNum; // 카드선택 유형번호
+	private String price; // 티켓 가격
+	private String userNum; // 회원번호 -> get만 생성
 
 	public TicketReservation() {
-		this("", "", "", "", "", "","","");
+		this("", "", "", "", "", "", "", "");
 	}
 
-	
-	public TicketReservation(String mtNum, String mtDate, String adultCount, String youthCount, String kidCount,
-			String cardNum, String mtPrice, String mNum) {
-		
-		this.mtNum = mtNum;
-		this.mtDate = mtDate;
+	public TicketReservation(String seq, String date, String adultCount, String youthCount, String kidCount,
+			String cardNum, String price, String userNum) {
+		super();
+		this.seq = seq;
+		this.date = date;
 		this.adultCount = adultCount;
 		this.youthCount = youthCount;
 		this.kidCount = kidCount;
 		this.cardNum = cardNum;
-		this.mtPrice = mtPrice;
-		this.mNum = mNum;
+		this.price = price;
+		this.userNum = userNum;
 	}
 
 
-	@Override
-	public String toString() {
-		return String.format(
-				"[mtNum=%s, mtDate=%s, adultCount=%s, youthCount=%s, kidCount=%s, cardNum=%s, mtPrice=%s, mNum=%s]",
-				mtNum, mtDate, adultCount, youthCount, kidCount, cardNum, mtPrice, mNum);
+	
+
+	public String getSeq() {
+		return seq;
 	}
 
-
-	public String getMtNum() {
-		return mtNum;
+	public void setSeq(String seq) {
+		this.seq = seq;
 	}
 
-	public void setMtNum(String mtNum) {
-		this.mtNum = mtNum;
+	public String getDate() {
+		return date;
 	}
 
-	public String getMtDate() {
-		return mtDate;
-	}
-
-	public void setMtDate(String mtDate) {
-		this.mtDate = mtDate;
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public String getAdultCount() {
@@ -85,22 +78,25 @@ public class TicketReservation {
 		this.cardNum = cardNum;
 	}
 
-	public String getMtPrice() {
-		return mtPrice;
+	public String getPrice() {
+		return price;
 	}
 
-	public void setMtPrice(String mtPrice) {
-		this.mtPrice = mtPrice;
+	public void setPrice(String price) {
+		this.price = price;
 	}
 
-	public String getmNum() {
-		return mNum;
+	public String getUserNum() {
+		return userNum;
 	}
 
-	public void setmNum(String mNum) {
-		this.mNum = mNum;
+	@Override
+	public String toString() {
+		return String.format(
+				"[seq=%s, date=%s, adultCount=%s, youthCount=%s, kidCount=%s, cardNum=%s, price=%s, userNum=%s]",
+				seq, date, adultCount, youthCount, kidCount, cardNum, price, userNum);
 	}
-
 
 	
+
 }

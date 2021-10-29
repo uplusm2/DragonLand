@@ -10,4 +10,9 @@ public class WorkPlace {
 	public String getLocate() {
 		return locate;
 	}
+
+	@Override
+	public String toString() {
+		return "WorkPlace [locate=" + locate + "]";
+	}
 }

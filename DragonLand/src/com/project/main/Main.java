@@ -3,16 +3,18 @@ package com.project.main;
 import java.io.*;
 import java.util.*;
 
+import com.project.data.*;
+
 public class Main {
 	private static Scanner scan;
 	static {
 		scan = new Scanner(System.in);
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		
 		System.out.println("Dragon Land"); //임시
 		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", getState());
-		System.out.println(" d");
 		
 		boolean loop = true;
 		while(loop) {
@@ -42,8 +44,7 @@ public class Main {
 	private static String getState() {
 		try {
 			//티켓예매정보.txt 파일 참조
-			String path = "data\\티켓예매정보.txt";
-			BufferedReader reader = new BufferedReader(new FileReader(path));
+			BufferedReader reader = new BufferedReader(new FileReader(Path.ticketReservation));
 			
 			//오늘 날짜 YYYYMMDD 형태로 String 변수에 저장
 			Calendar c = Calendar.getInstance();
@@ -57,14 +58,12 @@ public class Main {
 			while ((line = reader.readLine()) != null) {
 				String[] temp = line.split("■");
 				if(temp[1].equals(today)) {
-					int adult = Integer.parseInt(temp[2]);
-					int teen = Integer.parseInt(temp[3]);
-					int kid = Integer.parseInt(temp[4]);
-					total += adult + teen + kid;
+					total += Integer.parseInt(temp[2]);
+					total += Integer.parseInt(temp[3]);
+					total += Integer.parseInt(temp[4]);
 				}
 			}
 			reader.close();
-			
 			//500을 기준으로 혼잡도 return
 			return total < 500 ? "쾌적" : "혼잡";
 		} catch (Exception e) {

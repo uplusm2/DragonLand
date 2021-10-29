@@ -15,4 +15,10 @@ public class Location {
 	public String getLocate() {
 		return locate;
 	}
+
+	@Override
+	public String toString() {
+		return "Location [seq=" + seq + ", locate=" + locate + "]";
+	}
+	
 }
