@@ -7,16 +7,18 @@ public class Attraction {
 	private String capacity;
 	private String runTime;
 	private String location;
+	private String waitTime;
 	private String vote;
 	private String on;
 	
-	public Attraction(String code, String name, String type, String capacity, String runTime, String location, String vote, String on) {
+	public Attraction(String code, String name, String type, String capacity, String runTime, String location, String waitTime, String vote, String on) {
 		this.code = code;
 		this.name = name;
 		this.type = type;
 		this.capacity = capacity;
 		this.runTime = runTime;
 		this.location = location;
+		this.location = waitTime;
 		this.vote = vote;
 		this.on = on;
 	}
@@ -43,6 +45,10 @@ public class Attraction {
 
 	public String getLocation() {
 		return location;
+	}
+	
+	public String getWaitTime() {
+		return waitTime;
 	}
 
 	public String getVote() {
