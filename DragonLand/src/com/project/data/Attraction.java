@@ -58,4 +58,8 @@ public class Attraction {
 	public String getOn() {
 		return on;
 	}
+	
+	public void setWaitTime(String waitTime) {
+		this.waitTime = waitTime;
+	}
 }
