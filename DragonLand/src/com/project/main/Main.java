@@ -10,6 +10,7 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
+		
 		System.out.println("Dragon Land"); //임시
 		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", getState());
 		System.out.println(" d");

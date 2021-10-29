@@ -89,4 +89,6 @@ public class User {
 	public void setVote(Boolean vote) {
 		this.vote = vote;
 	}
+	
+	
 }
