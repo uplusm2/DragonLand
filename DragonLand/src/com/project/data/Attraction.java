@@ -11,8 +11,6 @@ public class Attraction {
 	private String vote;
 	private String on;
 	
-	private String testVariable;
-	
 	public Attraction(String code, String name, String type, String capacity, String runTime, String location, String waitTime, String vote, String on) {
 		this.code = code;
 		this.name = name;
