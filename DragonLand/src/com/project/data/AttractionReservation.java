@@ -1,6 +1,6 @@
 package com.project.data;
 
-public class AttractionReservation2 {
+public class AttractionReservation {
 
 	
 	private String code;
@@ -10,7 +10,7 @@ public class AttractionReservation2 {
 	private String ReserveNums;
 	private String mNum;
 	
-	public AttractionReservation2(String code, String mtDate, String date, String hour, String ReserveNums, String mNum) {
+	public AttractionReservation(String code, String mtDate, String date, String hour, String ReserveNums, String mNum) {
 		this.code = code;
 		this.mtDate = mtDate;
 		this.date = date;
