@@ -13,8 +13,6 @@ public class MonthlySales {
 	private String totalCount;
 	private String totalPrice;
 	
-	
-	
 	public MonthlySales() {
 		this("", "", "", "", "", "", "", "", "");
 	}
