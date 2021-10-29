@@ -1,17 +1,10 @@
 package com.project.admin;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
-import com.project.data.Path;
-import com.project.data.Staff;
-import com.project.main.Load;
-import com.project.main.Save;
+import com.project.data.*;
+import com.project.main.*;
 
 public class Employee {
 	private static Scanner scan;
