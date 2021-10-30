@@ -12,7 +12,6 @@ public class Employee {
 	private static String sel;
 	private static ArrayList<Staff> list;
 	static {
-		page = 0;
 		scan = new Scanner(System.in);
 	}
 	
@@ -177,24 +176,27 @@ public class Employee {
 		System.out.println("검색할 직원의 이름을 입력하세요.");
 		select();
 		
-		
-		list.stream()
-			.filter(s -> s.getName().equals(sel))
-			.forEach(s -> {
+		boolean flag = false;
+		for(Staff s : list) {
+			if(s.getName().equals(sel)) {
 				System.out.printf("%s\t|%s\t|%s\t|%s\t\t\t\t|%s\t|%s%n"
 						,"고유번호","이름","나이","주소","핸드폰 번호","근무지");
-				System.out.printf("%s\t|%s\t|%s\t|%s\t\t|%s\t|%s%n"
+				
+				System.out.printf("%s\t|%s\t|%s\t|%s\t|%s\t|%s%n"
 								, s.getSeq()
 								, s.getName()
 								, s.getAge()
 								, s.getAddress()
 								, s.getPhoneNum()
 								, s.getWorkPlace());
-				pause();
-				return;
-			}); //검색한 직원이 존재하지 않을 경우는 어떻게 하면 좋을까?
+				flag = true;
+			}
+		}
 		
-		System.out.println("존재하지 않는 직원입니다.");
+		if(!flag) {
+			System.out.println("존재하지 않는 직원입니다.");
+		}
+		
 		pause();
 	}//search
 
@@ -216,7 +218,10 @@ public class Employee {
 							, list.get(i).getName()
 							, list.get(i).getAge()
 							, list.get(i).getAddress()
-							, list.get(i).getPhoneNum()
+							//핸드폰번호
+							, list.get(i).getPhoneNum().substring(0,3) + "-" 
+								+ list.get(i).getPhoneNum().substring(3,7) + "-" 
+								+ list.get(i).getPhoneNum().substring(7)
 							, list.get(i).getWorkPlace());
 		}
 		
