@@ -58,12 +58,11 @@ public class MonthlyStatistic {
 		for(int i=start;i<end;i++) {
 			mms=(MonthlySales) ld.loadMonthlySales().get(i);
 			
-		//	System.out.println(mms.getAdultCount());
+		
 			
 			System.out.printf("%s\t %s\t  %s\t  %s\t   %s\t   %s\r\n",mms.getDate(),mms.getTotalCount(),
 					mms.getAdultCount(),mms.getYouthCount(),mms.getKidCount(),mms.getTotalPrice());
-			//System.out.println(String.format("%s",list.get(i)));
-			//System.out.print("%s%s");
+			
 			
 			
 		}
