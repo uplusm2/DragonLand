@@ -100,7 +100,7 @@ public class Load {
 	}
 	
 	public static ArrayList loadParade() throws Exception {
-		reader = new BufferedReader(new FileReader(Path.monthlySales));
+		reader = new BufferedReader(new FileReader(Path.parade));
 		ArrayList<Parade> list = new ArrayList<Parade>();
 
 		String line = null;

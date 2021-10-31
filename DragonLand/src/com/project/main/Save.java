@@ -66,7 +66,7 @@ public class Save {
 	}
 	
 	public static void saveParade(ArrayList<Parade> list) throws Exception {
-		writer = new BufferedWriter(new FileWriter(Path.monthlySales));
+		writer = new BufferedWriter(new FileWriter(Path.parade));
 
 		for (Parade parade : list) {
 			String line = String.format("%s■%s■%s■%s■%s"
