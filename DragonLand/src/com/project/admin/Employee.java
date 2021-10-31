@@ -35,7 +35,7 @@ public class Employee {
 			}else if(sel.equals("4")){	
 				//직원 삭제
 				delete();
-			}else if(sel.equals("B")){	
+			}else if(sel.equalsIgnoreCase("B")){	
 				//TODO 뒤로 가기
 				loop = false;
 			}else if(sel.equals("<")){	
@@ -57,10 +57,7 @@ public class Employee {
 	}//main
 	
 	private static void delete() throws Exception {
-		System.out.println("====================================================================================");
-		System.out.println("\t\t\t\t[직원 삭제]");
-		System.out.println("====================================================================================\n");
-		
+		head("직원 삭제");
 		System.out.println("삭제할 직원의 번호를 입력하세요.");
 		select();
 		
@@ -72,7 +69,7 @@ public class Employee {
 		int num = 0;
 		
 		while ((line = reader.readLine()) != null) {
-			if(sel.equals(line.split("■")[0])) {//입력과 일치하는 직원번호를 발견하면 삭제 여부 물어봄.
+			if(sel.equalsIgnoreCase(line.split("■")[0])) {//입력과 일치하는 직원번호를 발견하면 삭제 여부 물어봄.
 				flag = true;
 				System.out.println("정말 삭제하시겠습니까? (Y/N)");
 				select();
@@ -103,10 +100,7 @@ public class Employee {
 	}//delete
 
 	private static void edit() throws Exception {
-		System.out.println("====================================================================================");
-		System.out.println("\t\t\t\t[직원 근무지 배치 및 수정]");
-		System.out.println("====================================================================================\n");
-		
+		head("직원 근무지 배치 및 수정");
 		System.out.println("직원 번호를 입력하세요."); //뒤로가기?
 		select();
 		
@@ -117,7 +111,7 @@ public class Employee {
 		boolean flag = false;
 		
 		while ((line = reader.readLine()) != null) {
-			if(sel.equals(line.split("■")[0])) {//입력과 일치하는 직원번호를 발견하면 근무지를 입력 받음.
+			if(sel.equalsIgnoreCase(line.split("■")[0])) {//입력과 일치하는 직원번호를 발견하면 근무지를 입력 받음.
 				System.out.println("새로운 근무지를 입력하세요");
 				select();
 				
@@ -143,9 +137,7 @@ public class Employee {
 	}//edit
 
 	private static void add() throws Exception {
-		System.out.println("====================================================================================");
-		System.out.println("\t\t\t\t[직원 추가]");
-		System.out.println("====================================================================================\n");
+		head("직원 추가");
 		
 		System.out.print("이름:");
 		String name = scan.nextLine();
@@ -169,16 +161,13 @@ public class Employee {
 	}//add
 
 	private static void search() {
-		System.out.println("====================================================================================");
-		System.out.println("\t\t\t\t[직원 검색]");
-		System.out.println("====================================================================================\n");
-		
+		head("직원 검색");
 		System.out.println("검색할 직원의 이름을 입력하세요.");
 		select();
 		
 		boolean flag = false;
 		for(Staff s : list) {
-			if(s.getName().equals(sel)) {
+			if(s.getName().equalsIgnoreCase(sel)) {
 				System.out.printf("%s\t|%s\t|%s\t|%s\t\t\t\t|%s\t|%s%n"
 						,"고유번호","이름","나이","주소","핸드폰 번호","근무지");
 				
@@ -234,10 +223,14 @@ public class Employee {
 		scan.nextLine();
 	}//pause
 	
-	private static void menu() throws Exception {
+	private static void head(String title){
 		System.out.println("====================================================================================");
-		System.out.println("\t\t\t\t[직원 관리]");
+		System.out.printf("\t\t\t\t[%s]%n", title);
 		System.out.println("====================================================================================\n");
+	}
+	
+	private static void menu() throws Exception {
+		head("직원 관리");
 		list();
 		
 		System.out.println("< 이전 페이지 | 다음 페이지 > ");
