@@ -68,6 +68,9 @@ public class DailyStatistic {
 		
 		if(input.equals("B")||input.equals("b")) {
 			am.statistic();
+		}else {
+			System.out.println("다시 입력해주세요.");
+			menu();
 		}
 		
 		for (int i=0;;i++) {

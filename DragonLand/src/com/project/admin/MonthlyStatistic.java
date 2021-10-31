@@ -91,6 +91,9 @@ public class MonthlyStatistic {
 		}else if(index.equals("b")||index.equals("B")) {
 			am.statistic();
 			
+		}else {
+			System.out.println("다시 입력해주세요.");
+			list();
 		}
 		
 	

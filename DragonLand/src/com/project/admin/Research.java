@@ -23,7 +23,6 @@ public class Research {
 	private static int end;
 	private static ArrayList<Attraction> list;
 	private static ArrayList<UserVoice> list2;
-	private static UserVoice uservoice;
 	private static Scanner scan;
 	private static int num;
 	
@@ -34,7 +33,6 @@ public class Research {
 		start =0;
 		end=10;
 		list = new ArrayList<Attraction>();
-		uservoice = new UserVoice();
 		scan = new Scanner(System.in);
 		num=1;
 		
@@ -75,7 +73,7 @@ public class Research {
 		}else if (input.equals("B")||input.equals("b")) {
 			adminmenu.statistic();
 		}else {
-			System.out.println("다시 눌러주세요");
+			System.out.println("알맞은 키를 눌러주세요");
 			menu();
 		}
 	
@@ -92,7 +90,7 @@ public class Research {
 			
 			System.out.printf("%d. [%s/%s/%s] %s\n",i+1,list2.get(i).getDate().substring(2, 4),list2.get(i).getDate().substring(4,6)
 					,list2.get(i).getDate().substring(6),list2.get(i).getContent());
-			//System.out.println(i);
+			
 		}
 		
 		System.out.printf("          %d/1000\n",num);
@@ -119,6 +117,8 @@ public class Research {
 		}else if(index.equals("b")||index.equals("B")) {
 			menu();
 			
+		}else {
+			System.out.println("오");
 		}
 		
 		
