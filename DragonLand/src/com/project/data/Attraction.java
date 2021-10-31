@@ -23,6 +23,10 @@ public class Attraction {
 		this.on = on;
 	}
 	
+	public Attraction() {
+		this("", "", "", "", "", "", "", "", "");
+	}
+
 	public String getSeq() {
 		return seq;
 	}
@@ -68,5 +72,13 @@ public class Attraction {
 		return "[seq=" + seq + ", name=" + name + ", attractionType=" + attractionType + ", capacity="
 				+ capacity + ", runTime=" + runTime + ", locateSeq=" + locateSeq + ", waitTime=" + waitTime + ", vote="
 				+ vote + ", on=" + on + "]";
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setVote(String vote) {
+		this.vote = vote;
 	}
 }
