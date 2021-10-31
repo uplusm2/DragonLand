@@ -13,6 +13,12 @@ public class DailySales {
 	private String totalCount;
 	private String totalPrice;
 	
+	
+	
+	public DailySales() {
+		this("", "", "", "", "", "", "", "", "");
+	}
+
 	public DailySales(String date, String adultCount, String youthCount, String kidCount, String adultPrice,
 			String youthPrice, String kidPrice, String totalCount, String totalPrice) {
 		
