@@ -18,10 +18,11 @@ public class Research {
 	
 	private static AdminMenu adminmenu;
 	private static Load load;
-	
+	private static Attraction att;
 	private static int start;
 	private static int end;
 	private static ArrayList<Attraction> list;
+	private static ArrayList<UserVoice> list2;
 	private static UserVoice uservoice;
 	private static Scanner scan;
 	private static int num;
@@ -29,6 +30,7 @@ public class Research {
 	static {
 		adminmenu = new AdminMenu();
 		load = new Load();
+		att= new Attraction();
 		start =0;
 		end=10;
 		list = new ArrayList<Attraction>();
@@ -86,10 +88,11 @@ public class Research {
 		System.out.println("============================");
 		
 		for(int i=start;i<end;i++) {
-			uservoice = (UserVoice) load.loadUserVoice().get(i);
-				
-			System.out.printf("%d. [%s/%s/%s] %s\n",i+1,uservoice.getDate().subSequence(2, 4),uservoice.getDate().substring(4,6)
-					,uservoice.getDate().substring(6),uservoice.getContent());
+			list2 = Load.loadUserVoice();
+			
+			System.out.printf("%d. [%s/%s/%s] %s\n",i+1,list2.get(i).getDate().substring(2, 4),list2.get(i).getDate().substring(4,6)
+					,list2.get(i).getDate().substring(6),list2.get(i).getContent());
+			//System.out.println(i);
 		}
 		
 		System.out.printf("          %d/1000\n",num);

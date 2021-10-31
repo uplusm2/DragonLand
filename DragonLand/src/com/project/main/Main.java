@@ -3,12 +3,15 @@ package com.project.main;
 import java.io.*;
 import java.util.*;
 
+import com.project.admin.LoginAdmin;
 import com.project.data.*;
 
 public class Main {
 	private static Scanner scan;
+	private static LoginAdmin lg;
 	static {
 		scan = new Scanner(System.in);
+		lg=new LoginAdmin();
 	}
 	
 	public static void main(String[] args) throws Exception {
@@ -27,7 +30,7 @@ public class Main {
 			if(sel.equals("1")) {		
 				//용용랜드 정보
 			}else if(sel.equals("2")){	
-				//로그인
+				lg.login();
 			}else if(sel.equals("3")){	
 				//회원가입
 			}else if(sel.equals("4")){	

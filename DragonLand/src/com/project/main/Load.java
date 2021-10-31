@@ -173,7 +173,7 @@ public class Load {
 		while ((line = reader.readLine()) != null) {
 			String[] tmp = line.split("■");
 			list.add(new UserVoice(tmp[0], tmp[1], tmp[2]));
-			System.out.println(line);
+			
 		}
 		reader.close();
 		return list;
