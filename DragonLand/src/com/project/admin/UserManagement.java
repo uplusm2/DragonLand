@@ -94,7 +94,6 @@ public class UserManagement {
 		pause();
 	}//delete
 
-
 	private static void search() throws Exception {
 		head("회원 검색");
 		System.out.println("검색할 회원의 이름을 입력하세요.");
