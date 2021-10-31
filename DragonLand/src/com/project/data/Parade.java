@@ -10,7 +10,7 @@ public class Parade {
 	private String locate;
 	private ArrayList<String> time;
 	
-	
+
 	public Parade(String title, String startDate, String endData, String content, String locate) {
 		this.title = title;
 		this.startDate = startDate;
@@ -52,6 +52,10 @@ public class Parade {
 	}
 	public void setLocate(String locate) {
 		this.locate = locate;
+	}
+	
+	public ArrayList<String> getTime() {
+		return time;
 	}
 
 	@Override
