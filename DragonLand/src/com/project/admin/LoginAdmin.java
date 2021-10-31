@@ -17,6 +17,7 @@ public class LoginAdmin {
 		
 		while(loop) {
 			menu();
+			
 			System.out.print("👉 ");
 			String sel = scan.nextLine();
 			System.out.println();
