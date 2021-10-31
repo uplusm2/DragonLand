@@ -128,7 +128,7 @@ public class Save {
 									, user.getName()
 									, user.getJumin()
 									, user.getPhoneNum()
-									, user.getId()
+									, user.getAddress()
 									, user.getVote());
 			writer.write(line);
 			writer.newLine();
