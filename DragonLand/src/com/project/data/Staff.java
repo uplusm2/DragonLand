@@ -142,5 +142,4 @@ public class Staff {
 		return "Staff [seq=" + seq + ", name=" + name + ", age=" + age + ", address=" + address + ", phoneNum="
 				+ phoneNum + ", workPlace=" + workPlace + "]";
 	}
-
 }

@@ -216,4 +216,5 @@ public class UserManagement {
 		System.out.println("2. 회원 삭제");
 		System.out.println("B. 뒤로 가기");
 	}//menu
+	
 }

@@ -290,4 +290,5 @@ public class Employee {
 		System.out.println("4. 직원 삭제");
 		System.out.println("B. 뒤로 가기");
 	}//menu
+	
 }

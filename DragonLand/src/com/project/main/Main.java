@@ -107,4 +107,5 @@ public class Main {
 		System.out.println("(엔터를 누르면 메뉴로 이동합니다.)");
 		scan.nextLine();
 	}
+	
 }
