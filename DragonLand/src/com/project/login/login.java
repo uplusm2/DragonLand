@@ -9,20 +9,37 @@ import com.project.main.Load;
 import com.project.main.Main;
 
 
+/**
+ * 로그인 클래스입니다.
+ * @author 김성연 
+ *
+ */
 public class login {
 
 	private static ArrayList<User> list;
 
+	
+	/**
+	 * 로그인 출력 메인 메소드입니다.
+	 *
+	 *
+	 * @throws Exception 예외처리
+	 */
 	public static void main(String[] args) throws Exception {
 
 		login();
 
 	}
 
+	/**
+	 * 로그인 메소드입니다.
+	 * 
+	 * @throws Exception 
+	 */
 	public static void login() throws Exception {
 
-//		System.out.println("Dragon Land"); //임시
-//		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", Main.getState());
+		System.out.println("Dragon Land"); //임시
+		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", Main.getState());
 		Scanner login = new Scanner(System.in);
 		String loginId;
 		String loginPw;
@@ -137,7 +154,17 @@ public class login {
 	}
 
 	
-	private static Integer userLoginCheck(Scanner login, String loginId, String loginPw) throws Exception {
+	/**
+	 * 로그인 유효성검사 메소드입니다
+	 * @param login 스캐너
+	 * @param loginId 사용자가 입력한 ID값
+	 * @param loginPw 사용자가 입력한 PW값
+	 * @return 
+	 * @throws Exception
+	 */
+	
+	
+	public static Integer userLoginCheck(Scanner login, String loginId, String loginPw) throws Exception {
 
 		// 유저 데이터 파일 불러오기
 		list = Load.loadUser();
@@ -163,7 +190,7 @@ public class login {
 			
 		} 
 
-		// 로그인 확인 -> 서버?로 맞는지 확인
+		// 로그인 확인 -> 서버로 맞는지 확인
 		if (loginIdCheck && loginPWCheck) {
 			return 1; // 로그인 성공
 		} else if (loginIdCheck && !loginPWCheck) {
