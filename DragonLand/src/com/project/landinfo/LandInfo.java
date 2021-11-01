@@ -12,12 +12,17 @@ import com.project.main.Load;
 
 public class LandInfo {
 	
-	public static Scanner sc = new Scanner(System.in);
+	private static Scanner sc = new Scanner(System.in);
 	
+	/**
+	 * 용용랜드 정보 메뉴를 보여줍니다.
+	 * @throws Exception
+	 */
 	public void menu() throws Exception {
 		AttractionInfo attractionInfo = new AttractionInfo();
 		
 		while(true) {
+			head("용용랜드 정보");
 			System.out.println("1. 어트랙션 정보");
 			System.out.println("2. 퍼레이드 정보");
 			System.out.println("3. 편의시설 정보");
@@ -25,6 +30,7 @@ public class LandInfo {
 			System.out.println("B. 뒤로 가기");
 			System.out.print("👉 ");
 			String sel = sc.nextLine();
+			System.out.println();
 			
 			if(sel.equals("1")) attractionInfo.menu();
 			else if(sel.equals("2")) showParadeInfo();
@@ -32,10 +38,15 @@ public class LandInfo {
 			else if(sel.equals("4")) showTickMoneyInfo();
 			else if(sel.equalsIgnoreCase("B")) break;
 			else System.out.println("다시 입력해주세요.");
+			System.out.println();
 		}
 		
 	}
-
+	
+	/**
+	 * 퍼레이드 정보를 보여줍니다.
+	 * @throws Exception
+	 */
 	public void showParadeInfo() throws Exception {
 		ArrayList<Parade> paradeInfo = Load.loadParade();
 		
@@ -62,6 +73,10 @@ public class LandInfo {
 		pageBack();
 	}
 	
+	/**
+	 * 편의시설 정보를 보여줍니다.
+	 * @throws Exception
+	 */
 	public void showFacilityInfo() throws Exception {
 		ArrayList<Facility> list = Load.loadFacility();
 		
@@ -115,13 +130,17 @@ public class LandInfo {
 		pageBack();
 	}
 	
+	/**
+	 * 티켓요금과 할인카드 정보를 보여줍니다.
+	 * @throws Exception
+	 */
 	public void showTickMoneyInfo() throws Exception {
 		ArrayList<Ticket> ticketInfo = Load.loadTicket();
 		ArrayList<Card> cardInfo = Load.loadCard();
 		
 		head("티켓요금");
 		
-		// 티켓 요금 
+		/* 티켓 요금 */ 
 		System.out.println("[종류]\t[금액]\t[비고]");
 
 		ticketInfo.stream().forEach(ticket -> {
@@ -133,7 +152,7 @@ public class LandInfo {
 		});
 		System.out.println();
 		
-		// 할인 카드 정보
+		/* 할인 카드 정보 */
 		System.out.println("*[제휴카드]");
 		cardInfo.stream().forEach(card -> {
 				System.out.printf("%s카드 : %.0f%% 할인\n"
@@ -147,12 +166,19 @@ public class LandInfo {
 		pageBack();
 	}
 	
+	/**
+	 * 현재 페이지의 헤더를 출력합니다.
+	 * @param title 현재 페이지의 헤더 제목
+	 */
 	public void head(String title) {
 		System.out.println("================================");
 		System.out.printf("[%s]\r\n", title);
 		System.out.println("================================");
 	}
 	
+	/**
+	 * 사용자 입력으로 'B'를 받으면 이전 메뉴로 돌아가는 기능의 메소드
+	 */
 	public void pageBack() {
 		while(true) {
 			System.out.println("B. 뒤로 가기");
@@ -166,6 +192,11 @@ public class LandInfo {
 		}
 	}
 	
+	/**
+	 * 놀이공원 위치 번호를 받아, 놀이공원 위치를 반환합니다.
+	 * @param locateNum 놀이공원 위치 번호
+	 * @return
+	 */
 	public String getLocate(String locateNum) {
 		try {
 			ArrayList<Location> location = Load.loadLocation();
