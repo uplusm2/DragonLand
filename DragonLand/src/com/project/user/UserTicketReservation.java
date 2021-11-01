@@ -10,25 +10,26 @@ import com.project.main.*;
  * @author 이유미
  */
 public class UserTicketReservation {
-	private static Scanner scan;
 	private static String userNum;
 	private static String date;
+	private static String[] type;
+	private static String sel;
 	
-	private static int adult;
-	private static int youth;
-	private static int kid;
 	private static int totalPrice;
 	private static int cardNum;
 	
+	private static Scanner scan;
 	private static ArrayList<Card> cardList;
 	private static ArrayList<Ticket> ticketList;
 	private static ArrayList<TicketReservation> reservationList;
 	private static Calendar today;
+	private static HashMap<String, Integer> map;
 	
 	static {
 		userNum = "U0001"; //TODO 임시
 		scan = new Scanner(System.in);
 		today = Calendar.getInstance();
+		map = new HashMap<String, Integer>(3);
 	}
 
 	public static void main(String[] args) throws Exception{
@@ -38,9 +39,9 @@ public class UserTicketReservation {
 		
 		TicketReservation t = new TicketReservation(String.format("T%tF0001", today).replace("-", "").replace("T2021", "T21")
 													, String.format("%tF", today).replace("-", "")
-													, String.valueOf(adult)
-													, String.valueOf(youth)
-													, String.valueOf(kid)
+													, String.valueOf(map.get("성인"))
+													, String.valueOf(map.get("청소년"))
+													, String.valueOf(map.get("어린이"))
 													, String.valueOf(cardNum)
 													, String.valueOf(totalPrice)
 													, userNum);
@@ -61,40 +62,33 @@ public class UserTicketReservation {
 		System.out.println("성인: 40,000원 / 청소년: 20,000원 / 어린이: 10,000원\r\n");
 		System.out.println("티켓 매수를 입력해주세요.");
 		
-		System.out.print("성인");
-		System.out.print("👉 ");
-		adult = scan.nextInt();
-		
-		System.out.print("청소년");
-		System.out.print("👉 ");
-		youth = scan.nextInt();
-		
-		System.out.print("어린이");
-		System.out.print("👉 ");
-		kid = scan.nextInt();
+		for(Ticket t : ticketList) {
+			System.out.print(t.getUserType() + "👉 ");
+			map.put(t.getUserType(), scan.nextInt());
+		}
 		
 		System.out.printf("%n성인 %d매, 청소년 %d매, 어린이 %d매 선택하셨습니다.%n"
-				, adult, youth, kid);
+						, map.get("성인"), map.get("청소년"), map.get("어린이"));
 	}//select
 	
 	/**
 	 * 카드를 선택해 티켓을 결제합니다.
 	 */
 	public static void pay(){
-		totalPrice = adult * Integer.parseInt(ticketList.get(0).getPrice())
-				+ youth * Integer.parseInt(ticketList.get(1).getPrice())
-				+ kid * Integer.parseInt(ticketList.get(2).getPrice());
+		for(Ticket t : ticketList) {
+			totalPrice += Integer.parseInt(t.getPrice()) * map.get(t.getUserType());
+		}
 		
 		System.out.printf("티켓 가격은 %,d원입니다.%n", totalPrice);
 		System.out.println("결제 하시겠습니까?(Y/N)");
 		System.out.print("👉 ");
-		String sel = scan.nextLine();
-		String sel2 = scan.nextLine();
+		sel = scan.nextLine();
+		sel = scan.nextLine();
 		
-		if(sel2.equalsIgnoreCase("N")) {
+		if(sel.equalsIgnoreCase("N")) {
 			pause();
 			return;//TODO
-		} else {
+		} else if(sel.equalsIgnoreCase("Y")) {
 			System.out.println("\n제휴카드를 사용하시겠습니까?");
 			System.out.println("1. 롯데카드(30%할인)");
 			System.out.println("2. 삼성카드(10%할인)");
