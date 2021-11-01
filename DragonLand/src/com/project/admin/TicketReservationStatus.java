@@ -11,6 +11,11 @@ import com.project.data.TicketReservation;
 import com.project.data.User;
 import com.project.main.Load;
 
+/**
+ * 티켓 예매자 목록 클래스
+ * @author 김재형
+ *
+ */
 public class TicketReservationStatus {
 	
 	private static Scanner scan;
@@ -47,7 +52,11 @@ public class TicketReservationStatus {
 	
 	
 	
-	
+	/**
+	 * 목록 메뉴화면 메소드
+	 * @param index
+	 * @throws Exception
+	 */
 	public static void status(ArrayList index) throws Exception {
 		
 		System.out.println("============================");
@@ -99,7 +108,11 @@ public class TicketReservationStatus {
 
 
 
-
+	/**
+	 * 리스트 가져오기 클래스
+	 * @return
+	 * @throws Exception
+	 */
 	public static ArrayList makeList() throws Exception {
 		
 		reservationList = Load.loadTicketReservation();
