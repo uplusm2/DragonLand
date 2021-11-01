@@ -8,6 +8,26 @@ import com.project.data.*;
 public class Save {
 	public static BufferedWriter writer;
 
+	public static void saveAttraction(ArrayList<Attraction> list) throws Exception {
+		writer = new BufferedWriter(new FileWriter(Path.attraction));
+
+		for (Attraction attraction : list) {
+			String line = String.format("%s■%s■%s■%s■%s■%s■%s■%s■%s"
+									, attraction.getSeq()
+									, attraction.getName()
+									, attraction.getAttractionType()
+									, attraction.getCapacity()
+									, attraction.getRunTime()
+									, attraction.getLocateSeq()
+									, attraction.getWaitTime()
+									, attraction.getVote()
+									, attraction.getOn());
+			writer.write(line);
+			writer.newLine();
+		}
+		writer.close();
+	}
+	
 	public static void saveAttractionReservation(ArrayList<AttractionReservation> list) throws Exception {
 		writer = new BufferedWriter(new FileWriter(Path.attractionReservation));
 
