@@ -10,7 +10,7 @@ public class Attraction {
 	private String waitTime;
 	private String vote;
 	private String on;
-	
+
 	public Attraction(String seq, String name, String attractionType, String capacity, String runTime, String locateSeq, String waitTime, String vote, String on) {
 		this.seq = seq;
 		this.name = name;
@@ -80,5 +80,9 @@ public class Attraction {
 
 	public void setVote(String vote) {
 		this.vote = vote;
+	}
+	
+	public void setOn(String on) {
+		this.on = on;
 	}
 }
