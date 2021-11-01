@@ -50,7 +50,10 @@ public class UserTicketReservation {
 		pause();
 	}//main
 	
-	private static void select() throws Exception {
+	/**
+	 * 티켓의 매수(성인/청소년/어린이)를 선택합니다.
+	 */
+	private static void select() {
 		head();
 		System.out.printf("%s월 %s일 티켓 예매를 진행합니다.\n"
 						, date.substring(0, 2)
@@ -74,7 +77,10 @@ public class UserTicketReservation {
 				, adult, youth, kid);
 	}//select
 	
-	private static void pay() throws Exception{
+	/**
+	 * 카드를 선택해 티켓을 결제합니다.
+	 */
+	private static void pay(){
 		totalPrice = adult * Integer.parseInt(ticketList.get(0).getPrice())
 				+ youth * Integer.parseInt(ticketList.get(1).getPrice())
 				+ kid * Integer.parseInt(ticketList.get(2).getPrice());
@@ -104,6 +110,10 @@ public class UserTicketReservation {
 		}
 	}
 
+	/**
+	 * 사용자가 날짜를 선택합니다.
+	 * @throws Exception
+	 */
 	private static void menu() throws Exception {
 		cardList = Load.loadCard();
 		ticketList = Load.loadTicket();
@@ -118,18 +128,28 @@ public class UserTicketReservation {
 		date = scan.nextLine();
 	}//menu
 	
+	/**
+	 * 엔터를 누르기 전까지 화면 이동을 멈춥니다.
+	 */
 	private static void pause() {
 		System.out.println();
 		System.out.println("(엔터를 누르면 메뉴로 이동합니다.)");
 		scan.nextLine();
 	}//pause
 	
+	/**
+	 * 헤더를 출력합니다.
+	 */
 	private static void head(){
 		System.out.println("========================================================");
 		System.out.println("\t\t\t[티켓 예매]");
 		System.out.println("========================================================");
 	}//head
 	
+	/**
+	 * 예매 가능한 날짜를 출력하는 캘린더입니다.
+	 * @throws Exception
+	 */
 	private static void calendar() throws Exception {
 		int year = today.get(Calendar.YEAR);
 		int month = today.get(Calendar.MONTH) + 1;
@@ -156,6 +176,12 @@ public class UserTicketReservation {
 		}
 	}
 	
+	/**
+	 * 해당월의 1일이 무슨 요일인지 반환합니다.
+	 * @param year
+	 * @param month
+	 * @return
+	 */
 	private static int getDayOfWeek(int year, int month) {
 		int day = 0;
 		for(int i=1; i<year; i++) {
@@ -171,6 +197,12 @@ public class UserTicketReservation {
 		return day % 7;
 	}//dayOfWeek
 
+	/**
+	 * 해당월의 마지막일을 반환합니다.
+	 * @param year
+	 * @param month
+	 * @return
+	 */
 	private static int getLastDay(int year, int month) {
 		switch (month) {
 		case 1, 3, 5, 7, 8, 10, 12 :
@@ -183,6 +215,11 @@ public class UserTicketReservation {
 		return 0;
 	}//lastDay
 
+	/**
+	 * 당해가 윤년인지 boolean값으로 반환합니다.
+	 * @param year
+	 * @return
+	 */
 	private static boolean isLeapYear(int year) {
 		if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
 			return true;
