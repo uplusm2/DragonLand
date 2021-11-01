@@ -1,9 +1,15 @@
 package com.project.data;
 
 /**
+
+ * 고객의 소리 클래스
+ * @author 김재형
+ *
+
  * UserVoice 클래스입니다.
  * 고객의 소리 정보를 저장합니다. 
  * @author 이유미
+
  */
 public class UserVoice {
 	
@@ -19,6 +25,12 @@ public class UserVoice {
 	}
 	
 	/**
+
+	 * 고객의 소리 생성자
+	 * @param seq
+	 * @param date
+	 * @param content
+
 	 * 생성자입니다. 
 	 * 원하는 값으로 객체를 생성합니다. 
 	 * @param seq 고객의 소리 번호
@@ -79,8 +91,21 @@ public class UserVoice {
 		this.content = content;
 	}
 
+
+	
+	/**
+	 * 기본 생성자
+	 */
+	public UserVoice() {
+		this("", "", "");
+	}
+
+	/**
+	 * 고객의 소리 객체의 상태를 문자열로 반환합니다.
+
 	/**
 	 * 회원의 상태를 문자열로 반환합니다.
+
 	 */
 	@Override
 	public String toString() {

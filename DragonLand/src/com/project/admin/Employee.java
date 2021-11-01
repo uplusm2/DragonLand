@@ -48,7 +48,11 @@ public class Employee {
 				//직원 삭제
 				delete();
 			}else if(sel.equalsIgnoreCase("B")){	
+
+				LoginAdmin.login();
+
 				//TODO 뒤로 가기
+
 				loop = false;
 			}else if(sel.equals("<")){	
 				//이전 페이지
