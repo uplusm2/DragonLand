@@ -123,7 +123,7 @@ public class FindUser {
 		}
 	}
 
-	private static Integer findUserInfo(Scanner find, String findName, String findJumin) throws Exception {
+	public static Integer findUserInfo(Scanner find, String findName, String findJumin) throws Exception {
 
 		list = Load.loadUser();
 

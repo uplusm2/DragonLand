@@ -120,7 +120,7 @@ public class join {
 
 	}
 
-	private static boolean idCheck(String id) throws Exception {
+	public static boolean idCheck(String id) throws Exception {
 
 		list = Load.loadUser();
 
@@ -146,7 +146,7 @@ public class join {
 	}
 
 	// 비밀번호 유효성 검사
-	private static boolean pwCheck(String pw) {
+	public static boolean pwCheck(String pw) {
 
 		// 4~12글자 제한
 		if (pw.length() < 4 || pw.length() > 12) {
@@ -158,7 +158,7 @@ public class join {
 		return false;
 	}
 
-	private static boolean pwSameCheck(String pwCheck, String pw) {
+	public static boolean pwSameCheck(String pwCheck, String pw) {
 
 		// 4~12글자 제한
 		if (!pwCheck.equals(pw)) {
@@ -170,7 +170,7 @@ public class join {
 		return false;
 	}
 
-	private static boolean nameCheck(String name) {
+	public static boolean nameCheck(String name) {
 
 		// 이름 한글 유효성 검사
 		// 이름이 한글이면 true 반환 아니면 false
@@ -189,7 +189,7 @@ public class join {
 	// ** juminNum배열의 길이와 입력값의 길이가 다르면 오류남 Ex) 주민번호 3151 4글자 입력시
 	// ArrayIndexOutOfBoundsException오류 **
 
-	private static boolean juminCheck(String jumin) {
+	public static boolean juminCheck(String jumin) {
 
 		int[] juminNum = { 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5 };
 
@@ -218,7 +218,7 @@ public class join {
 
 	}
 
-	private static boolean phoneCheck(String phoneNum) {
+	public static boolean phoneCheck(String phoneNum) {
 
 		// 전화번호 숫자 유효성 검사
 		// 숫자만 입력되면 true 아니면 false
@@ -229,7 +229,7 @@ public class join {
 	}
 
 	// 주소 글자수 유효성검사
-	private static boolean addressCheck(String address) {
+	public static boolean addressCheck(String address) {
 
 		// 30자 이내
 		if (address.length() > 31) {

@@ -136,7 +136,7 @@ public class login {
 	}
 
 	
-	private static Integer userLoginCheck(Scanner login, String loginId, String loginPw) throws Exception {
+	public static Integer userLoginCheck(Scanner login, String loginId, String loginPw) throws Exception {
 
 		// 유저 데이터 파일 불러오기
 		list = Load.loadUser();
