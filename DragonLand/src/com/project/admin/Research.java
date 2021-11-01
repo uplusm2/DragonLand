@@ -13,14 +13,18 @@ import com.project.data.Path;
 import com.project.data.UserVoice;
 import com.project.main.Load;
 
-
+/**
+ * 설문조사 클래스 입니다.
+ * @author 김재형
+ *
+ */
 public class Research {
 	
 	private static AdminMenu adminmenu;
-	private static Load load;
-	private static Attraction att;
-	private static int start;
-	private static int end;
+	private static int startRanking;
+	private static int endRanking;
+	private static int startVoice;
+	private static int endVoice;
 	private static ArrayList<Attraction> list;
 	private static ArrayList<UserVoice> list2;
 	private static Scanner scan;
@@ -28,22 +32,28 @@ public class Research {
 	
 	static {
 		adminmenu = new AdminMenu();
-		load = new Load();
-		att= new Attraction();
-		start =0;
-		end=10;
+		startRanking =0;
+		endRanking=10;
+		startVoice=0;
+		endVoice=10;
 		list = new ArrayList<Attraction>();
 		scan = new Scanner(System.in);
 		num=1;
 		
 	}
+	
+	/**
+	 * 메인 메소드
+	 * 1.이달의 어트랙션
+	 * 2.고객의소리
+	 * @throws Exception
+	 */
 	public static void menu() throws Exception {
 		System.out.println("1. 이달의 어트랙션 순위");
 		System.out.println("2. 고객의 소리");
 		System.out.println("B. 뒤로가기");
 		System.out.println("👉");
 		
-		Scanner scan = new Scanner(System.in);
 		String input = scan.nextLine();
 		if(input.equals("1")) {
 			BufferedReader reader = new BufferedReader(new FileReader(Path.attraction));
@@ -79,13 +89,17 @@ public class Research {
 	
 	}
 	
-	
-	private static void voice() throws Exception {
+	/**
+	 * 고객의 소리를 보여줍니다.
+	 * @throws Exception
+	 */
+	public static void voice() throws Exception {
+		
 		System.out.println("============================");
 		System.out.println("      [고객의 소리]");
 		System.out.println("============================");
 		
-		for(int i=start;i<end;i++) {
+		for(int i=startVoice;i<endVoice;i++) {
 			list2 = Load.loadUserVoice();
 			
 			System.out.printf("%d. [%s/%s/%s] %s\n",i+1,list2.get(i).getDate().substring(2, 4),list2.get(i).getDate().substring(4,6)
@@ -99,14 +113,14 @@ public class Research {
 		System.out.print("👉");
 		String index = scan.nextLine();
 		if(index.equals(">")){
-			start+=10;
-			end+=10;
+			startVoice+=10;
+			endVoice+=10;
 			num++;
 			voice();
 		}else if(index.equals("<")) {
-			if(start>=10) {
-				start-=10;
-				end-=10;
+			if(startVoice>=10) {
+				startVoice-=10;
+				endVoice-=10;
 				num--;
 				voice();
 			}else {
@@ -118,33 +132,37 @@ public class Research {
 			menu();
 			
 		}else {
-			System.out.println("오");
+			System.out.println("다시 입력해주세요.");
+			voice();
 		}
 		
 		
 		
 	}
-	private static void ranking(ArrayList<Attraction> list2) throws Exception {
+	/**
+	 * 어트랙션 순위를 나타냅니다.
+	 * @param list2
+	 * @throws Exception
+	 */
+	public static void ranking(ArrayList<Attraction> list2) throws Exception {
 		System.out.println("============================");
 		System.out.println("   [이달의 어트랙션 순위]");
 		System.out.println("============================");
 		
 				
-		//sortList();
 		
 		
 		
 		
 		
-		for(int i=start;i<end;i++) {
+		
+		for(int i=startRanking;i<endRanking;i++) {
 						
 			System.out.printf("%d. %s %s표\n",i+1,list2.get(i).getName(),list2.get(i).getVote());
-//			if(end>list.size()) {
-//				break;
-//			}
+
 		}
 		
-		System.out.printf("          %d/1000\n",num);
+		System.out.printf("          %d/%d\n",num,list2.size());
 		System.out.println("<.이전 페이지   다음 페이지.>");
 		System.out.println("B.뒤로가기");
 		System.out.print("👉");
@@ -152,14 +170,14 @@ public class Research {
 		
 		
 		if(index.equals(">")){
-			start+=10;
-			end+=10;
+			startRanking+=10;
+			endRanking+=10;
 			num++;
 			ranking(list2);
 		}else if(index.equals("<")) {
-			if(start>=10) {
-				start-=10;
-				end-=10;
+			if(startRanking>=10) {
+				startRanking-=10;
+				endRanking-=10;
 				num--;
 				ranking(list2);
 			}else {

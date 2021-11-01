@@ -9,6 +9,11 @@ import java.util.*;
 import com.project.data.*;
 import com.project.main.*;
 
+/**
+ * 회원가입 클래스입니다
+ * @author 김성연
+ *
+ */
 public class join {
 
 	private static ArrayList<User> list;
@@ -19,6 +24,10 @@ public class join {
 
 	}
 
+	/**
+	 * 회원가입 메소드입니다
+	 * @throws Exception 
+	 */
 	public static void Join() throws Exception {
 
 //		System.out.println("Dragon Land"); //임시
@@ -120,7 +129,12 @@ public class join {
 
 	}
 
-	private static boolean idCheck(String id) throws Exception {
+	/**
+	 * 아이디 유효성검사 메소드입니다
+	 * @param id 아이디
+	 * @throws Exception 
+	 */	
+	public static boolean idCheck(String id) throws Exception {
 
 		list = Load.loadUser();
 
@@ -145,8 +159,13 @@ public class join {
 
 	}
 
-	// 비밀번호 유효성 검사
-	private static boolean pwCheck(String pw) {
+	/**
+	 * 비밀번호 유효성검사 메소드입니다
+	 * @param pw 비밀번호
+	 * @throws Exception 
+	 */	
+	
+	public static boolean pwCheck(String pw) {
 
 		// 4~12글자 제한
 		if (pw.length() < 4 || pw.length() > 12) {
@@ -158,7 +177,14 @@ public class join {
 		return false;
 	}
 
-	private static boolean pwSameCheck(String pwCheck, String pw) {
+	
+	/**
+	 * 비밀번호확인 메소드입니다
+	 * @param pwCheck 확인받을 비밀번호
+	 * @param pw 비밀번호
+	 * @throws Exception 
+	 */	
+	public static boolean pwSameCheck(String pwCheck, String pw) {
 
 		// 4~12글자 제한
 		if (!pwCheck.equals(pw)) {
@@ -170,7 +196,13 @@ public class join {
 		return false;
 	}
 
-	private static boolean nameCheck(String name) {
+	/**
+	 * 이름 유효성검사 메소드입니다
+	 * @param name 이름
+	 * @return 정규식 한글검사
+	 * @throws Exception 
+	 */	
+	public static boolean nameCheck(String name) {
 
 		// 이름 한글 유효성 검사
 		// 이름이 한글이면 true 반환 아니면 false
@@ -184,12 +216,14 @@ public class join {
 
 	}
 
-	// 주민번호 숫자 유효성 검사
+	/**
+	 * 주민등록번호 유효성검사 메소드입니다
+	 * @param jumin 주민등록번호
+	 * @throws Exception 
+	 */	
 
-	// ** juminNum배열의 길이와 입력값의 길이가 다르면 오류남 Ex) 주민번호 3151 4글자 입력시
-	// ArrayIndexOutOfBoundsException오류 **
 
-	private static boolean juminCheck(String jumin) {
+	public static boolean juminCheck(String jumin) {
 
 		int[] juminNum = { 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5 };
 
@@ -218,7 +252,12 @@ public class join {
 
 	}
 
-	private static boolean phoneCheck(String phoneNum) {
+	/**
+	 * 핸드폰번호 유효성검사 메소드입니다
+	 * @param phoneNum 핸드폰번호
+	 * @throws Exception 
+	 */	
+	public static boolean phoneCheck(String phoneNum) {
 
 		// 전화번호 숫자 유효성 검사
 		// 숫자만 입력되면 true 아니면 false
@@ -228,8 +267,12 @@ public class join {
 
 	}
 
-	// 주소 글자수 유효성검사
-	private static boolean addressCheck(String address) {
+	/**
+	 * 주소 유효성검사 메소드입니다
+	 * @param address 주소
+	 * @throws Exception 
+	 */	
+	public static boolean addressCheck(String address) {
 
 		// 30자 이내
 		if (address.length() > 31) {

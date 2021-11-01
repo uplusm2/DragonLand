@@ -7,89 +7,96 @@ import java.util.Scanner;
 import com.project.data.DailySales;
 import com.project.data.MonthlySales;
 import com.project.main.Load;
-
+/**
+ * 일별통계 클래스입니다
+ * @author 김재형
+ *
+ */
 public class DailyStatistic {
 	
 	private static Calendar c1;
 	private static int year;
 	private static int month;
-	private static Load ld;
-	private static MonthlySales mms;
-	private static AdminMenu am;
 	private static Scanner scan;
-	private static DailySales ds;
 	private static String input;
-	
-	
+	private static ArrayList<DailySales> list;
+	private static ArrayList<MonthlySales> list2;
 	
 	static {
 		c1= Calendar.getInstance();
 		year=0;
 		month=0;
-		am=new AdminMenu();
-		mms = new MonthlySales();
 		scan = new Scanner(System.in);
-		ds = new DailySales();
 		input=null;
 	}
 	
-	public void statistic() throws Exception {
-		//System.out.println(ld.loadMonthlySales().get(41));
-		
-				
-		
+	public static void statistic() throws Exception {
+	
 		
 		menu();
-		
-		
-		
-		
-		
+	
 		
 	}
 	
-	private void menu() throws Exception {
-		mms=(MonthlySales) ld.loadMonthlySales().get(ld.loadMonthlySales().size()-1);
+	/**
+	 * 메뉴 출력 메소드 입니다.
+	 * @author 김재형
+	 */
+	private static void menu() throws Exception {
 		
+		list2= Load.loadMonthlySales();
 		
 		year=c1.get(Calendar.YEAR);
 		month=c1.get(Calendar.MONTH)+1;
 		
 		System.out.println("============================");
 		System.out.printf("        [%d월 현황]\n",month);
-		System.out.printf("     인원: %,d명\n",Integer.parseInt(mms.getTotalCount()));
-		System.out.printf("     매출: %,d원\n",Integer.parseInt(mms.getTotalPrice()));
+		System.out.printf("     인원: %,d명\n",Integer.parseInt(list2.get(list2.size()-1).getTotalCount()));
+		System.out.printf("     매출: %,d원\n",Integer.parseInt(list2.get(list2.size()-1).getTotalPrice()));
 		System.out.println("============================");
-		output(year,month);
+		output(year,month); //달력
 		System.out.println("상세 확인할 날짜를 입력하세요.(YYMMDD)");
 		System.out.println("B.뒤로가기");
 		System.out.print("👉");
 		input=scan.nextLine();
 		
+		
+		Calendar startDay = Calendar.getInstance();
+		startDay.set(2018, 4, 1);
+		
 		if(input.equals("B")||input.equals("b")) {
-			am.statistic();
-		}else {
-			System.out.println("다시 입력해주세요.");
-			menu();
+			AdminMenu.statistic();
 		}
 		
+		list = Load.loadDailySales();
+		
+				
+		//알고싶은 일별 인원 매출 확인하기
+			
 		for (int i=0;;i++) {
-			ds=(DailySales) ld.loadDailySales().get(ld.loadDailySales().size()-40+i);
-			if(input.equals(ds.getDate().substring(2, 8))) {
+			
+			if(input.equals(list.get(i).getDate().substring(2, 8))) {
 				System.out.println("      인원  매출");
-				System.out.printf("성인: %s명   %,d원\n",ds.getAdultCount(),Integer.parseInt(ds.getAdultPrice()));
-				System.out.printf("청소년: %s명   %,d원\n",ds.getYouthCount(),Integer.parseInt(ds.getYouthPrice()));
-				System.out.printf("어린이: %s명   %,d원\n",ds.getKidCount(),Integer.parseInt(ds.getKidPrice()));
+				System.out.printf("성인: %s명   %,d원\n",list.get(i).getAdultCount(),Integer.parseInt(list.get(i).getAdultPrice()));
+				System.out.printf("청소년: %s명   %,d원\n",list.get(i).getYouthCount(),Integer.parseInt(list.get(i).getYouthPrice()));
+				System.out.printf("어린이: %s명   %,d원\n",list.get(i).getKidCount(),Integer.parseInt(list.get(i).getKidPrice()));
 				
 				break;
 			}
+			//잘못 입력 됐을 때 에러를 못고침
 		}
+		
 		System.out.println("다시 검색하고 싶으면 엔터를 누르세요.");
 		String re = scan.nextLine();
 		menu();
 		
 	}
 
+	/**
+	 * 달력 모양 만들기 메소드입니다.
+	 * @param year
+	 * @param month
+	 */
 	private static void output(int year, int month) {
 		
 		int lastDay = 0; 		//해당월의 마지막 일

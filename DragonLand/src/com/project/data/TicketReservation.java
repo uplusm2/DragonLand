@@ -1,5 +1,10 @@
 package com.project.data;
 
+/**
+ * 티켓예매 클래스
+ * @author 김재형
+ *
+ */
 public class TicketReservation {
 	private String seq; // 티켓예약번호
 	private String date; // 예약한 날짜
@@ -9,11 +14,25 @@ public class TicketReservation {
 	private String cardNum; // 카드선택 유형번호
 	private String price; // 티켓 가격
 	private String userNum; // 회원번호 -> get만 생성
-
+	
+	/**
+	 * 티켓예매 기본 생성자
+	 */
 	public TicketReservation() {
 		this("", "", "", "", "", "", "", "");
 	}
-
+	
+	/**
+	 * 티켓예매 생성자
+	 * @param seq
+	 * @param date
+	 * @param adultCount
+	 * @param youthCount
+	 * @param kidCount
+	 * @param cardNum
+	 * @param price
+	 * @param userNum
+	 */
 	public TicketReservation(String seq, String date, String adultCount, String youthCount, String kidCount,
 			String cardNum, String price, String userNum) {
 		super();
@@ -89,7 +108,10 @@ public class TicketReservation {
 	public String getUserNum() {
 		return userNum;
 	}
-
+	
+	/**
+	 * 티켓예매 객체의 상태를 문자열로 반환합니다.
+	 */
 	@Override
 	public String toString() {
 		return String.format(
