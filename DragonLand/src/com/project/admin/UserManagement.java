@@ -6,6 +6,11 @@ import java.util.*;
 import com.project.data.*;
 import com.project.main.*;
 
+/**
+ * UserManagement 클래스입니다.
+ * 관리자가 회원을 조회/검색/삭제합니다.
+ * @author 이유미
+ */
 public class UserManagement {
 	private static Scanner scan;
 	private static int page;
@@ -15,6 +20,12 @@ public class UserManagement {
 		scan = new Scanner(System.in);
 	}
 	
+	/**
+	 * main 메소드 입니다.
+	 * 반복해서 menu를 보여줍니다.
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception {
 		
 		boolean loop = true;
@@ -50,6 +61,10 @@ public class UserManagement {
 		}
 	}//main
 	
+	/**
+	 * 회원을 삭제합니다.
+	 * @throws Exception
+	 */
 	private static void delete() throws Exception {
 		head("회원 삭제");
 		
@@ -94,6 +109,10 @@ public class UserManagement {
 		pause();
 	}//delete
 
+	/**
+	 * 회원을 검색합니다.
+	 * @throws Exception
+	 */
 	private static void search() throws Exception {
 		head("회원 검색");
 		System.out.println("검색할 회원의 이름을 입력하세요.");
@@ -126,13 +145,20 @@ public class UserManagement {
 		
 		pause();
 	}//search
-
+	
+	/**
+	 * 입력을 받아 sel 변수에 저장합니다.
+	 */
 	private static void select() {
 		System.out.print("👉 ");
 		sel = scan.nextLine();
 		System.out.println();
 	}//select
 
+	/**
+	 * 회원을 조회합니다.
+	 * @throws Exception
+	 */
 	private static void list() throws Exception {
 		System.out.printf("%s\t|%s\t\t|%s\t\t|%s\t|%s\t|%s\t|%s%n"//"%-8s|%-8s|%-8s|%-25s|%-13s|%-8s%n"
 						,"고유번호","ID","PW","이름","주민등록번호","핸드폰 번호","주소");
@@ -153,18 +179,29 @@ public class UserManagement {
 		System.out.printf("\t\t\t\t\t%d/%d%n", page+1, list.size()/10+1);
 	}//list
 	
+	/**
+	 * 엔터를 누르기 전까지 화면 이동을 멈춥니다.
+	 */
 	private static void pause() {
 		System.out.println();
 		System.out.println("(엔터를 누르면 메뉴로 이동합니다.)");
 		scan.nextLine();
 	}//pause
 	
+	/**
+	 * 헤더를 출력합니다.
+	 * @param title 
+	 */
 	private static void head(String title){
 		System.out.println("====================================================================================");
 		System.out.printf("\t\t\t\t[%s]%n", title);
 		System.out.println("====================================================================================\n");
 	}
 	
+	/**
+	 * 메뉴를 보여줍니다.
+	 * @throws Exception
+	 */
 	private static void menu() throws Exception {
 		head("회원 관리");
 		list();

@@ -6,6 +6,11 @@ import java.util.*;
 import com.project.data.*;
 import com.project.main.*;
 
+/**
+ * Employee 클래스입니다.
+ * 관리자가 직원을 조회/검색/수정/삭제/추가합니다.
+ * @author 이유미
+ */
 public class Employee {
 	private static Scanner scan;
 	private static int page;
@@ -15,6 +20,12 @@ public class Employee {
 		scan = new Scanner(System.in);
 	}
 	
+	/**
+	 * main 메소드 입니다.
+	 * B를 누르기 전까지 반복해서 menu를 보여줍니다.
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception {
 		
 		boolean loop = true;
@@ -56,6 +67,10 @@ public class Employee {
 		}
 	}//main
 	
+	/**
+	 * 직원을 삭제합니다.
+	 * @throws Exception
+	 */
 	private static void delete() throws Exception {
 		head("직원 삭제");
 		System.out.println("삭제할 직원의 번호를 입력하세요.");
@@ -99,6 +114,10 @@ public class Employee {
 		pause();
 	}//delete
 
+	/**
+	 * 직원의 근무지를 배치 및 수정합니다.
+	 * @throws Exception
+	 */
 	private static void edit() throws Exception {
 		head("직원 근무지 배치 및 수정");
 		System.out.println("직원 번호를 입력하세요."); //뒤로가기?
@@ -136,6 +155,10 @@ public class Employee {
 		pause();
 	}//edit
 
+	/**
+	 * 직원을 추가합니다.
+	 * @throws Exception
+	 */
 	private static void add() throws Exception {
 		head("직원 추가");
 		
@@ -160,6 +183,9 @@ public class Employee {
 		pause();
 	}//add
 
+	/**
+	 * 직원을 검색합니다.
+	 */
 	private static void search() {
 		head("직원 검색");
 		System.out.println("검색할 직원의 이름을 입력하세요.");
@@ -189,12 +215,19 @@ public class Employee {
 		pause();
 	}//search
 
+	/**
+	 * 입력을 받아 sel 변수에 저장합니다.
+	 */
 	private static void select() {
 		System.out.print("👉 ");
 		sel = scan.nextLine();
 		System.out.println();
 	}//select
 
+	/**
+	 * 직원을 조회합니다.
+	 * @throws Exception
+	 */
 	private static void list() throws Exception {
 		System.out.printf("%s\t|%s\t|%s\t|%s\t\t\t\t|%s\t|%s%n"//"%-8s|%-8s|%-8s|%-25s|%-13s|%-8s%n"
 						,"고유번호","이름","나이","주소","핸드폰 번호","근무지");
@@ -217,18 +250,29 @@ public class Employee {
 		System.out.printf("\t\t\t\t\t%d/%d%n", page+1, list.size()/10+1);
 	}//list
 	
+	/**
+	 * 엔터를 누르기 전까지 화면 이동을 멈춥니다.
+	 */
 	private static void pause() {
 		System.out.println();
 		System.out.println("(엔터를 누르면 메뉴로 이동합니다.)");
 		scan.nextLine();
 	}//pause
 	
+	/**
+	 * 헤더를 출력합니다.
+	 * @param title 
+	 */
 	private static void head(String title){
 		System.out.println("====================================================================================");
 		System.out.printf("\t\t\t\t[%s]%n", title);
 		System.out.println("====================================================================================\n");
 	}
 	
+	/**
+	 * 메뉴를 보여줍니다.
+	 * @throws Exception
+	 */
 	private static void menu() throws Exception {
 		head("직원 관리");
 		list();
