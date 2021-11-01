@@ -10,10 +10,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.project.data.User;
-
+import com.project.login.login;
+/**
+ * ID/PW 찾는 클래스입니다. 
+ * @author 김성연
+ *
+ */
 
 public class FindUser {
 
+	
 	private static ArrayList<User> list;
 
 	public static void main(String[] args) throws Exception {
@@ -22,10 +28,17 @@ public class FindUser {
 
 	}
 
+	
+	
+	/**
+	 * 회원 아이디를 찾는 메소드입니다
+	 * @throws Exception
+	 */
+	
 	public static void findeUser() throws Exception {
 
-//			System.out.println("Dragon Land"); //임시
-//			System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", Main.getState());
+			System.out.println("Dragon Land"); //임시
+			System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", Main.getState());
 		Scanner find = new Scanner(System.in);
 		String findName;
 		String findJumin;
@@ -61,7 +74,7 @@ public class FindUser {
 			
 			for(User s : list) {
 			
-			// ID PW 알려줌
+			
 			if (s.getName().equals(findName) && s.getJumin().equals(findJumin)) {
 			
 			System.out.println("\t\t=============================");	
@@ -77,18 +90,18 @@ public class FindUser {
 			}
 			
 			// 찾고나서 로그인 or 메뉴 선택 
-//			System.out.println("1.로그인하러가기");
-//			System.out.println("2.메뉴");
-//			System.out.print("👉 ");
-//			
-//			String choice = find.nextLine();
-//			
-//			if(choice.equals("1")) {
-//				login.login();
-//			} else if(choice.equals("2")) {
-//				Main.main(null);
-//			}
-//			
+			System.out.println("1.로그인하러가기");
+			System.out.println("2.메뉴");
+			System.out.print("👉 ");
+			
+			String choice = find.nextLine();
+			
+			if(choice.equals("1")) {
+				login.login();
+			} else if(choice.equals("2")) {
+				Main.main(null);
+			}
+			
 			
 
 			
@@ -122,7 +135,20 @@ public class FindUser {
 			}
 		}
 	}
+	
 
+	/**
+	 * ID/PW를 찾아 결과창을 보여주는 메소드입니다.
+	 * @param find 스캐너
+	 * @param findName 찾으려는 아이디로 가입된 이름을 입력하는곳
+	 * @param findJumin 찾으려는 아이디로 가입된 주민등록번호를 입력하는곳
+	
+	 * @return 아이디 비밀번호 유효성 검사 기본 false / 유효시 true
+	 * @throws Exception
+	 */
+
+	
+	
 	public static Integer findUserInfo(Scanner find, String findName, String findJumin) throws Exception {
 
 		list = Load.loadUser();
@@ -143,7 +169,7 @@ public class FindUser {
 			
 		}
 
-		// 로그인 확인 -> 서버?로 맞는지 확인
+		// 로그인 확인 
 		if (findCheck ) {
 			return 1; // 이름과 주민번호 맞음
 		} else if (!findCheck) {

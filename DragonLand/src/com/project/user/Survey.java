@@ -9,18 +9,23 @@ import com.project.admin.AdminMenu;
 import com.project.data.*;
 import com.project.main.*;
 
+/**
+ * 고객의 소리 클래스입니다.
+ * @author 김성연 
+ *
+ */
 
 public class Survey {
 	private static Scanner scan;
 	private static int page;
 	private static String vote;
-	private static int count;
+
 	private static ArrayList<UserVoice> list;
 	private static ArrayList<Attraction> attraction;
 	
 	static {
 		scan = new Scanner(System.in);
-		count = 1;
+		
 	}
 
 
@@ -30,6 +35,11 @@ public class Survey {
 
 	}
 
+	/**
+	 * Survey main.
+	 *
+	 * @throws Exception the exception
+	 */
 	public static void SurveyMain() throws Exception {
 		boolean loop = true;
 
@@ -142,6 +152,11 @@ public class Survey {
 	}
 
 	
+	/**
+	 * Vote list.
+	 *
+	 * @throws Exception the exception
+	 */
 	public static void voteList() throws Exception {
 		
 		attraction = Load.loadAttraction();

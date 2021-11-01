@@ -9,6 +9,11 @@ import java.util.*;
 import com.project.data.*;
 import com.project.main.*;
 
+/**
+ * 회원가입 클래스입니다
+ * @author 김성연
+ *
+ */
 public class join {
 
 	private static ArrayList<User> list;
@@ -19,6 +24,10 @@ public class join {
 
 	}
 
+	/**
+	 * 예외처리
+	 * @throws Exception 
+	 */
 	public static void Join() throws Exception {
 
 //		System.out.println("Dragon Land"); //임시
