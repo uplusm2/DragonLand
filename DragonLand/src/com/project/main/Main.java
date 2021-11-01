@@ -64,7 +64,7 @@ public class Main {
 	 * 놀이공원의 밀집도를 문자열로 반환합니다.
 	 * @return
 	 */
-	private static String getState() {
+	public static String getState() {
 		try {
 			//티켓예매정보.txt 파일 참조
 			BufferedReader reader = new BufferedReader(new FileReader(Path.ticketReservation));

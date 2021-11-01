@@ -37,8 +37,8 @@ public class FindUser {
 	
 	public static void findeUser() throws Exception {
 
-			System.out.println("Dragon Land"); //임시
-			System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", Main.getState());
+//		System.out.println("Dragon Land"); //임시
+//		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", Main.getState());
 		Scanner find = new Scanner(System.in);
 		String findName;
 		String findJumin;

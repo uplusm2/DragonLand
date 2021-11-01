@@ -38,8 +38,8 @@ public class login {
 	 */
 	public static void login() throws Exception {
 
-		System.out.println("Dragon Land"); //임시
-		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", Main.getState());
+//		System.out.println("Dragon Land"); //임시
+//		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", Main.getState());
 		Scanner login = new Scanner(System.in);
 		String loginId;
 		String loginPw;

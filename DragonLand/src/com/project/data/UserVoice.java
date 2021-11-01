@@ -96,9 +96,7 @@ public class UserVoice {
 	/**
 	 * 기본 생성자
 	 */
-	public UserVoice() {
-		this("", "", "");
-	}
+
 
 	/**
 	 * 고객의 소리 객체의 상태를 문자열로 반환합니다.
