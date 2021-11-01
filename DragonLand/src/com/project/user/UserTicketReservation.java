@@ -9,7 +9,7 @@ import com.project.main.*;
  * 사용자의 티켓 예매를 돕습니다.
  * @author 이유미
  */
-public class UserReservation {
+public class UserTicketReservation {
 	private static String userNum;
 	private static String date;
 	private static String[] type;
