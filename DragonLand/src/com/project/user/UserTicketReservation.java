@@ -53,7 +53,7 @@ public class UserTicketReservation {
 	/**
 	 * 티켓의 매수(성인/청소년/어린이)를 선택합니다.
 	 */
-	private static void select() {
+	public static void select() {
 		head();
 		System.out.printf("%s월 %s일 티켓 예매를 진행합니다.\n"
 						, date.substring(0, 2)
@@ -80,7 +80,7 @@ public class UserTicketReservation {
 	/**
 	 * 카드를 선택해 티켓을 결제합니다.
 	 */
-	private static void pay(){
+	public static void pay(){
 		totalPrice = adult * Integer.parseInt(ticketList.get(0).getPrice())
 				+ youth * Integer.parseInt(ticketList.get(1).getPrice())
 				+ kid * Integer.parseInt(ticketList.get(2).getPrice());
@@ -114,7 +114,7 @@ public class UserTicketReservation {
 	 * 사용자가 날짜를 선택합니다.
 	 * @throws Exception
 	 */
-	private static void menu() throws Exception {
+	public static void menu() throws Exception {
 		cardList = Load.loadCard();
 		ticketList = Load.loadTicket();
 		reservationList = Load.loadTicketReservation();
@@ -131,7 +131,7 @@ public class UserTicketReservation {
 	/**
 	 * 엔터를 누르기 전까지 화면 이동을 멈춥니다.
 	 */
-	private static void pause() {
+	public static void pause() {
 		System.out.println();
 		System.out.println("(엔터를 누르면 메뉴로 이동합니다.)");
 		scan.nextLine();
@@ -150,7 +150,7 @@ public class UserTicketReservation {
 	 * 예매 가능한 날짜를 출력하는 캘린더입니다.
 	 * @throws Exception
 	 */
-	private static void calendar() throws Exception {
+	public static void calendar() throws Exception {
 		int year = today.get(Calendar.YEAR);
 		int month = today.get(Calendar.MONTH) + 1;
 		int date = today.get(Calendar.DATE);
@@ -182,7 +182,7 @@ public class UserTicketReservation {
 	 * @param month
 	 * @return
 	 */
-	private static int getDayOfWeek(int year, int month) {
+	public static int getDayOfWeek(int year, int month) {
 		int day = 0;
 		for(int i=1; i<year; i++) {
 			day += isLeapYear(i) ? 366 : 365;
@@ -216,11 +216,11 @@ public class UserTicketReservation {
 	}//lastDay
 
 	/**
-	 * 당해가 윤년인지 boolean값으로 반환합니다.
+	 * 해당해가 윤년인지 boolean값으로 반환합니다.
 	 * @param year
 	 * @return
 	 */
-	private static boolean isLeapYear(int year) {
+	public static boolean isLeapYear(int year) {
 		if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
 			return true;
 		} else {

@@ -17,6 +17,7 @@ public class Employee {
 	private static String sel;
 	private static ArrayList<Staff> list;
 	static {
+		page = 9;
 		scan = new Scanner(System.in);
 	}
 	
@@ -59,7 +60,7 @@ public class Employee {
 				}
 			}else if(sel.equals(">")){	
 				//다음 페이지
-				if(page != list.size()/10+1) {
+				if(page != list.size()/10) {
 					page++;
 				} else {
 					System.out.println("다음 페이지가 없습니다.");
@@ -73,7 +74,7 @@ public class Employee {
 	}//main
 	
 	/**
-	 * 직원을 삭제합니다.
+	 * 직원을 삭제합니다. 
 	 * @throws Exception
 	 */
 	private static void delete() throws Exception {
@@ -164,7 +165,7 @@ public class Employee {
 	 * 직원을 추가합니다.
 	 * @throws Exception
 	 */
-	private static void add() throws Exception {
+	public static void add() throws Exception {
 		head("직원 추가");
 		
 		System.out.print("이름:");

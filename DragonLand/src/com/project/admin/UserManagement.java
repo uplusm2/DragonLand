@@ -53,7 +53,7 @@ public class UserManagement {
 				}
 			}else if(sel.equals(">")){	
 				//다음 페이지
-				if(page != list.size()/10+1) {
+				if(page != list.size()/10) {
 					page++;
 				} else {
 					System.out.println("다음 페이지가 없습니다.");
