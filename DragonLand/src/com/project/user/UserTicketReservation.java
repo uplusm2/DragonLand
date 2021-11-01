@@ -18,11 +18,11 @@ public class UserTicketReservation {
 	private static int totalPrice;
 	private static int cardNum;
 	
+	private static Calendar today;
 	private static Scanner scan;
 	private static ArrayList<Card> cardList;
 	private static ArrayList<Ticket> ticketList;
 	private static ArrayList<TicketReservation> reservationList;
-	private static Calendar today;
 	private static HashMap<String, Integer> map;
 	
 	static {
@@ -49,12 +49,13 @@ public class UserTicketReservation {
 		Save.saveTicketReservation(reservationList);//ArrayList를 파일에 저장
 		
 		pause();
-	}//main
+	}//reservation
 	
 	/**
 	 * 티켓의 매수(성인/청소년/어린이)를 선택합니다.
+	 * @throws Exception 
 	 */
-	public static void select() {
+	public static void select() throws Exception {
 		head();
 		System.out.printf("%s월 %s일 티켓 예매를 진행합니다.\n"
 						, date.substring(0, 2)
@@ -88,6 +89,7 @@ public class UserTicketReservation {
 		if(sel.equalsIgnoreCase("N")) {
 			pause();
 			return;//TODO
+			
 		} else if(sel.equalsIgnoreCase("Y")) {
 			System.out.println("\n제휴카드를 사용하시겠습니까?");
 			System.out.println("1. 롯데카드(30%할인)");
@@ -101,6 +103,9 @@ public class UserTicketReservation {
 				totalPrice *= Double.parseDouble(cardList.get(cardNum-1).getDiscount());
 				System.out.printf("%n%s카드 할인으로 %,d원 결제됐습니다.", cardList.get(cardNum-1).getName(), totalPrice);
 			}
+			
+		} else {
+			System.out.println("\n잘못된 입력입니다.");
 		}
 	}
 
