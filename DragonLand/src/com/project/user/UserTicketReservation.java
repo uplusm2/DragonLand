@@ -62,7 +62,10 @@ public class UserTicketReservation {
 	 */
 	public static void select() throws Exception {
 		head();
-		System.out.printf("\t\t\t%s월 %s일 티켓 예매를 진행합니다.\n"
+		System.out.printf("\t\t\t%s월 %s일 티켓 예매를 진행합니다."
+				+ ""
+				+ ""
+				+ "\n"
 						, date.substring(0, 2)
 						, date.substring(2));
 		System.out.println("\t\t\t성인: 40,000원 / 청소년: 20,000원 / 어린이: 10,000원\r\n");
