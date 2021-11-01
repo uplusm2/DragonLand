@@ -10,6 +10,10 @@ import com.project.join.join;
 import com.project.landinfo.LandInfo;
 import com.project.login.login;
 
+/**
+ * Main 클래스입니다.
+ * @author 
+ */
 public class Main {
 	private static Scanner scan;
 	private static LoginAdmin lg;
@@ -20,6 +24,11 @@ public class Main {
 		landinfo = new LandInfo();
 	}
 	
+	/**
+	 * 메뉴를 반복합니다.
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception {
 		
 		System.out.println("Dragon Land"); //임시
@@ -51,6 +60,10 @@ public class Main {
 		}
 	}
 
+	/**
+	 * 놀이공원의 밀집도를 문자열로 반환합니다.
+	 * @return
+	 */
 	private static String getState() {
 		try {
 			//티켓예매정보.txt 파일 참조
@@ -82,6 +95,9 @@ public class Main {
 		return null;
 	}
 
+	/**
+	 * 메뉴를 출력합니다.
+	 */
 	private static void menu() {
 		System.out.println("1. 용용랜드 정보");
 		System.out.println("2. 로그인");
@@ -90,6 +106,9 @@ public class Main {
 		System.out.println("5. 종료");
 	}
 	
+	/**
+	 * 엔터를 누르기 전까지 정지합니다.
+	 */
 	private static void pause() {
 		System.out.println("(엔터를 누르면 메뉴로 이동합니다.)");
 		scan.nextLine();
