@@ -32,6 +32,11 @@ public class UserTicketReservation {
 		map = new HashMap<String, Integer>(3);
 	}
 
+	/**
+	 * 티켓의 예매를 진행합니다.
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception{
 		menu();
 		select();
@@ -151,7 +156,7 @@ public class UserTicketReservation {
 	}//head
 	
 	/**
-	 * 예매 가능한 날짜를 출력하는 캘린더입니다.
+	 * 예매 가능한 날짜를 캘린더 형태로 출력합니다.
 	 * @throws Exception
 	 */
 	public static void calendar() throws Exception {
