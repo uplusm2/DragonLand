@@ -64,7 +64,7 @@ public class AttractionInfo {
 	}
 	
 	/**
-	 * 이달의 어트랙션 순위를 보여줍니다(1~5위)
+	 * 이달의 어트랙션 순위를 보여줍니다(1~5위)!
 	 * @throws Exception
 	 */
 	public void showAttractionRank() throws Exception {
