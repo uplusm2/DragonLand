@@ -9,11 +9,15 @@ import com.project.*;
 import com.project.data.MonthlySales;
 import com.project.main.Load;
 
-
+/**
+ * 월별 통계 클래스 입니다.
+ * @author 김재형
+ *
+ */
 public class MonthlyStatistic {
 	
+
 	private static Scanner scan;
-	
 	private static int start;
 	private static int end;
 	private static int num;
@@ -45,7 +49,11 @@ public class MonthlyStatistic {
 		
 		
 	}
-
+	
+	/**
+	 * 매월 이용자 현황을 보여주는 메소드 입니다.
+	 * @throws Exception
+	 */
 	public static void list() throws Exception {
 		System.out.println("=====================");
 		System.out.println(" [전체 이용자 현황]");
@@ -55,7 +63,7 @@ public class MonthlyStatistic {
 		
 		
 		
-		for(int i=start;i<end;i++) {
+		for(int i=start;i<end&&i<ld.loadMonthlySales().size();i++) {
 			mms=(MonthlySales) ld.loadMonthlySales().get(i);
 			
 		
@@ -66,7 +74,7 @@ public class MonthlyStatistic {
 			
 			
 		}
-		System.out.printf("          %d/1000\n",num);
+		System.out.printf("          %d/%d\n",num,(ld.loadMonthlySales().size()-1)/10+1);
 		System.out.println("<.이전 페이지   다음 페이지.>");
 		System.out.println("B.뒤로가기");
 		System.out.print("👉");
@@ -75,6 +83,7 @@ public class MonthlyStatistic {
 			start+=10;
 			end+=10;
 			num++;
+			
 			list();
 		}else if(index.equals("<")) {
 			if(start>=10) {
