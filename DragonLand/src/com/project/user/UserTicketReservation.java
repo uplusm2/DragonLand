@@ -37,7 +37,7 @@ public class UserTicketReservation {
 		pay();
 		
 		TicketReservation t = new TicketReservation(String.format("T%tF0001", today).replace("-", "").replace("T2021", "T21")
-													, String.format("T%tF", today).replace("-", "")
+													, String.format("%tF", today).replace("-", "")
 													, String.valueOf(adult)
 													, String.valueOf(youth)
 													, String.valueOf(kid)

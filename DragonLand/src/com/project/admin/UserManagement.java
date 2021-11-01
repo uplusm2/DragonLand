@@ -53,7 +53,12 @@ public class UserManagement {
 				}
 			}else if(sel.equals(">")){	
 				//다음 페이지
-				page++;
+				if(page != list.size()/10+1) {
+					page++;
+				} else {
+					System.out.println("다음 페이지가 없습니다.");
+					pause();
+				}
 			}else {
 				System.out.println("다시 입력해주세요.");
 				pause();
@@ -156,13 +161,13 @@ public class UserManagement {
 	}//select
 
 	/**
-	 * 회원을 조회합니다.
+	 * 회원을 조회합니다.2
 	 * @throws Exception
 	 */
 	private static void list() throws Exception {
 		System.out.printf("%s\t|%s\t\t|%s\t\t|%s\t|%s\t|%s\t|%s%n"//"%-8s|%-8s|%-8s|%-25s|%-13s|%-8s%n"
 						,"고유번호","ID","PW","이름","주민등록번호","핸드폰 번호","주소");
-		for(int i=page*10; i<page*10+10; i++) {
+		for(int i=page*10; i<page*10+10&&i<list.size(); i++) {
 			System.out.printf("%s\t|%s\t|%s\t|%s\t|%s\t|%s\t|%s%n"
 							, list.get(i).getSeq()
 							, list.get(i).getId()
