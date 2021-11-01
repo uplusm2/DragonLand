@@ -5,8 +5,14 @@ import java.util.*;
 
 import com.project.data.*;
 
+/**
+ * Save 클래스입니다.
+ * ArrayList를 해당 파일에 저장합니다.
+ * @author 
+ */
 public class Save {
 	public static BufferedWriter writer;
+
 
 	public static void saveAttraction(ArrayList<Attraction> list) throws Exception {
 		writer = new BufferedWriter(new FileWriter(Path.attraction));
@@ -28,6 +34,13 @@ public class Save {
 		writer.close();
 	}
 	
+
+	/**
+	 * 어트랙션 예약 정보를 저장합니다.
+	 * @param list 어트랙션예약
+	 * @throws Exception
+	 */
+
 	public static void saveAttractionReservation(ArrayList<AttractionReservation> list) throws Exception {
 		writer = new BufferedWriter(new FileWriter(Path.attractionReservation));
 
@@ -45,6 +58,11 @@ public class Save {
 		writer.close();
 	}
 
+	/**
+	 * 일별 매출 정보를 저장합니다.
+	 * @param list 일별 매출
+	 * @throws Exception
+	 */
 	public static void saveDailySales(ArrayList<DailySales> list) throws Exception {
 		writer = new BufferedWriter(new FileWriter(Path.dailySales));
 
@@ -65,6 +83,11 @@ public class Save {
 		writer.close();
 	}
 	
+	/**
+	 * 월별 매출 정보를 저장합니다.
+	 * @param list 월별 매출
+	 * @throws Exception
+	 */
 	public static void saveMonthlySales(ArrayList<MonthlySales> list) throws Exception {
 		writer = new BufferedWriter(new FileWriter(Path.monthlySales));
 
@@ -85,6 +108,11 @@ public class Save {
 		writer.close();
 	}
 	
+	/**
+	 * 퍼레이드 정보를 저장합니다.
+	 * @param list 퍼레이드
+	 * @throws Exception
+	 */
 	public static void saveParade(ArrayList<Parade> list) throws Exception {
 		writer = new BufferedWriter(new FileWriter(Path.parade));
 
@@ -101,6 +129,11 @@ public class Save {
 		writer.close();
 	}
 	   
+	/**
+	 * 직원 정보를 저장합니다.
+	 * @param list 직원
+	 * @throws Exception
+	 */
 	public static void saveStaff(ArrayList<Staff> list) throws Exception{
 		writer = new BufferedWriter(new FileWriter(Path.staff));
 		
@@ -118,6 +151,11 @@ public class Save {
 		writer.close();
 	}
 	
+	/**
+	 * 티켓 예약 정보를 저장합니다.
+	 * @param list 티켓 예약 정보
+	 * @throws Exception
+	 */
 	public static void saveTicketReservation(ArrayList<TicketReservation> list) throws Exception {
 		writer = new BufferedWriter(new FileWriter(Path.ticketReservation));
 
@@ -137,6 +175,11 @@ public class Save {
 		writer.close();
 	}
 	
+	/**
+	 * 회원 정보를 저장합니다.
+	 * @param list 회원 정보
+	 * @throws Exception
+	 */
 	public static void saveUser(ArrayList<User> list) throws Exception {
 		writer = new BufferedWriter(new FileWriter(Path.user));
 
@@ -156,6 +199,11 @@ public class Save {
 		writer.close();
 	}
 	
+	/**
+	 * 고객의 소리 정보를 저장합니다.
+	 * @param list 고객의 소리 정보
+	 * @throws Exception
+	 */
 	public static void saveUserVoice(ArrayList<UserVoice> list) throws Exception {
 		writer = new BufferedWriter(new FileWriter(Path.userVoice));
 
@@ -169,5 +217,5 @@ public class Save {
 		}
 		writer.close();
 	}
-
+	
 }

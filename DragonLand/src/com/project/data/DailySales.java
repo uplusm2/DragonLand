@@ -1,8 +1,15 @@
 package com.project.data;
 
+/**
+ * 일별매출정보 클래스
+ * @author 김재형
+ *
+ */
 public class DailySales {
 	//날짜(YYYYMMDD)■성인매수■청소년매수■어린이매수■성인금액■청소년금액■어린이금액■일별 총 인원■일별 총 금액
-
+	/**
+	 * 
+	 */
 	private String date;
 	private String adultCount;
 	private String youthCount;
@@ -14,11 +21,25 @@ public class DailySales {
 	private String totalPrice;
 	
 	
-	
+	/**
+	 * 기본 생성자
+	 */
 	public DailySales() {
 		this("", "", "", "", "", "", "", "", "");
 	}
-
+	
+	/**
+	 * 일별매출정보 생성자
+	 * @param date
+	 * @param adultCount
+	 * @param youthCount
+	 * @param kidCount
+	 * @param adultPrice
+	 * @param youthPrice
+	 * @param kidPrice
+	 * @param totalCount
+	 * @param totalPrice
+	 */
 	public DailySales(String date, String adultCount, String youthCount, String kidCount, String adultPrice,
 			String youthPrice, String kidPrice, String totalCount, String totalPrice) {
 		
@@ -87,7 +108,10 @@ public class DailySales {
 	public void setTotalPrice(String totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-
+	
+	/**
+	 * 일별매출정보 객체의 상태를 문자열로 반환합니다.
+	 */
 	@Override
 	public String toString() {
 		return "[date=" + date + ", adultCount=" + adultCount + ", youthCount=" + youthCount + ", kidCount="
