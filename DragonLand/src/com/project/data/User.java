@@ -182,4 +182,5 @@ public class User {
 		return "User [seq=" + seq + ", id=" + id + ", pw=" + pw + ", name=" + name + ", jumin=" + jumin + ", phoneNum="
 				+ phoneNum + ", address=" + address + ", vote=" + vote + "]";
 	}
+	
 }

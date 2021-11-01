@@ -86,5 +86,4 @@ public class UserVoice {
 	public String toString() {
 		return "UserVoice [seq=" + seq + ", date=" + date + ", content=" + content + "]";
 	}
-	
 }
