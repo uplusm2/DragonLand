@@ -65,6 +65,12 @@ public class Survey {
 			}
 		}
 	}
+	
+	/**
+	 * 고객의 소리 메소드입니다
+	 * 
+	 * @throws Exception 
+	 */	
 
 	public static void userVoice() throws Exception {
 
@@ -96,6 +102,12 @@ public class Survey {
 
 	}
 
+	
+	/**
+	 * 어트랙션 추천 메소드입니다
+	 * 
+	 * @throws Exception 
+	 */	
 	public static void attractionVote() throws Exception {
 		
 		
@@ -153,7 +165,7 @@ public class Survey {
 
 	
 	/**
-	 * Vote list.
+	 * 투표수 리스트 정렬 메소드입니다
 	 *
 	 * @throws Exception the exception
 	 */

@@ -25,7 +25,7 @@ public class join {
 	}
 
 	/**
-	 * 예외처리
+	 * 회원가입 메소드입니다
 	 * @throws Exception 
 	 */
 	public static void Join() throws Exception {
@@ -129,6 +129,11 @@ public class join {
 
 	}
 
+	/**
+	 * 아이디 유효성검사 메소드입니다
+	 * @param id 아이디
+	 * @throws Exception 
+	 */	
 	public static boolean idCheck(String id) throws Exception {
 
 		list = Load.loadUser();
@@ -154,7 +159,12 @@ public class join {
 
 	}
 
-	// 비밀번호 유효성 검사
+	/**
+	 * 비밀번호 유효성검사 메소드입니다
+	 * @param pw 비밀번호
+	 * @throws Exception 
+	 */	
+	
 	public static boolean pwCheck(String pw) {
 
 		// 4~12글자 제한
@@ -167,6 +177,13 @@ public class join {
 		return false;
 	}
 
+	
+	/**
+	 * 비밀번호확인 메소드입니다
+	 * @param pwCheck 확인받을 비밀번호
+	 * @param pw 비밀번호
+	 * @throws Exception 
+	 */	
 	public static boolean pwSameCheck(String pwCheck, String pw) {
 
 		// 4~12글자 제한
@@ -179,6 +196,12 @@ public class join {
 		return false;
 	}
 
+	/**
+	 * 이름 유효성검사 메소드입니다
+	 * @param name 이름
+	 * @return 정규식 한글검사
+	 * @throws Exception 
+	 */	
 	public static boolean nameCheck(String name) {
 
 		// 이름 한글 유효성 검사
@@ -193,10 +216,12 @@ public class join {
 
 	}
 
-	// 주민번호 숫자 유효성 검사
+	/**
+	 * 주민등록번호 유효성검사 메소드입니다
+	 * @param jumin 주민등록번호
+	 * @throws Exception 
+	 */	
 
-	// ** juminNum배열의 길이와 입력값의 길이가 다르면 오류남 Ex) 주민번호 3151 4글자 입력시
-	// ArrayIndexOutOfBoundsException오류 **
 
 	public static boolean juminCheck(String jumin) {
 
@@ -227,6 +252,11 @@ public class join {
 
 	}
 
+	/**
+	 * 핸드폰번호 유효성검사 메소드입니다
+	 * @param phoneNum 핸드폰번호
+	 * @throws Exception 
+	 */	
 	public static boolean phoneCheck(String phoneNum) {
 
 		// 전화번호 숫자 유효성 검사
@@ -237,7 +267,11 @@ public class join {
 
 	}
 
-	// 주소 글자수 유효성검사
+	/**
+	 * 주소 유효성검사 메소드입니다
+	 * @param address 주소
+	 * @throws Exception 
+	 */	
 	public static boolean addressCheck(String address) {
 
 		// 30자 이내
