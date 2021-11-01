@@ -3,6 +3,7 @@ package com.project.login;
 import java.io.*;
 import java.util.*;
 
+import com.project.admin.LoginAdmin;
 import com.project.data.*;
 import com.project.main.Load;
 import com.project.main.Main;
@@ -52,7 +53,7 @@ public class login {
 		
 		// 관리자 로그인
 		if(loginId.equals("admin") && loginPw.equals("1234")) {
-			Main.main(null); //관리자 페이지
+			LoginAdmin.login();
 		}
 		
 		int loginCheck = userLoginCheck(login, loginId, loginPw);

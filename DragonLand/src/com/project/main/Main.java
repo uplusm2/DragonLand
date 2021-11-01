@@ -5,13 +5,19 @@ import java.util.*;
 
 import com.project.admin.LoginAdmin;
 import com.project.data.*;
+import com.project.findUser.FindUser;
+import com.project.join.join;
+import com.project.landinfo.LandInfo;
+import com.project.login.login;
 
 public class Main {
 	private static Scanner scan;
 	private static LoginAdmin lg;
+	private static LandInfo landinfo;
 	static {
 		scan = new Scanner(System.in);
 		lg=new LoginAdmin();
+		landinfo = new LandInfo();
 	}
 	
 	public static void main(String[] args) throws Exception {
@@ -28,15 +34,15 @@ public class Main {
 			System.out.println();
 			
 			if(sel.equals("1")) {		
-				//용용랜드 정보
+				//LandInfo.menu();
+				landinfo.menu();
 			}else if(sel.equals("2")){	
-				lg.login();
+				login.login();
 			}else if(sel.equals("3")){	
-				//회원가입
+				join.Join();
 			}else if(sel.equals("4")){	
-				//ID,PW찾기
+				FindUser.findeUser();
 			}else if(sel.equals("5")){	
-				//종료
 				loop = false;
 			}else {
 				System.out.println("다시 입력해주세요.");
