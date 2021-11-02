@@ -21,7 +21,7 @@ public class AdminMenu {
 		
 		while(loop) {
 			menu();
-			System.out.print("👉 ");
+			System.out.print("                              👉 ");
 			String sel = scan.nextLine();
 			System.out.println();
 			
