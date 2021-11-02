@@ -69,10 +69,11 @@ public class ParadeAdmin {
 			System.out.printf("\t\t\t\t\t\t\t\t\t%s\n",parade.getContent());
 			System.out.printf("\t\t\t\t\t\t\t\t\t📌장소 : %s\r\n\n", getLocate(parade.getLocate()));
 			
-			System.out.println("\t\t\t\t\t\t\t\t\t\t[회차]\t[시간]");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t[회차]--[시간]");
 			for(int i = 0; i < parade.getTime().size(); i++)
-				System.out.printf("\t\t\t\t\t\t\t\t\t\t%3s\t%s\r\n", (i+1)+"회" , parade.getTime().get(i));
-			System.out.println();	
+				System.out.printf("\t\t\t\t\t\t\t\t\t\t|%3s\t%s |\r\n", (i+1)+"회" , parade.getTime().get(i));
+			System.out.println("\t\t\t\t\t\t\t\t\t\t -------------");
+			System.out.println();
 		});
 	}
 	
