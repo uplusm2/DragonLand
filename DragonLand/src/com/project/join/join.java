@@ -51,12 +51,17 @@ public class join {
 
 		while (check) {
 			System.out.print("\t\t\t\t\t\t\t\t\t아이디(4자~12자):  ");
-
+			
 			id = join.nextLine();
+			if (id.equalsIgnoreCase("B")) { 
+				System.out.println();
+				Main.main(null); //뒤로가기(메인메뉴)
+			}
 			if (idCheck(id)) {
 				continue;
 			}
-
+		
+	
 			break;
 		}
 
@@ -66,7 +71,7 @@ public class join {
 			if (pwCheck(pw)) {
 				continue;
 			}
-
+		
 			break;
 		}
 
