@@ -23,12 +23,12 @@ public class LandInfo {
 		
 		while(true) {
 			head("용용랜드 정보");
-			System.out.println("1. 어트랙션 정보");
-			System.out.println("2. 퍼레이드 정보");
-			System.out.println("3. 편의시설 정보");
-			System.out.println("4. 티켓요금 정보");
-			System.out.println("B. 뒤로 가기");
-			System.out.print("👉 ");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t1. 어트랙션 정보");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t2. 퍼레이드 정보");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t3. 편의시설 정보");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t4. 티켓요금 정보");
+			System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
+			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 			String sel = sc.nextLine();
 			System.out.println();
 			
@@ -37,7 +37,7 @@ public class LandInfo {
 			else if(sel.equals("3")) showFacilityInfo();
 			else if(sel.equals("4")) showTickMoneyInfo();
 			else if(sel.equalsIgnoreCase("B")) break;
-			else System.out.println("다시 입력해주세요.");
+			else System.out.println("\t\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
 			System.out.println();
 		}
 		
@@ -52,8 +52,8 @@ public class LandInfo {
 		
 		head("퍼레이드 정보");
 		paradeInfo.stream().forEach(parade -> {
-			System.out.println(parade.getTitle());
-			System.out.printf("(%s.%s.%s ~ %s.%s.%s)\n"
+			System.out.printf("\t\t\t\t\t\t\t\t\t\t%s\n",parade.getTitle());
+			System.out.printf("\t\t\t\t\t\t\t\t\t   (%s.%s.%s ~ %s.%s.%s)\n"
 					, parade.getStartDate().substring(0, 4)
 					, parade.getStartDate().substring(4, 6)
 					, parade.getStartDate().substring(6)
@@ -61,12 +61,12 @@ public class LandInfo {
 					, parade.getEndData().substring(4, 6)
 					, parade.getEndData().substring(6)
 			);
-			System.out.println(parade.getContent());
-			System.out.printf("장소 : %s\r\n\n", getLocate(parade.getLocate()));
+			System.out.printf("\t\t\t\t\t\t\t\t\t%s\n",parade.getContent());
+			System.out.printf("\t\t\t\t\t\t\t\t\t📌장소 : %s\r\n\n", getLocate(parade.getLocate()));
 			
-			System.out.println("[회차]\t[시간]");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t[회차]\t[시간]");
 			for(int i = 0; i < parade.getTime().size(); i++)
-				System.out.printf("%s\t%s\r\n", (i+1)+"회" , parade.getTime().get(i));
+				System.out.printf("\t\t\t\t\t\t\t\t\t\t%3s\t%s\r\n", (i+1)+"회" , parade.getTime().get(i));
 			System.out.println();	
 		});
 		
@@ -79,53 +79,25 @@ public class LandInfo {
 	 */
 	public void showFacilityInfo() throws Exception {
 		ArrayList<Facility> list = Load.loadFacility();
+		String[] types = {"음식점", "물품보관함", "의료실"};
 		
 		head("편의시설 정보");
-		
-		/* 음식점 */
-		System.out.println("[음식점]");
-		System.out.println("[번호]\t[이름]\t\t[이용시간]\t[위치]");
-		list.stream()
-			.filter(facility -> facility.getType().equals("음식점"))
-			.forEach(facility -> {
-				System.out.printf("%s\t%s\t\t%s\t%s\t\r\n"
-						, facility.getSeq()
-						, facility.getName()
-						, facility.getTime()
-						, getLocate(facility.getLocateNum())
-				);
-			});
-		System.out.println();
-		
-		/* 물품 보관함 */
-		System.out.println("[물품보관함]");
-		System.out.println("[번호]\t[이름]\t\t[이용시간]\t[위치]");
-		list.stream()
-			.filter(facility -> facility.getType().equals("물품보관함"))
-			.forEach(facility -> {
-				System.out.printf("%s\t%s\t%s\t%s\t\r\n"
-						, facility.getSeq()
-						, facility.getName()
-						, facility.getTime()
-						, getLocate(facility.getLocateNum())
-				);
-			});
-		System.out.println();
-		
-		/* 의료실 */
-		System.out.println("[의료실]");
-		System.out.println("[번호]\t[이름]\t\t[이용시간]\t[위치]");
-		list.stream()
-			.filter(facility -> facility.getType().equals("의료실"))
-			.forEach(facility -> {
-				System.out.printf("%s\t%s\t\t%s\t%s\t\r\n"
-						, facility.getSeq()
-						, facility.getName()
-						, facility.getTime()
-						, getLocate(facility.getLocateNum())
-				);
-			});
-		System.out.println();
+		for(int i = 0; i < types.length; i++) {
+			String type = types[i];
+			
+			facilityHead(type);
+			list.stream()
+				.filter(facility -> facility.getType().equals(type))
+				.forEach(facility -> {
+					System.out.printf("\t\t\t\t\t\t%s\t\t%-10s\t\t%s\t\t%s\t\r\n"
+							, facility.getSeq()
+							, facility.getName()
+							, facility.getTime()
+							, getLocate(facility.getLocateNum())
+					);
+				});
+			System.out.println();
+		}
 		
 		pageBack();
 	}
@@ -141,10 +113,10 @@ public class LandInfo {
 		head("티켓요금");
 		
 		/* 티켓 요금 */ 
-		System.out.println("[종류]\t[금액]\t[비고]");
+		System.out.println("\t\t\t\t\t\t\t\t[종류]\t\t  [금액]\t\t\t[비고]");
 
 		ticketInfo.stream().forEach(ticket -> {
-			System.out.printf("%s\t%s\t%s\t\r\n"
+			System.out.printf("\t\t\t\t\t\t\t\t%s\t\t  %s\t\t%s\t\r\n"
 					, ticket.getUserType()
 					, ticket.getPrice() + "원"
 					, ticket.getNote()
@@ -153,9 +125,9 @@ public class LandInfo {
 		System.out.println();
 		
 		/* 할인 카드 정보 */
-		System.out.println("*[제휴카드]");
+		System.out.println("\t\t\t\t\t\t\t\t*[제휴카드]");
 		cardInfo.stream().forEach(card -> {
-				System.out.printf("%s카드 : %.0f%% 할인\n"
+				System.out.printf("\t\t\t\t\t\t\t\t%s카드 : %.0f%% 할인\n"
 						, card.getName()
 						,(1 - Double.parseDouble(card.getDiscount()))*100
 				);
@@ -171,9 +143,18 @@ public class LandInfo {
 	 * @param title 현재 페이지의 헤더 제목
 	 */
 	public void head(String title) {
-		System.out.println("================================");
-		System.out.printf("[%s]\r\n", title);
-		System.out.println("================================");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.printf("\t\t\t\t\t\t\t\t\t\t[%s]\r\n", title);
+		System.out.println("\t\t\t\t\t================================================================================================");
+	}
+	
+	/**
+	 * 편의시설의 헤더를 출력합니다.
+	 * @param type 편의시설 타입
+	 */
+	public void facilityHead(String type) {
+		System.out.printf("\t\t\t\t\t\t\t\t\t\t📍 %s 📍\n", type);
+		System.out.println("\t\t\t\t\t\t[번호]\t\t[이름]\t\t\t[이용시간]\t\t[위치]");
 	}
 	
 	/**
@@ -181,13 +162,13 @@ public class LandInfo {
 	 */
 	public void pageBack() {
 		while(true) {
-			System.out.println("B. 뒤로 가기");
-			System.out.print("👉 ");
+			System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
+			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 			String sel = sc.nextLine();
 			System.out.println();
 			
 			if(sel.equalsIgnoreCase("B")) break;
-			else System.out.println("다시 입력해주세요.");
+			else System.out.println("\t\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
 			System.out.println();
 		}
 	}
