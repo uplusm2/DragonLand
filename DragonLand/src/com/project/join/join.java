@@ -171,6 +171,7 @@ public class join {
 	 * @throws Exception 
 	 */	
 	
+	
 	public static boolean pwCheck(String pw) {
 
 		// 4~12글자 제한
