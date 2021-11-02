@@ -15,16 +15,20 @@ import com.project.login.*;
  * @author 
  */
 public class Main {
+	private static int total;
+	
 	private static Scanner scan;
+	private static Calendar c;
+	private static ArrayList<TicketReservation> list;
+	
 	private static LoginAdmin lg;
 	private static LandInfo landinfo;
-	private static Calendar c;
 	
 	static {
 		scan = new Scanner(System.in);
+		c = Calendar.getInstance();
 		lg=new LoginAdmin();
 		landinfo = new LandInfo();
-		c = Calendar.getInstance();
 	}
 	
 	/**
@@ -34,14 +38,15 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		
-		System.out.println("Dragon Land"); //임시
-
-		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", getState());
-		boolean loop = true;
 		try {
+			System.out.println("\t\t\t\t\t\t\t\t\t\tDragon Land"); //임시
+			System.out.println("\t\t\t\t\t================================================================================================");
+			System.out.printf("\t\t\t\t\t\t\t\t\t🎈오늘 용용랜드는 %s합니다.🎈%n%n", getState());
+			
+			boolean loop = true;
 			while(loop) {
 				menu();
-				System.out.print("👉 ");
+				System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 				String sel = scan.nextLine();
 				System.out.println();
 				
@@ -57,12 +62,12 @@ public class Main {
 				}else if(sel.equals("5")){	
 					loop = false;
 				}else {
-					System.out.println("다시 입력해주세요.");
+					System.out.println("\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
 					pause();
 				}
 			}
 		} catch (Exception e) {
-			System.out.println("잘못된 입력입니다.");
+			System.out.println("\t\t\t\t\t\t\t\t\t잘못된 입력입니다.");
 		}
 	}
 
@@ -70,7 +75,15 @@ public class Main {
 	 * 놀이공원의 밀집도를 문자열로 반환합니다.
 	 * @return
 	 */
-	public static String getState() {
+	public static String getState() throws Exception{
+		String today = String.format("%tF", c).replace("-", "");
+		
+		list = Load.loadTicketReservation();
+		list.stream()
+			.filter(r -> r.getDate().equals(today))
+			.forEach(r -> total += Integer.parseInt(r.getAdultCount())
+									+ Integer.parseInt(r.getYouthCount())
+									+ Integer.parseInt(r.getKidCount()));
 		
 		
 		try {
@@ -78,7 +91,6 @@ public class Main {
 			BufferedReader reader = new BufferedReader(new FileReader(Path.ticketReservation));
 			
 			//오늘 날짜 YYYYMMDD 형태로 String 변수에 저장
-			String today = String.format("%tF", c).replace("-", "");
 			
 			//혼잡도 비교를 위한 변수
 			int total = 0;
@@ -106,18 +118,18 @@ public class Main {
 	 * 메뉴를 출력합니다.
 	 */
 	private static void menu() {
-		System.out.println("1. 용용랜드 정보");
-		System.out.println("2. 로그인");
-		System.out.println("3. 회원가입");
-		System.out.println("4. ID/PW 찾기");
-		System.out.println("5. 종료");
+		System.out.println("\t\t\t\t\t\t\t\t\t1. 용용랜드 정보");
+		System.out.println("\t\t\t\t\t\t\t\t\t2. 로그인");
+		System.out.println("\t\t\t\t\t\t\t\t\t3. 회원가입");
+		System.out.println("\t\t\t\t\t\t\t\t\t4. ID/PW 찾기");
+		System.out.println("\t\t\t\t\t\t\t\t\t5. 종료");
 	}
 	
 	/**
 	 * 엔터를 누르기 전까지 정지합니다.
 	 */
 	private static void pause() {
-		System.out.println("(엔터를 누르면 메뉴로 이동합니다.)");
+		System.out.println("\t\t\t\t\t\t\t\t(엔터를 누르면 메뉴로 이동합니다.)");
 		scan.nextLine();
 	}
 }
