@@ -26,10 +26,11 @@ public class AdminMenu {
 			System.out.println();
 			
 			if(sel.equals("1")) {		
-				MonthlyStatistic.statistic();
-			}else if(sel.equals("2")){	
-				
 				DailyStatistic.statistic();
+				
+			}else if(sel.equals("2")){	
+				MonthlyStatistic.statistic();
+				
 			}else if(sel.equals("3")){	
 				
 				Research.menu();
@@ -43,6 +44,9 @@ public class AdminMenu {
 	}
 
 	public static void menu() {
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t[놀이공원 통계]");
+		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.println("\t\t\t\t\t\t\t\t\t\t1. 당월 이용자현황");
 		System.out.println("\t\t\t\t\t\t\t\t\t\t2. 전체 이용자현황");
 		System.out.println("\t\t\t\t\t\t\t\t\t\t3. 설문 조사");
