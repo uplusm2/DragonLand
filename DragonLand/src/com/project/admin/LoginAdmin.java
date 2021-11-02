@@ -31,10 +31,10 @@ public class LoginAdmin {
 			System.out.println();
 			
 			if(sel.equals("1")) {		
-				UserManagement.main(null);
+				UserManagement.manage();
 			}else if(sel.equals("2")){	
 				//직원관리
-				Employee.main(null);
+				Employee.manage();
 			}else if(sel.equals("3")){	
 				//어트랙션 관리
 				lda.menu();

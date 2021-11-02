@@ -78,7 +78,7 @@ import com.project.user.*;
 					mypage();
 					
 				}else if(sel.equals("2")){	
-					UserTicketReservation.main(null);
+					UserTicketReservation.reserve();
 					
 				}else if(sel.equals("3")){	
 					attractionreservation();

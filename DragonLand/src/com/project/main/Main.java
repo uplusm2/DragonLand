@@ -39,10 +39,10 @@ public class Main {
 	public static void main(String[] args) {
 		
 		try {
-			System.out.println("\t\t\t\t\t\t\t\t\t\tDragon Land"); //임시
+			//System.out.println("\t\t\t\t\t\t\t\t\t\tDragon Land"); //임시
 			System.out.println("\t\t\t\t\t================================================================================================");
 			System.out.printf("\t\t\t\t\t\t\t\t\t🎈오늘 용용랜드는 %s합니다.🎈%n%n", getState());
-			
+			//System.out.println("\t\t\t\t\t================================================================================================");
 			boolean loop = true;
 			while(loop) {
 				menu();
