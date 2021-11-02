@@ -133,7 +133,7 @@ public class Survey {
 
 			System.out.println(
 					"\t\t\t\t\t================================================================================================");
-			System.out.printf("\t\t\t\t\t< 이전 페이지 \t\t\t\t\t%d/%d\t\t\t\t      다음 페이지 >%n", page + 1,
+			System.out.printf("\t\t\t\t\t< 이전 페이지 \t\t\t\t\t%d/%d\t\t\t\t     다음 페이지 >%n", page + 1,
 					attraction.size() / 10);
 			System.out.println(
 					"\t\t\t\t\t================================================================================================");
@@ -180,7 +180,7 @@ public class Survey {
 		System.out.println("\t\t\t\t\t\t\t\t\t[번호]\t\t\t\t[이름]"); // 헤드
 		for (int i = page * 10; i < page * 10 + 10 && i < attraction.size(); i++) {
 
-			System.out.printf("\t\t\t\t\t\t\t\t\t%s.\t\t\t\t%-13s\n", attraction.get(i).getSeq(),
+			System.out.printf("\t\t\t\t\t\t\t\t\t%s\t\t\t\t%-13s\n", attraction.get(i).getSeq(),
 					attraction.get(i).getName(), attraction.get(i).getVote());
 
 			if (page >= attraction.size() / 10 + 1) {
