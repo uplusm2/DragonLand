@@ -30,8 +30,7 @@ public class Survey {
 
 
 	public static void main(String[] args) throws Exception {
-//		SurveyMain();
-		userVoice();
+		SurveyMain();
 	}
 
 	/**
@@ -101,7 +100,7 @@ public class Survey {
 		list.add(uv);
 		Save.saveUserVoice(list);// 저장
 
-		System.out.println("\t\t      소중한 의견 감사합니다");
+		System.out.println("\t\t\t  소중한 의견 감사합니다");
 		pause();
 
 	}
@@ -226,7 +225,7 @@ public class Survey {
 
 	public static void pause() throws Exception {
 		System.out.println();
-		System.out.println("\t\t\t    (엔터를 누르면 메뉴로 이동합니다.)");
+		System.out.println("\t\t      (엔터를 누르면 메뉴로 이동합니다.)");
 		scan.nextLine();
 		Main.main(null);
 	}
