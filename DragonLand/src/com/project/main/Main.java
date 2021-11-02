@@ -40,13 +40,14 @@ public class Main {
 		
 		try {
 			//System.out.println("\t\t\t\t\t\t\t\t\t\tDragon Land"); //임시
-			System.out.println("\t\t\t\t\t================================================================================================");
-			System.out.printf("\t\t\t\t\t\t\t\t\t🎈오늘 용용랜드는 %s합니다.🎈%n%n", getState());
+			//System.out.println("\t\t\t\t\t================================================================================================");
+			
 			//System.out.println("\t\t\t\t\t================================================================================================");
 			boolean loop = true;
 			while(loop) {
+				System.out.printf("\t\t\t\t\t\t\t\t\t🎈오늘 용용랜드는 %s합니다.🎈%n%n", getState());
 				menu();
-				System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
+				System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 				String sel = scan.nextLine();
 				System.out.println();
 				
@@ -62,7 +63,7 @@ public class Main {
 				}else if(sel.equals("5")){	
 					loop = false;
 				}else {
-					System.out.println("\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
+					System.out.println("\t\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
 					pause();
 				}
 			}
@@ -93,18 +94,18 @@ public class Main {
 	 * 메뉴를 출력합니다.
 	 */
 	private static void menu() {
-		System.out.println("\t\t\t\t\t\t\t\t\t1. 용용랜드 정보");
-		System.out.println("\t\t\t\t\t\t\t\t\t2. 로그인");
-		System.out.println("\t\t\t\t\t\t\t\t\t3. 회원가입");
-		System.out.println("\t\t\t\t\t\t\t\t\t4. ID/PW 찾기");
-		System.out.println("\t\t\t\t\t\t\t\t\t5. 종료");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t1. 용용랜드 정보");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t2. 로그인");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t3. 회원가입");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t4. ID/PW 찾기");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t5. 종료");
 	}
 	
 	/**
 	 * 엔터를 누르기 전까지 정지합니다.
 	 */
 	private static void pause() {
-		System.out.println("\t\t\t\t\t\t\t\t(엔터를 누르면 메뉴로 이동합니다.)");
+		System.out.println("\t\t\t\t\t\t\t\t\t(엔터를 누르면 메뉴로 이동합니다.)");
 		scan.nextLine();
 	}
 }
