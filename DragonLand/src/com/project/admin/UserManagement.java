@@ -49,7 +49,6 @@ public class UserManagement {
 					page--;
 				} else {
 					System.out.println("\t\t\t\t\t\t\t\t이전 페이지가 없습니다.");
-					System.out.println("이전 페이지가 없습니다.");
 					pause();
 				}
 			}else if(sel.equals(">")){	
@@ -62,11 +61,6 @@ public class UserManagement {
 				}
 			}else {
 				System.out.println("\t\t\t\t\t\t\t\t다시 입력해주세요.");
-					System.out.println("다음 페이지가 없습니다.");
-					pause();
-				}
-			}else {
-				System.out.println("다시 입력해주세요.");
 				pause();
 			}
 		}
@@ -80,7 +74,6 @@ public class UserManagement {
 		head("회원 삭제");
 		
 		System.out.println("\t\t\t\t\t\t\t\t삭제할 회원의 번호를 입력하세요.");
-		System.out.println("삭제할 회원의 번호를 입력하세요.");
 		select();
 		
 		BufferedReader reader = new BufferedReader(new FileReader(Path.user));
@@ -98,11 +91,6 @@ public class UserManagement {
 				
 				if(sel.equalsIgnoreCase("N")) {
 					System.out.println("\t\t\t\t\t\t\t삭제를 취소합니다.");
-				System.out.println("정말 삭제하시겠습니까? (Y/N)");
-				select();
-				
-				if(sel.equalsIgnoreCase("N")) {
-					System.out.println("삭제를 취소합니다.");
 					pause();
 					return;
 				} else if(!sel.equalsIgnoreCase("Y")) {
@@ -126,9 +114,6 @@ public class UserManagement {
 			System.out.println("\t\t\t\t\t\t\t\t삭제가 완료되었습니다.");
 		} else {
 			System.out.println("\t\t\t\t\t\t\t\t잘못된 번호입니다.");
-			System.out.println("삭제가 완료되었습니다.");
-		} else {
-			System.out.println("잘못된 번호입니다.");
 		}
 		pause();
 	}//delete
@@ -140,7 +125,6 @@ public class UserManagement {
 	private static void search() throws Exception {
 		head("회원 검색");
 		System.out.println("\t\t\t\t\t\t\t\t검색할 회원의 이름을 입력하세요.");
-		System.out.println("검색할 회원의 이름을 입력하세요.");
 		select();
 		
 		boolean flag = false;
@@ -160,37 +144,12 @@ public class UserManagement {
 										+ u.getPhoneNum().substring(3,7) + "-" 
 										+ u.getPhoneNum().substring(7)
 										, u.getAddress());
-
-				System.out.printf("%s\t|%s\t|%s\t|%s\t\t\t\t|%s\t|%s\t|%s%n"//"%-8s|%-8s|%-8s|%-25s|%-13s|%-8s%n"
-						,"고유번호","ID","PW","이름","주민등록번호","핸드폰 번호","주소");
-				System.out.printf("%s\t|%s\t|%s\t|%s\t|%s\t|%s%n"
-
-
-				System.out.printf("[%4s]\t  [%s]\t    [%s]    [%s]   [%s]\t    [%s]\t\t    [%s]%n"
-						,"고유번호","ID","PW","이름","주민등록번호","핸드폰 번호","주소");
-				System.out.printf(" %-6s %-9s %-9s %-4s %-15s %-15s %-25s%n"
-
-				System.out.printf("[%s]\t[%s]\t[%s]\t[%s]\t\t\t\t[%s]\t[%s]\t[%s]%n"//"%-8s|%-8s|%-8s|%-25s|%-13s|%-8s%n"
-						,"고유번호","ID","PW","이름","주민등록번호","핸드폰 번호","주소");
-				System.out.printf("%s\t%s\t%s \t%s\t%s\t%s%n"
-
-						, u.getSeq()
-						, u.getId()
-						, u.getPw()
-						, u.getName()
-						, u.getJumin().substring(0,6) + "-"
-								+ u.getJumin().substring(6)
-						, u.getPhoneNum().substring(0,3) + "-" 
-								+ u.getPhoneNum().substring(3,7) + "-" 
-								+ u.getPhoneNum().substring(7)
-								, u.getAddress());
 				flag = true;
 			}
 		}
 		
 		if(!flag) {
 			System.out.println("\t\t\t\t\t\t\t\t존재하지 않는 회원입니다.");
-			System.out.println("존재하지 않는 회원입니다.");
 		}
 		
 		pause();
@@ -201,7 +160,6 @@ public class UserManagement {
 	 */
 	private static void select() {
 		System.out.print("\t\t\t\t\t\t\t\t👉 ");
-		System.out.print("👉 ");
 		sel = scan.nextLine();
 		System.out.println();
 	}//select
@@ -215,18 +173,6 @@ public class UserManagement {
 						,"고유번호","ID","PW","이름","주민등록번호","핸드폰 번호","주소");
 		for(int i=page*10; i<page*10+10&&i<list.size(); i++) {
 			System.out.printf("\t\t\t\t\t %-6s %-9s %-9s %-4s %-15s %-15s %-25s%n"
-
-		System.out.printf("%s\t|%s\t\t|%s\t\t|%s\t|%s\t|%s\t|%s%n"//"%-8s|%-8s|%-8s|%-25s|%-13s|%-8s%n"
-
-
-		System.out.printf("[%4s]\t  [%s]\t    [%s]    [%s]   [%s]\t    [%s]\t\t    [%s]%n"
-
-		System.out.printf("[%4s]\t  [%s]\t  [%s]\t[%s]\t\t\t\t[%s]\t[%s]\t[%s]%n"
-
-
-						,"고유번호","ID","PW","이름","주민등록번호","핸드폰 번호","주소");
-		for(int i=page*10; i<page*10+10&&i<list.size(); i++) {
-			System.out.printf("%s\t|%s\t|%s\t|%s\t|%s\t|%s\t|%s%n"
 							, list.get(i).getSeq()
 							, list.get(i).getId()
 							, list.get(i).getPw()
@@ -242,7 +188,6 @@ public class UserManagement {
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.printf("\t\t\t\t\t< 이전페이지\t\t\t\t     %d / %d\t\t\t\t     다음 페이지 >%n", page+1, list.size()/10+1);
 		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.printf("\t\t\t\t\t%d/%d%n", page+1, list.size()/10+1);
 	}//list
 	
 	/**
@@ -251,7 +196,6 @@ public class UserManagement {
 	private static void pause() {
 		System.out.println();
 		System.out.println("\t\t\t\t\t\t\t\t(엔터를 누르면 메뉴로 이동합니다.)");
-		System.out.println("(엔터를 누르면 메뉴로 이동합니다.)");
 		scan.nextLine();
 	}//pause
 	
@@ -276,9 +220,5 @@ public class UserManagement {
 		System.out.print("\t\t\t\t\t\t\t\t1. 회원 검색");
 		System.out.println("\t\t\t\t2. 회원 삭제");
 		System.out.println("\t\t\t\t\t\t\t\tB. 뒤로 가기");
-		System.out.println("< 이전 페이지 | 다음 페이지 > ");
-		System.out.println("1. 회원 검색");
-		System.out.println("2. 회원 삭제");
-		System.out.println("B. 뒤로 가기");
 	}//menu
 }
