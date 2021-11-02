@@ -26,7 +26,7 @@ public class UserManagement {
 	 * @param args
 	 * @throws Exception
 	 */
-	public static void main(String[] args) throws Exception {
+	public static void manage() throws Exception {
 		
 		boolean loop = true;
 		while(loop) {
@@ -41,8 +41,9 @@ public class UserManagement {
 				//회원 삭제
 				delete();
 			}else if(sel.equalsIgnoreCase("B")){	
-				//TODO 뒤로 가기
+				//뒤로 가기
 				loop = false;
+				LoginAdmin.login();;
 			}else if(sel.equals("<")){	
 				//이전 페이지
 				if(page != 0) {
@@ -64,7 +65,7 @@ public class UserManagement {
 				pause();
 			}
 		}
-	}//main
+	}//TODO manage
 	
 	/**
 	 * 회원을 삭제합니다.
@@ -128,12 +129,12 @@ public class UserManagement {
 		select();
 		
 		boolean flag = false;
+		System.out.printf("\t\t\t\t\t[%s]\t  [%s]\t    [%s]    [%s]  [%s]    [%s]\t\t\t  [%s]%n"
+				,"번호","ID","PW","이름","주민등록번호","핸드폰 번호","주소");
 		for(User u : list) {
 			if(u.getName().equalsIgnoreCase(sel)) {
 				//TODO 고유번호, 이름 순이 낫지 않을까요?
-				System.out.printf("\t\t\t\t\t[%4s]\t  [%s]\t    [%s]    [%s]   [%s]\t    [%s]\t\t    [%s]%n"
-						,"고유번호","ID","PW","이름","주민등록번호","핸드폰 번호","주소");
-				System.out.printf("\t\t\t\t\t %-6s %-9s %-9s %-4s %-15s %-15s %-25s%n"
+				System.out.printf("\t\t\t\t\t %-6s %-9s %-9s %-4s %-16s %-15s %-25s%n"
 								, u.getSeq()
 								, u.getId()
 								, u.getPw()
@@ -169,10 +170,10 @@ public class UserManagement {
 	 * @throws Exception
 	 */
 	private static void list() throws Exception {
-		System.out.printf("\t\t\t\t\t[%4s]\t  [%s]\t    [%s]    [%s]   [%s]\t    [%s]\t\t    [%s]%n"
-						,"고유번호","ID","PW","이름","주민등록번호","핸드폰 번호","주소");
+		System.out.printf("\t\t\t\t\t[%s]\t  [%s]\t    [%s]    [%s]  [%s]    [%s]\t\t\t  [%s]%n"
+						,"번호","ID","PW","이름","주민등록번호","연락처","주소");
 		for(int i=page*10; i<page*10+10&&i<list.size(); i++) {
-			System.out.printf("\t\t\t\t\t %-6s %-9s %-9s %-4s %-15s %-15s %-25s%n"
+			System.out.printf("\t\t\t\t\t %-6s %-9s %-9s %-4s %-16s %-15s %-25s%n"
 							, list.get(i).getSeq()
 							, list.get(i).getId()
 							, list.get(i).getPw()
@@ -186,7 +187,7 @@ public class UserManagement {
 		}
 		
 		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.printf("\t\t\t\t\t< 이전페이지\t\t\t\t     %d / %d\t\t\t\t     다음 페이지 >%n", page+1, list.size()/10+1);
+		System.out.printf("\t\t\t\t\t< 이전페이지\t\t\t\t     %d / %d\t\t\t\t   다음 페이지 >%n", page+1, list.size()/10+1);
 		System.out.println("\t\t\t\t\t================================================================================================");
 	}//list
 	
