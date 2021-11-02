@@ -128,11 +128,11 @@ public class UserManagement {
 		select();
 		
 		boolean flag = false;
+		System.out.printf("\t\t\t\t\t[%4s]\t  [%s]\t    [%s]    [%s]   [%s]\t    [%s]\t\t    [%s]%n"
+				,"고유번호","ID","PW","이름","주민등록번호","핸드폰 번호","주소");
 		for(User u : list) {
 			if(u.getName().equalsIgnoreCase(sel)) {
 				//TODO 고유번호, 이름 순이 낫지 않을까요?
-				System.out.printf("\t\t\t\t\t[%4s]\t  [%s]\t    [%s]    [%s]   [%s]\t    [%s]\t\t    [%s]%n"
-						,"고유번호","ID","PW","이름","주민등록번호","핸드폰 번호","주소");
 				System.out.printf("\t\t\t\t\t %-6s %-9s %-9s %-4s %-15s %-15s %-25s%n"
 								, u.getSeq()
 								, u.getId()
