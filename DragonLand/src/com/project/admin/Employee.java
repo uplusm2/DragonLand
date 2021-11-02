@@ -215,7 +215,7 @@ public class Employee {
 		}
 		
 		if(!flag) {
-			System.out.println("\t\t\t\t\t\t\t존재하지 않는 직원입니다.");
+			System.out.println("\t\t\t\t\t\t\t\t\t존재하지 않는 직원입니다.");
 		}
 		
 		pause();
