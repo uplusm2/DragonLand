@@ -62,21 +62,21 @@ public class UserTicketReservation {
 	 */
 	public static void select() throws Exception {
 		head();
-		System.out.printf("\t\t\t%s월 %s일 티켓 예매를 진행합니다."
+		System.out.printf("\t\t\t\t\t\t\t\t\t%s월 %s일 티켓 예매를 진행합니다."
 				+ ""
 				+ ""
 				+ "\n"
 						, date.substring(0, 2)
 						, date.substring(2));
-		System.out.println("\t\t\t성인: 40,000원 / 청소년: 20,000원 / 어린이: 10,000원\r\n");
-		System.out.println("\t\t\t티켓 매수를 입력해주세요.");
+		System.out.println("\t\t\t\t\t\t\t\t\t성인: 40,000원 / 청소년: 20,000원 / 어린이: 10,000원\r\n");
+		System.out.println("\t\t\t\t\t\t\t\t\t티켓 매수를 입력해주세요.");
 		
 		for(Ticket t : ticketList) {
-			System.out.print("\t\t\t" + t.getUserType() + "👉 ");
+			System.out.print("\t\t\t\t\t\t\t\t\t" + t.getUserType() + "👉 ");
 			map.put(t.getUserType(), scan.nextInt());
 		}
 		
-		System.out.printf("%n\t\t\t성인 %d매, 청소년 %d매, 어린이 %d매 선택하셨습니다.%n"
+		System.out.printf("%n\t\t\t\t\t\t\t\t\t성인 %d매, 청소년 %d매, 어린이 %d매 선택하셨습니다.%n"
 						, map.get("성인"), map.get("청소년"), map.get("어린이"));
 	}//select
 	
@@ -88,9 +88,9 @@ public class UserTicketReservation {
 			totalPrice += Integer.parseInt(t.getPrice()) * map.get(t.getUserType());
 		}
 		
-		System.out.printf("\t\t\t티켓 가격은 %,d원입니다.%n", totalPrice);
-		System.out.println("\t\t\t결제 하시겠습니까?(Y/N)");
-		System.out.print("\t\t\t👉 ");
+		System.out.printf("\t\t\t\t\t\t\t\t\t티켓 가격은 %,d원입니다.%n", totalPrice);
+		System.out.println("\t\t\t\t\t\t\t\t\t결제 하시겠습니까?(Y/N)");
+		System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 		sel = scan.nextLine();
 		sel = scan.nextLine();
 		
@@ -99,24 +99,24 @@ public class UserTicketReservation {
 			return;//TODO
 			
 		} else if(sel.equalsIgnoreCase("Y")) {
-			System.out.println("\n\t\t\t제휴카드를 사용하시겠습니까?");
-			System.out.println("\t\t\t1. 롯데카드(30%할인)");
-			System.out.println("\t\t\t2. 삼성카드(10%할인)");
-			System.out.println("\t\t\t3. 신한카드(20%할인)");
-			System.out.println("\t\t\t4. 사용 안 함");
+			System.out.println("\n\t\t\t\t\t\t\t\t\t제휴카드를 사용하시겠습니까?");
+			System.out.println("\t\t\t\t\t\t\t\t\t1. 롯데카드(30%할인)");
+			System.out.println("\t\t\t\t\t\t\t\t\t2. 삼성카드(10%할인)");
+			System.out.println("\t\t\t\t\t\t\t\t\t3. 신한카드(20%할인)");
+			System.out.println("\t\t\t\t\t\t\t\t\t4. 사용 안 함");
 			
-			System.out.print("\t\t\t👉 ");
+			System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 			cardNum = scan.nextInt();
 			
 			if(cardNum != 4) {
 				totalPrice *= Double.parseDouble(cardList.get(cardNum-1).getDiscount());
-				System.out.printf("%n\t\t\t%s카드 할인으로 %,d원 결제됐습니다.", cardList.get(cardNum-1).getName(), totalPrice);
+				System.out.printf("%n\t\t\t\t\t\t\t\t\t%s카드 할인으로 %,d원 결제됐습니다.", cardList.get(cardNum-1).getName(), totalPrice);
 			} else {
-				System.out.printf("%,d원 결제됐습니다.", totalPrice);
+				System.out.printf("%n\t\t\t\t\t\t\t\t\t\t%,d원 결제됐습니다.", totalPrice);
 			}
 			
 		} else {
-			System.out.println("\n\t\t\t잘못된 입력입니다.");
+			System.out.println("\n\t\t\t\t\t\t\t\t\t잘못된 입력입니다.");
 		}
 	}
 
@@ -132,9 +132,9 @@ public class UserTicketReservation {
 		head();
 		calendar();
 		
-		System.out.println("\n\t\t\t예매하실 티켓의 날짜를 선택해주세요.(MMDD)");
-		System.out.println("\t\t\tB. 뒤로 가기");
-		System.out.print("\t\t\t👉 ");
+		System.out.println("\n\t\t\t\t\t\t\t\t\t예매하실 티켓의 날짜를 선택해주세요.(MMDD)");
+		System.out.println("\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
+		System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 		date = scan.nextLine();
 		System.out.println();
 		
@@ -145,7 +145,7 @@ public class UserTicketReservation {
 	 */
 	public static void pause() {
 		System.out.println();
-		System.out.println("\t\t\t(엔터를 누르면 메뉴로 이동합니다.)");
+		System.out.println("\t\t\t\t\t\t\t\t\t(엔터를 누르면 메뉴로 이동합니다.)");
 		scan.nextLine();
 	}//pause
 	
@@ -153,9 +153,9 @@ public class UserTicketReservation {
 	 * 헤더를 출력합니다.
 	 */
 	private static void head(){
-		System.out.println("\t========================================================================");
-		System.out.println("\t\t\t\t\t[티켓 예매]");
-		System.out.println("\t========================================================================");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.printf("\t\t\t\t\t\t\t\t\t\t    [%s]%n", "티켓 예매");
+		System.out.println("\t\t\t\t\t================================================================================================");
 	}//head
 	
 	/**
@@ -170,16 +170,16 @@ public class UserTicketReservation {
 		int dayOfWeek = getDayOfWeek(year, month);
 		int lastDay = getLastDay(year, month);
 		
-		System.out.println("\t\t[ 일 ]\t[ 월 ]\t[ 화 ]\t[ 수 ]\t[ 목 ]\t[ 금 ]\t[ 토 ]");
+		System.out.println("\t\t\t\t\t\t\t\t[ 일 ]\t[ 월 ]\t[ 화 ]\t[ 수 ]\t[ 목 ]\t[ 금 ]\t[ 토 ]");
 		
 		for(int i=0; i<dayOfWeek; i++){
-			System.out.print("\t\t\t");
+			System.out.print("\t\t\t\t\t\t\t\t\t");
 		}
 		
 		for(int i=1; i<=lastDay; i++) {
 			if(i>=date&&i<=date+13) {
 				if(i % 7 == 0) {
-					System.out.printf("\t\t%d/%2d\t", month, i);
+					System.out.printf("\t\t\t\t\t\t\t\t%d/%2d\t", month, i);
 				}else {
 					System.out.printf("%d/%2d\t", month, i);
 				}
