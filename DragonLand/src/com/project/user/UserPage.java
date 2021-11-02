@@ -10,6 +10,7 @@ import com.project.login.login;
 import com.project.main.Load;
 import com.project.main.Save;
 import com.project.user.*;
+import com.test.java.file.MyPath;
 
 
 
@@ -27,11 +28,11 @@ import com.project.user.*;
 				scan = new Scanner(System.in);
 			}
 
-		public static void main(String[] args) throws Exception {
-			
-			userpage();
-			
-		}
+//		public static void main(String[] args) throws Exception {
+//			
+//			userpage();
+//			
+//		}
 		public static void userpage() throws Exception {
 			
 			System.out.println("\t\t\t\t\t================================================================================================");
@@ -47,7 +48,7 @@ import com.project.user.*;
 				
 			//로그인한 유저의 정보를 nowuser 배열에 저장
 			for (int i=0; i<list.size(); i++) {
-				if (list.get(i).getId().equals("hoeh5640")) {
+				if (list.get(i).getId().equals(login.loginId)) {
 					nowuser.add(list.get(i));
 				}
 			}		
@@ -78,7 +79,7 @@ import com.project.user.*;
 					mypage();
 					
 				}else if(sel.equals("2")){	
-					UserTicketReservation.main(null);
+					UserTicketReservation.reserve();
 					
 				}else if(sel.equals("3")){	
 					attractionreservation();
@@ -214,9 +215,9 @@ import com.project.user.*;
 		
 			if(!nowuserattraction.isEmpty()) {
 			
-				System.out.println("\t\t\t\t\t\t\t\t[번호]\t[날짜]\t\t[시간]  [놀이기구]  [예약 인원]");
 			for (int i=0; i<nowuserattraction.size(); i++) {
-				System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t %s\t%s\t\t%s\r\n"
+				System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]     [시간]  [놀이기구]  [예약 인원]");
+				System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t%s\t%s      %s\r\n"
 														  , i+1
 														  ,	nowuserattraction.get(i).getDate().substring(0,4) + "-" + 
 															nowuserattraction.get(i).getDate().substring(4,6) + "-" + 
@@ -232,6 +233,7 @@ import com.project.user.*;
 			System.out.println("\t\t\t\t\t\t\t\t\t\t1. 예매 취소");
 			System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
 			
+			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 			String input = scan.nextLine();
 			if(input.equals("1")) {
 				
@@ -239,9 +241,9 @@ import com.project.user.*;
 				System.out.println("\t\t\t\t\t\t\t\t\t\t[예약 어트랙션]");
 				System.out.println("\t\t\t\t\t================================================================================================");
 			
-				System.out.println("\t\t\t\t\t\t\t\t[번호]\t[날짜]\t\t[시간]  [놀이기구]  [예약 인원]");
 				for (int i=0; i<nowuserattraction.size(); i++) {
-					System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t %s\t%s\t\t%s\r\n"
+					System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]     [시간]  [놀이기구]  [예약 인원]");
+					System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t%s\t%s      %s\r\n"
 															  , i+1
 															  ,	nowuserattraction.get(i).getDate().substring(0,4) + "-" + 
 																nowuserattraction.get(i).getDate().substring(4,6) + "-" + 
@@ -252,7 +254,8 @@ import com.project.user.*;
 					
 				}	
 					
-				System.out.println("\t\t\t\t\t\t\t\t\t\t취소할 예약 번호를 입력해주세요.");
+				System.out.println("\t\t\t\t\t\t\t\t\t취소할 예약 번호를 입력해주세요.");
+				System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 				String input2 = scan.nextLine();
 				int a = Integer.parseInt(input2);
 				
@@ -260,24 +263,24 @@ import com.project.user.*;
 					
 					String seq = nowuserattraction.get(a-1).getSeq();
 		             userattractionreservationdelete(seq);
-					System.out.println("\t\t\t\t\t\t\t\t\t\t예매가 취소되었습니다.");
-					mypage();
+					System.out.println("\t\t\t\t\t\t\t\t\t예매가 취소되었습니다.");
+					userpage();
 				} else {
-					System.out.println("\t\t\t\t\t\t\t\t\t\t올바른 번호가 아닙니다.");
+					System.out.println("\t\t\t\t\t\t\t\t\t올바른 번호가 아닙니다.");
 					attractionreserveinfo();
 				}
 				
 			} else if (input.equalsIgnoreCase("B")) {
-				mypage();
+				userpage();
 			} else {
-				System.out.println("\t\t\t\t\t\t\t\t\t\t올바른 값을 입력해주세요.");
-				
+				System.out.println("\t\t\t\t\t\t\t\t\t올바른 값을 입력해주세요.");
+				attractionreserveinfo();
 			}
 				
 		} else {
-			System.out.println("\t\t\t\t\t\t\t\t\t\t어트랙션 예약 정보가 없습니다.");
+			System.out.println("\t\t\t\t\t\t\t\t\t어트랙션 예약 정보가 없습니다.");
 			
-			System.out.println("\t\t\t\t\t\t\t\t\t\t엔터를 누르면 My Page 화면으로 돌아갑니다.");			
+			System.out.println("\t\t\t\t\t\t\t\t\t엔터를 누르면 My Page 화면으로 돌아갑니다.");			
 			scan.nextLine();
 			mypage();
 		}
@@ -314,6 +317,7 @@ import com.project.user.*;
 			
 			System.out.println("\t\t\t\t\t\t\t\t\t\t1. 예매 취소");
 			System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
+			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 			
 			String input = scan.nextLine();
 			if(input.equals("1")) {
@@ -336,31 +340,32 @@ import com.project.user.*;
 					
 				}
 					
-				System.out.println("\t\t\t\t\t\t\t\t\t\t취소할 티켓 번호를 입력해주세요.");
+				System.out.println("\t\t\t\t\t\t\t\t\t취소할 티켓 번호를 입력해주세요.");
+				System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 				String input2 = scan.nextLine();
 				int a = Integer.parseInt(input2);
 				
 				if (a <= nowuserticket.size() && a > 0) {
 		               String seq = nowuserticket.get(a-1).getSeq();
 		               userticketreservationdelete(seq);
-		               System.out.println("\t\t\t\t\t\t\t\t\t\t예매가 취소되었습니다.");
-		               mypage();
+		               System.out.println("\t\t\t\t\t\t\t\t\t예매가 취소되었습니다.");
+		               userpage();
 		            } else {
-		               System.out.println("\t\t\t\t\t\t\t\t\t\t올바른 번호가 아닙니다.");
+		               System.out.println("\t\t\t\t\t\t\t\t\t올바른 번호가 아닙니다.");
 		               ticketreserveinfo();
 		            }
 				
 			} else if (input.equalsIgnoreCase("B")) {
-				mypage();
+				userpage();
 			} else {
-				System.out.println("\t\t\t\t\t\t\t\t\t\t올바른 값을 입력해주세요.");
-				
+				System.out.println("\t\t\t\t\t\t\t\t\t올바른 값을 입력해주세요.");
+				ticketreserveinfo();
 			}
 				
 		} else {
-			System.out.println("\t\t\t\t\t\t\t\t\t\t티켓 예매 정보가 없습니다.");
+			System.out.println("\t\t\t\t\t\t\t\t\t티켓 예매 정보가 없습니다.");
 			
-			System.out.println("\t\t\t\t\t\t\t\t\t\t엔터를 누르면 My Page 화면으로 돌아갑니다.");			
+			System.out.println("\t\t\t\t\t\t\t\t\t엔터를 누르면 My Page 화면으로 돌아갑니다.");			
 			scan.nextLine();
 			mypage();
 		}
@@ -380,14 +385,14 @@ import com.project.user.*;
 				
 		System.out.println();
 		
-		System.out.printf("\t\t\t\t\t\t\t\t\t\t%s 고객님의 가입 정보입니다.\r\n", nowuser.get(0).getName());
-		System.out.printf("\t\t\t\t\t\t\t\t\t\tID : %s\r\n", nowuser.get(0).getId());
-		System.out.printf("\t\t\t\t\t\t\t\t\t\tPW : %s\r\n", nowuser.get(0).getPw());
-		System.out.printf("\t\t\t\t\t\t\t\t\t\t이름 : %s\r\n", nowuser.get(0).getName());
-		System.out.printf("\t\t\t\t\t\t\t\t\t\t핸드폰 번호 : %s\r\n", nowuser.get(0).getPhoneNum().substring(0, 3) + "-" 
+		System.out.printf("\t\t\t\t\t\t\t\t\t%s 고객님의 가입 정보입니다.\r\n", nowuser.get(0).getName());
+		System.out.printf("\t\t\t\t\t\t\t\t\tID : %s\r\n", nowuser.get(0).getId());
+		System.out.printf("\t\t\t\t\t\t\t\t\tPW : %s\r\n", nowuser.get(0).getPw());
+		System.out.printf("\t\t\t\t\t\t\t\t\t이름 : %s\r\n", nowuser.get(0).getName());
+		System.out.printf("\t\t\t\t\t\t\t\t\t핸드폰 번호 : %s\r\n", nowuser.get(0).getPhoneNum().substring(0, 3) + "-" 
 												+ nowuser.get(0).getPhoneNum().substring(3, 7) + "-"
 												+ nowuser.get(0).getPhoneNum().substring(7, 11));																						
-		System.out.printf("\t\t\t\t\t\t\t\t\t\t주소 : %s\r\n", nowuser.get(0).getAddress());
+		System.out.printf("\t\t\t\t\t\t\t\t\t주소 : %s\r\n", nowuser.get(0).getAddress());
 		
 		System.out.println();
 		System.out.println("\t\t\t\t\t\t\t\t\t\t1. PW 수정하기");
@@ -431,28 +436,31 @@ import com.project.user.*;
 		System.out.println("\t\t\t\t\t\t\t\t\t\t[비밀번호 수정]");
 		System.out.println("\t\t\t\t\t================================================================================================");
 		
-		System.out.println("\t\t\t\t\t\t\t\t\t\t새로운 PW(4~12자리 영문 또는 숫자 조합)를 입력해 주세요.");
+		System.out.println("\t\t\t\t\t\t\t\t새로운 PW(4~12자리 영문 또는 숫자 조합)를 입력해 주세요.");
+		System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 		String input = scan.nextLine();
 		
 		boolean match = Pattern.matches(pattern,input);
 		
 		if(match == true) {
 			
-			System.out.println("\t\t\t\t\t\t\t\t\t\t(비밀번호 재 확인) 입력하신 비밀번호를 다시 입력해주세요.");
+			System.out.println("\t\t\t\t\t\t\t\t(비밀번호 재 확인) 입력하신 비밀번호를 다시 입력해주세요.");
+			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 			String input2 = scan.nextLine();
 			if(input.equals(input2)) {
-				System.out.println("\t\t\t\t\t\t\t\t\t\t비밀번호 변경이 완료되었습니다.");
+				System.out.println("\t\t\t\t\t\t\t\t\t비밀번호 변경이 완료되었습니다.");
 				nowuser.get(0).setPw(input2);
+				Save.saveUser(list);
 				userinfocheck();
 			} else {
-				System.out.println("\t\t\t\t\t\t\t\t\t\t비밀번호가 일치하지 않습니다. 다시 시도해주세요.");
+				System.out.println("\t\t\t\t\t\t\t\t비밀번호가 일치하지 않습니다. 다시 시도해주세요.");
 				pwfix();
 			}
 			
 		} else if (input.equalsIgnoreCase("B")) {
 			userinfocheck();
 		} else {
-			System.out.println("\t\t\t\t\t\t\t\t\t\t4~12자리 영문 또는 숫자 조합을 입력해 주세요.");
+			System.out.println("\t\t\t\t\t\t\t\t4~12자리 영문 또는 숫자 조합을 입력해 주세요.");
 			pwfix();
 		}
 		
@@ -470,16 +478,18 @@ import com.project.user.*;
 		
 		final String pattern = "^[0-9]{11}$"; // 영문, 숫자
 		
-		System.out.println("\t\t\t\t\t\t\t\t\t\t수정하실 핸드폰번호('-' 없이 11자리 숫자)를 입력해주세요.");
+		System.out.println("\t\t\t\t\t\t\t\t\t수정하실 핸드폰번호('-' 없이 11자리 숫자)를 입력해주세요.");
+		System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 		String input = scan.nextLine();
 		boolean match = Pattern.matches(pattern,input);
 		
 		if(match == true) {
-			System.out.println("\t\t\t\t\t\t\t\t\t\t핸드폰번호 수정이 완료되었습니다.");
+			System.out.println("\t\t\t\t\t\t\t\t\t핸드폰번호 수정이 완료되었습니다.");
 			nowuser.get(0).setPhoneNum(input);
+			Save.saveUser(list);
 			userinfocheck();
 		} else {
-			System.out.println("\t\t\t\t\t\t\t\t\t\t잘못된 입력입니다. 다시 시도해주세요.");
+			System.out.println("\t\t\t\t\t\t\t\t\t잘못된 입력입니다. 다시 시도해주세요.");
 			phonenumfix();
 			
 		}
@@ -497,36 +507,38 @@ import com.project.user.*;
 			System.out.println("\t\t\t\t\t\t\t\t\t\t[회원 탈퇴]");
 			System.out.println("\t\t\t\t\t================================================================================================");
 		
-				System.out.println("\t\t\t\t\t\t\t\t\t\t회원 탈퇴를 진행합니다.");
-				System.out.println("\t\t\t\t\t\t\t\t\t\t회원 비밀번호를 입력해주세요.");
+				System.out.println("\t\t\t\t\t\t\t\t\t회원 탈퇴를 진행합니다.");
+				System.out.println("\t\t\t\t\t\t\t\t\t회원 비밀번호를 입력해주세요.");
+				System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 				String input = scan.nextLine();
 		
 				if (input.equals(nowuser.get(0).getPw())) {
-						System.out.println("\t\t\t\t\t\t\t\t\t\t회원 탈퇴시에는 사용자의 모든 정보가 삭제됩니다.");
-						System.out.println("\t\t\t\t\t\t\t\t\t\t정말로 탈퇴에 동의하시겠습니까? (Y/N)");
+						System.out.println("\t\t\t\t\t\t\t\t\t회원 탈퇴시에는 사용자의 모든 정보가 삭제됩니다.");
+						System.out.println("\t\t\t\t\t\t\t\t\t정말로 탈퇴에 동의하시겠습니까? (Y/N)");
+						System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 						String input2 = scan.nextLine();
 					if (input2.equalsIgnoreCase("Y")) {
 							userdelete();
-							System.out.println("\t\t\t\t\t\t\t\t\t\t회원 탈퇴가 정상적으로 처리되었습니다. 이용해 주셔서 감사합니다.");
-							System.out.println("\t\t\t\t\t\t\t\t\t\t엔터를 누르면 로그인 창으로 이동합니다.");
+							System.out.println("\t\t\t\t\t\t\t\t\t회원 탈퇴가 정상적으로 처리되었습니다. 이용해 주셔서 감사합니다.");
+							System.out.println("\t\t\t\t\t\t\t\t\t엔터를 누르면 로그인 창으로 이동합니다.");
 							scan.nextLine();
 							login.login();
 					} else if (input2.equalsIgnoreCase("N")) {
-							System.out.println("\t\t\t\t\t\t\t\t\t\t회원 탈퇴에 동의하지 않으셨습니다.");
-							System.out.println("\t\t\t\t\t\t\t\t\t\t엔터를 누르면 개인정보 확인 창으로 이동합니다.");			
+							System.out.println("\t\t\t\t\t\t\t\t\t회원 탈퇴에 동의하지 않으셨습니다.");
+							System.out.println("\t\t\t\t\t\t\t\t\t엔터를 누르면 개인정보 확인 창으로 이동합니다.");			
 							scan.nextLine();
 							userinfo();
 					} else {
-						System.out.println("\t\t\t\t\t\t\t\t\t\t비밀번호가 일치하지 않습니다.");
-						System.out.println("\t\t\t\t\t\t\t\t\t\t엔터를 누르면 개인정보 확인 창으로 이동합니다.");			
+						System.out.println("\t\t\t\t\t\t\t\t\t비밀번호가 일치하지 않습니다.");
+						System.out.println("\t\t\t\t\t\t\t\t\t엔터를 누르면 개인정보 확인 창으로 이동합니다.");			
 						scan.nextLine();
 			
 						userinfo();
 					}
 		
 					} else {
-						System.out.println("\t\t\t\t\t\t\t\t\t\t비밀번호가 일치하지 않습니다.");
-						System.out.println("\t\t\t\t\t\t\t\t\t\t엔터를 누르면 개인정보 확인 창으로 이동합니다.");			
+						System.out.println("\t\t\t\t\t\t\t\t\t비밀번호가 일치하지 않습니다.");
+						System.out.println("\t\t\t\t\t\t\t\t\t엔터를 누르면 개인정보 확인 창으로 이동합니다.");			
 						scan.nextLine();
 			
 						userinfo();
@@ -547,7 +559,7 @@ import com.project.user.*;
 			
 			while ((line = reader.readLine()) != null){
 				
-				if (!nowuser.get(0).getSeq().equals(line.split("■")[1])) {
+				if (!nowuser.get(0).getSeq().equals(line.split("■")[0])) {
 					txt += line + "\r\n";					
 				}
 			}
@@ -559,8 +571,11 @@ import com.project.user.*;
 			writer.write(txt);
 			
 			writer.close();
+			
+			
 
 		}
+		
 		
 		private static void userticketreservationdelete(String seq) throws Exception {
 			
@@ -609,7 +624,13 @@ import com.project.user.*;
 			writer.write(txt);
 			
 			writer.close();
+			
+			Save.saveUser(list);
 
 		}
 		
 	}//UserPage
+
+
+	
+
