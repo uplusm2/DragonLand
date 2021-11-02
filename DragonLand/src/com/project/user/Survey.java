@@ -16,6 +16,7 @@ import com.project.main.*;
  *
  */
 
+
 public class Survey {
 	private static Scanner scan;
 	private static int page;
