@@ -93,7 +93,11 @@ public class UserManagement {
 					System.out.println("\t\t삭제를 취소합니다.");
 					pause();
 					return;
+				} else if(!sel.equalsIgnoreCase("Y")) {
+					System.out.println("\t\t다시 입력해주세요.");
+					select();
 				}
+				
 			}else {
 				num++;
 				txt += line.replace(line.substring(0, line.indexOf("■"))
@@ -127,9 +131,15 @@ public class UserManagement {
 		for(User u : list) {
 			if(u.getName().equalsIgnoreCase(sel)) {
 				//TODO 고유번호, 이름 순이 낫지 않을까요?
+
+				System.out.printf("[%4s]\t  [%s]\t    [%s]    [%s]   [%s]\t    [%s]\t\t    [%s]%n"
+						,"고유번호","ID","PW","이름","주민등록번호","핸드폰 번호","주소");
+				System.out.printf(" %-6s %-9s %-9s %-4s %-15s %-15s %-25s%n"
+
 				System.out.printf("[%s]\t[%s]\t[%s]\t[%s]\t\t\t\t[%s]\t[%s]\t[%s]%n"//"%-8s|%-8s|%-8s|%-25s|%-13s|%-8s%n"
 						,"고유번호","ID","PW","이름","주민등록번호","핸드폰 번호","주소");
 				System.out.printf("%s\t%s\t%s \t%s\t%s\t%s%n"
+
 						, u.getSeq()
 						, u.getId()
 						, u.getPw()
@@ -165,7 +175,11 @@ public class UserManagement {
 	 * @throws Exception
 	 */
 	private static void list() throws Exception {
+
+		System.out.printf("[%4s]\t  [%s]\t    [%s]    [%s]   [%s]\t    [%s]\t\t    [%s]%n"
+
 		System.out.printf("[%4s]\t  [%s]\t  [%s]\t[%s]\t\t\t\t[%s]\t[%s]\t[%s]%n"
+
 						,"고유번호","ID","PW","이름","주민등록번호","핸드폰 번호","주소");
 		for(int i=page*10; i<page*10+10&&i<list.size(); i++) {
 			System.out.printf(" %-6s %-9s %-9s %-4s %-15s %-15s %-25s%n"
