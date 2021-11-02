@@ -79,7 +79,7 @@ public class AttractionOnOff {
 		
 		System.out.println("\t\t\t\t\t\t\t[번호]\t\t\t[어트랙션 목록]\t\t\t[운행 여부]");
 		for(int i = page*10; i < (page != endPage-1 ? page*10+10 : attractions.size()); i++) {
-			System.out.printf("\t\t\t\t\t\t\t%4d\t\t\t%s\t\t\t%7s\n"
+			System.out.printf("\t\t\t\t\t\t\t%4d\t\t\t%-13s\t\t%7s\n"
 					, i+1
 					, attractions.get(i).getName()
 					, attractions.get(i).getOn().equals("T") ? "ON" : "OFF"

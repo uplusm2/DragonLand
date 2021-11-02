@@ -188,7 +188,7 @@ public class AttractionInfo {
 	 * 사용자 입력으로 Enter를 받으면 목록으로 돌아가는 pause 기능의 메소드
 	 */
 	public void pause() {
-		System.out.println("\t\t\t\t\t\t\t\t\t\t(엔터를 누르면 목록으로 돌아갑니다.)");
+		System.out.println("\t\t\t\t\t\t\t\t\t(엔터를 누르면 목록으로 돌아갑니다.)");
 		sc.nextLine();
 	}
 	
