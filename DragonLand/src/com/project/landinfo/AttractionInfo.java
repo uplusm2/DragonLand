@@ -125,7 +125,7 @@ public class AttractionInfo {
 		
 		System.out.println("\t\t\t\t\t[번호]\t\t[이름]\t\t\t[분류]\t[탑승인원]\t[운행시간]\t[위치]");
 		for(int i = page*10; i < (page != endPage-1 ? page*10+10 : list.size()); i++) {
-			System.out.printf("\t\t\t\t\t%4d\t\t%-13s\t%3s\t%5s\t\t%s\t%s\n"
+			//System.out.printf("\t\t\t\t\t%4d\t\t%-13s\t%3s\t%5s\t\t%s\t%s\n"
 			System.out.printf("\t\t\t\t\t%4d\t\t%-15s\t%3s\t\t%5s\t\t%s\t%s\n"
 					, i+1
 					, list.get(i).getName()

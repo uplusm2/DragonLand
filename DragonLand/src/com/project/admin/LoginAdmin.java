@@ -26,7 +26,7 @@ public class LoginAdmin {
 		while(loop) {
 			menu();
 			
-			System.out.print("\t\t\t\t\t\t\t\t\t\t 👉 ");
+			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 			String sel = scan.nextLine();
 			System.out.println();
 			
@@ -56,9 +56,9 @@ public class LoginAdmin {
 	 */
 	public static void menu() {
 		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.println("\t\t\t\t\t\t\t\t\t\t [관리자 메뉴]");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t[관리자 메뉴]");
 		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.println("\t\t\t\t\t\t\t\t\t\t 관리자님 환영합니다!");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t관리자님 환영합니다!");
 		
 		System.out.println("\t\t\t\t\t\t\t\t\t\t1. 회원관리");
 		System.out.println("\t\t\t\t\t\t\t\t\t\t2. 직원관리");

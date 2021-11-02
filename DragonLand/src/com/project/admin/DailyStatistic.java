@@ -56,7 +56,7 @@ public class DailyStatistic {
 		System.out.println("\t\t\t\t\t================================================================================================");
 		output(year,month); //달력
 		
-		System.out.println("\t\t\t\t\t\t\t\t\t\t상세 확인할 날짜를 입력하세요.(YYMMDD)");
+		System.out.println("\t\t\t\t\t\t\t\t\t상세 확인할 날짜를 입력하세요.(YYMMDD)");
 		System.out.println("\t\t\t\t\t\t\t\t\t\tB.뒤로가기");
 		System.out.print("\t\t\t\t\t\t\t\t\t\t👉");
 		input=scan.nextLine();
@@ -77,17 +77,17 @@ public class DailyStatistic {
 		for (int i=0;;i++) {
 			
 			if(input.equals(list.get(i).getDate().substring(2, 8))) {
-				System.out.println("\t\t\t\t\t\t\t\t\t\t    인원          매출");
-				System.out.printf("\t\t\t\t\t\t\t\t\t\t%s: %5s명   %,d원\n","성인",list.get(i).getAdultCount(),Integer.parseInt(list.get(i).getAdultPrice()));
-				System.out.printf("\t\t\t\t\t\t\t\t\t\t청소년: %s명   %,d원\n",list.get(i).getYouthCount(),Integer.parseInt(list.get(i).getYouthPrice()));
-				System.out.printf("\t\t\t\t\t\t\t\t\t\t어린이: %s명   %,d원\n",list.get(i).getKidCount(),Integer.parseInt(list.get(i).getKidPrice()));
+				System.out.println("\t\t\t\t\t\t\t\t\t    인원          매출");
+				System.out.printf("\t\t\t\t\t\t\t\t\t%s: %5s명   %,d원\n","성인",list.get(i).getAdultCount(),Integer.parseInt(list.get(i).getAdultPrice()));
+				System.out.printf("\t\t\t\t\t\t\t\t\t청소년: %s명   %,d원\n",list.get(i).getYouthCount(),Integer.parseInt(list.get(i).getYouthPrice()));
+				System.out.printf("\t\t\t\t\t\t\t\t\t어린이: %s명   %,d원\n",list.get(i).getKidCount(),Integer.parseInt(list.get(i).getKidPrice()));
 				
 				break;
 			}
 			//잘못 입력 됐을 때 에러를 못고침
 		}
 		
-		System.out.println("\t\t\t\t\t\t\t\t\t\t다시 검색하고 싶으면 엔터를 누르세요.");
+		System.out.println("\t\t\t\t\t\t\t\t\t다시 검색하고 싶으면 엔터를 누르세요.");
 		String re = scan.nextLine();
 		menu();
 		

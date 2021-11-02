@@ -78,13 +78,13 @@ import com.project.user.*;
 					mypage();
 					
 				}else if(sel.equals("2")){	
-					ticketreservation();
+					UserTicketReservation.main(null);
 					
 				}else if(sel.equals("3")){	
 					attractionreservation();
 					
 				}else if(sel.equals("4")){	
-					usersurvey();
+					Survey.SurveyMain();
 					
 				}else if(sel.equalsIgnoreCase("B")){									
 					login.login();

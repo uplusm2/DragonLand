@@ -67,7 +67,8 @@ public class Main {
 				}
 			}
 		} catch (Exception e) {
-			System.out.println("\t\t\t\t\t\t\t\t\t잘못된 입력입니다.");
+			e.printStackTrace();
+			//System.out.println("\t\t\t\t\t\t\t\t\t잘못된 입력입니다.");
 		}
 	}
 
