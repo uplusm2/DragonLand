@@ -45,12 +45,6 @@ public class FindUser {
 
 		// 로그인 메뉴
 
-		System.out.println("====================================================================================");
-		System.out.println("\t\t\t\t   [ID/PW 찾기]");
-		System.out.println("====================================================================================");
-		System.out.println("\t\t\t      (b를 누르면 뒤로 이동합니다.)");
-
-		System.out.print("\t\t\t\t  이름: ");
 		System.out.println("\t\t\t\t\t====================================================================================");
 		System.out.println("\t\t\t\t\t\t\t\t\t\t[ID/PW 찾기]");
 		System.out.println("\t\t\t\t\t====================================================================================");
@@ -61,7 +55,6 @@ public class FindUser {
 		if (findName.equalsIgnoreCase("b")) {
 			Main.main(null);
 		}
-		System.out.print("\t\t\t\t  주민등록번호: ");
 		System.out.print("\t\t\t\t\t\t\t\t\t\t주민등록번호: ");
 		findJumin = find.nextLine();
 		if (findJumin.equalsIgnoreCase("b")) {
@@ -85,10 +78,6 @@ public class FindUser {
 			if (s.getName().equals(findName) && s.getJumin().equals(findJumin)) {
 			
 			System.out.println("====================================================================================");
-			System.out.println("\t\t\t\t  "+findName+"님의 아이디와 비밀번호입니다.");
-			System.out.println("====================================================================================");
-			System.out.println("\t\t\t\t  아이디 : " + s.getId());
-			System.out.println("\t\t\t\t  비밀번호 : " + s.getPw());
 			System.out.println("\t\t\t\t\t\t\t\t\t\t"+findName+"님의 아이디와 비밀번호입니다.");
 			System.out.println("====================================================================================");
 			System.out.println("\t\t\t\t\t\t\t\t\t\t아이디 : " + s.getId());
@@ -101,9 +90,6 @@ public class FindUser {
 			}
 			
 			// 찾고나서 로그인 or 메뉴 선택 
-			System.out.println("\t\t\t\t  1.로그인하러가기");
-			System.out.println("\t\t\t\t  2.메뉴");
-			System.out.print("\t\t\t\t  👉 ");
 			System.out.println("\t\t\t\t\t\t\t\t\t\t1.로그인하러가기");
 			System.out.println("\t\t\t\t\t\t\t\t\t\t2.메뉴");
 			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
@@ -124,9 +110,6 @@ public class FindUser {
 		} else if (findCheck == 2) {
 
 			// 아이디 X 비밀번호 X
-			System.out.println("\t\t\t\t  이름과 주민등록번호가 틀렸습니다.");
-
-			System.out.print("\t\t\t\t  다시 찾으시겠습니까?(y/n) : ");
 			System.out.println("\t\t\t\t\t\t\t\t\t\t이름과 주민등록번호가 틀렸습니다.");
 
 			System.out.print("\t\t\t\t\t\t\t\t\t\t다시 찾으시겠습니까?(y/n) : ");
@@ -140,9 +123,6 @@ public class FindUser {
 		}
 		// 아이디 비밀번호 찾기 오류
 		else {
-			System.out.println("\t\t\t\t  유효한 값이 아닙니다.");
-
-			System.out.print("\t\t\t\t  다시 찾으시겠습니까?(y/n) : ");
 			System.out.println("\t\t\t\t\t\t\t\t\t\t유효한 값이 아닙니다.");
 
 			System.out.print("\t\t\t\t\t\t\t\t\t\t다시 찾으시겠습니까?(y/n) : ");
