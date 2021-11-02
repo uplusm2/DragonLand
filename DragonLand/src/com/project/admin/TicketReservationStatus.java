@@ -63,7 +63,7 @@ public class TicketReservationStatus {
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.println("\t\t\t\t\t\t\t\t\t\t[당일 티켓 예매자 목록]");
 		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.println("\t\t\t\t\t회원번호     아이디      이름     주민번호         핸드폰번호        매수");
+		System.out.println("\t\t\t\t\t[회원번호]   [아이디]    [이름]   [주민번호]      [핸드폰번호]       [매수]");
 		
 		
 		
@@ -71,7 +71,7 @@ public class TicketReservationStatus {
 			System.out.printf("\t\t\t\t\t%s\n",index.get(i));
 		}
 		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.printf("\t\t\t\t\t< 이전 페이지                              %d/%d                              다음 페이지 >\n",num,(index.size())/10+1);
+		System.out.printf("\t\t\t\t\t< 이전 페이지                              %d/%d                                    다음 페이지 >\n",num,(index.size())/10+1);
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.println("\t\t\t\t\t\t\t\t\t\tB.뒤로가기");
 		System.out.print("\t\t\t\t\t\t\t\t\t\t👉");

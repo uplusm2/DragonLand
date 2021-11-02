@@ -26,7 +26,7 @@ public class UserTicketReservation {
 	private static HashMap<String, Integer> map;
 	
 	static {
-		userNum = "U0001"; //TODO 임시
+		userNum = "U0001"; //TODO 로그인 회원 정보로 수정
 		scan = new Scanner(System.in);
 		today = Calendar.getInstance();
 		map = new HashMap<String, Integer>(3);
@@ -37,24 +37,32 @@ public class UserTicketReservation {
 	 * @param args
 	 * @throws Exception
 	 */
-	public static void main(String[] args) throws Exception{
+	public static void reserve() throws Exception{
 		menu();
-		select();
-		pay();
 		
-		TicketReservation t = new TicketReservation(String.format("T%tF0001", today).replace("-", "").replace("T2021", "T21")
-													, String.format("%tF", today).replace("-", "")
-													, String.valueOf(map.get("성인"))
-													, String.valueOf(map.get("청소년"))
-													, String.valueOf(map.get("어린이"))
-													, String.valueOf(cardNum)
-													, String.valueOf(totalPrice)
-													, userNum);
-		reservationList.add(t);
-		Save.saveTicketReservation(reservationList);//ArrayList를 파일에 저장
+		if(Integer.parseInt(date) >= Integer.parseInt(String.format("%tF", today).replace("-","").substring(4))) {
+			select();
+			pay();
+			
+			TicketReservation t = new TicketReservation(String.format("T%tF0001", today).replace("-", "").replace("T2021", "T21")
+					, 2021 + date //선택한 티켓 날짜
+					, String.valueOf(map.get("성인"))
+					, String.valueOf(map.get("청소년"))
+					, String.valueOf(map.get("어린이"))
+					, String.valueOf(cardNum)
+					, String.valueOf(totalPrice)
+					, userNum);
+			reservationList.add(t);
+			Save.saveTicketReservation(reservationList);//ArrayList를 파일에 저장
+			totalPrice = 0 ; //누적 금액 초기화
+		} else {
+			System.out.println("\t\t\t\t\t\t\t\t\t잘못된 날짜입니다.");
+		}
 		
 		pause();
-	}//reservation
+		UserPage.userpage(); //UserPage로
+		
+	}//TODO reserve
 	
 	/**
 	 * 티켓의 매수(성인/청소년/어린이)를 선택합니다.
@@ -62,10 +70,7 @@ public class UserTicketReservation {
 	 */
 	public static void select() throws Exception {
 		head();
-		System.out.printf("\t\t\t\t\t\t\t\t\t%s월 %s일 티켓 예매를 진행합니다."
-				+ ""
-				+ ""
-				+ "\n"
+		System.out.printf("\t\t\t\t\t\t\t\t\t%s월 %s일 티켓 예매를 진행합니다.\n"
 						, date.substring(0, 2)
 						, date.substring(2));
 		System.out.println("\t\t\t\t\t\t\t\t\t성인: 40,000원 / 청소년: 20,000원 / 어린이: 10,000원\r\n");
@@ -82,8 +87,9 @@ public class UserTicketReservation {
 	
 	/**
 	 * 카드를 선택해 티켓을 결제합니다.
+	 * @throws Exception 
 	 */
-	public static void pay(){
+	public static void pay() throws Exception{
 		for(Ticket t : ticketList) {
 			totalPrice += Integer.parseInt(t.getPrice()) * map.get(t.getUserType());
 		}
@@ -96,7 +102,7 @@ public class UserTicketReservation {
 		
 		if(sel.equalsIgnoreCase("N")) {
 			pause();
-			return;//TODO
+			UserPage.userpage();
 			
 		} else if(sel.equalsIgnoreCase("Y")) {
 			System.out.println("\n\t\t\t\t\t\t\t\t\t제휴카드를 사용하시겠습니까?");

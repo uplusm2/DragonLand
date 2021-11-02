@@ -49,10 +49,13 @@ public class Research {
 	 * @throws Exception
 	 */
 	public static void menu() throws Exception {
-		System.out.println("                             1. 이달의 어트랙션 순위");
-		System.out.println("                             2. 고객의 소리");
-		System.out.println("                             B. 뒤로가기");
-		System.out.println("                             👉");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t[설문조사]");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t1. 이달의 어트랙션 순위");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t2. 고객의 소리");
+		System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로가기");
+		System.out.print("\t\t\t\t\t\t\t\t\t\t👉");
 		
 		String input = scan.nextLine();
 		if(input.equals("1")) {
@@ -83,7 +86,7 @@ public class Research {
 		}else if (input.equals("B")||input.equals("b")) {
 			adminmenu.statistic();
 		}else {
-			System.out.println("                             알맞은 키를 눌러주세요");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t알맞은 키를 눌러주세요");
 			menu();
 		}
 	
@@ -98,17 +101,17 @@ public class Research {
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.println("\t\t\t\t\t\t\t\t\t\t[고객의 소리]");
 		System.out.println("\t\t\t\t\t================================================================================================");
-		
+		System.out.println("\t\t\t\t\t\t\t[번호]\t\t [날짜]\t\t[내용]");
 		for(int i=startVoice;i<endVoice;i++) {
 			list2 = Load.loadUserVoice();
 			
-			System.out.printf("%d. [%s/%s/%s] %s\n",i+1,list2.get(i).getDate().substring(2, 4),list2.get(i).getDate().substring(4,6)
-					,list2.get(i).getDate().substring(6),list2.get(i).getContent());
+			System.out.printf("\t\t\t\t\t\t\t %d.\t\t[%s/%s/%s]\t%s\n",i+1,list2.get(list2.size()-1-i).getDate().substring(2, 4),list2.get(list2.size()-1-i).getDate().substring(4,6)
+					,list2.get(list2.size()-1-i).getDate().substring(6),list2.get(list2.size()-1-i).getContent());
 			
 		}
 		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.printf("\t\t\t\t\t< 이전 페이지                                %d/1000                                다음 페이지 >\n",num);
-		
+		System.out.printf("\t\t\t\t\t< 이전 페이지                                %d/%d                                다음 페이지 >\n",num,(list2.size()-1)/10+1);
+		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.println("\t\t\t\t\t\t\t\t\t\tB.뒤로가기");
 		System.out.print("\t\t\t\t\t\t\t\t\t\t👉");
 		String index = scan.nextLine();
@@ -155,14 +158,17 @@ public class Research {
 		
 		
 		
-		
+		System.out.println("\t\t\t\t\t\t[순위]\t\t\t[어트랙션]\t\t\t\t [표]");
 		for(int i=startRanking;i<endRanking;i++) {
 						
-			System.out.printf("%d. %s %s표\n",i+1,list2.get(i).getName(),list2.get(i).getVote());
+			System.out.printf("\t\t\t\t\t\t  %s위\t\t\t%-13s\t\t\t%s표\n"
+		               ,i+1
+		               ,list2.get(i).getName()
+		               ,list2.get(i).getVote());
 
 		}
 		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.printf("\t\t\t\t\t< 이전 페이지                              %d/%d\n                                  다음 페이지 >",num,(list2.size()-1)/10+1);
+		System.out.printf("\t\t\t\t\t< 이전 페이지                              %d/%d                                    다음 페이지 >\n",num,(list2.size()-1)/10+1);
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.println("\t\t\t\t\t\t\t\t\t\tB.뒤로가기");
 		System.out.print("\t\t\t\t\t\t\t\t\t\t👉");

@@ -7,6 +7,7 @@ import com.project.admin.LoginAdmin;
 import com.project.data.*;
 import com.project.main.Load;
 import com.project.main.Main;
+import com.project.user.UserPage;
 
 
 /**
@@ -80,7 +81,8 @@ public class login {
 
 		
 			// 로그인 확인 후 메뉴 출력
-			Main.main(null); // 회원 페이지 이동 
+			UserPage.userpage(); // 회원 페이지 이동 
+			
 
 			// 2번 비밀번호 틀림
 		} else if (loginCheck == 2) {

@@ -21,12 +21,12 @@ public class Employee {
 	}
 	
 	/**
-	 * main 메소드 입니다.
+	 * 직원 관리 메소드 입니다.
 	 * B를 누르기 전까지 반복해서 menu를 보여줍니다.
 	 * @param args
 	 * @throws Exception
 	 */
-	public static void main(String[] args) throws Exception {
+	public static void manage() throws Exception {
 		
 		boolean loop = true;
 		while(loop) {
@@ -47,12 +47,9 @@ public class Employee {
 				//직원 삭제
 				delete();
 			}else if(sel.equalsIgnoreCase("B")){	
-
-				LoginAdmin.login();
-
-				//TODO 뒤로 가기
-
+				//뒤로 가기
 				loop = false;
+				LoginAdmin.login();
 			}else if(sel.equals("<")){	
 				//이전 페이지
 				if(page != 0) {
@@ -74,7 +71,7 @@ public class Employee {
 				pause();
 			}
 		}
-	}//main
+	}//TODO manage
 	
 	/**
 	 * 직원을 삭제합니다. 
@@ -203,10 +200,10 @@ public class Employee {
 		boolean flag = false;
 		for(Staff s : list) {
 			if(s.getName().equalsIgnoreCase(sel)) {
-				System.out.printf("\t\t\t\t\t[%s]\t[%s]\t[%s]\t\t[%s]\t\t\t[%s]\t[%s]%n"
+				System.out.printf("\t\t\t\t\t[%s]\t[%s]\t[%s]\t\t\t[%s]\t\t\t[%s]\t[%s]%n"//flag 때문에 for문 밖으로 빼기 애매함.
 						,"번호","이름","나이","주소","핸드폰 번호","근무지");
 				
-				System.out.printf("\t\t\t\t\t%s\t%s\t%3s\t%s\t%s\t%s%n"
+				System.out.printf("\t\t\t\t\t %s\t%s\t%4s\t%s\t%s\t%s%n"
 								, s.getSeq()
 								, s.getName()
 								, s.getAge()
@@ -238,13 +235,13 @@ public class Employee {
 	 * @throws Exception
 	 */
 	private static void list() throws Exception {
-		System.out.printf("\t\t\t\t\t[%s]\t[%s]\t[%s]\t\t[%s]\t\t\t[%s]\t[%s]%n"
+		System.out.printf("\t\t\t\t\t[%s]\t[%s]\t[%s]\t\t\t[%s]\t\t\t[%s]\t[%s]%n"
 						,"번호","이름","나이","주소","핸드폰 번호","근무지");
 		for(int i=page*10; i<page*10+10&&i<list.size(); i++) {
 			if(list.get(i).getSeq().equals("")) {
 				break;
 			}
-			System.out.printf("\t\t\t\t\t%s\t%s\t%3s\t%s\t%s\t%s%n"
+			System.out.printf("\t\t\t\t\t %s\t%s\t%4s\t%s\t%s\t%s%n"
 							, list.get(i).getSeq()
 							, list.get(i).getName()
 							, list.get(i).getAge()
@@ -257,7 +254,7 @@ public class Employee {
 		}
 		
 		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.printf("\t\t\t\t\t< 이전페이지\t\t\t\t     %d / %d\t\t\t\t     다음 페이지 >%n", page+1, list.size()/10+1);
+		System.out.printf("\t\t\t\t\t< 이전페이지\t\t\t\t     %d / %d\t\t\t\t   다음 페이지 >%n", page+1, list.size()/10+1);
 		System.out.println("\t\t\t\t\t================================================================================================");
 	}//list
 	
@@ -292,7 +289,7 @@ public class Employee {
 		System.out.print("\t\t\t\t\t\t\t\t1. 직원 검색");
 		System.out.println("\t\t\t\t2. 직원 추가");
 		System.out.print("\t\t\t\t\t\t\t\t3. 직원 근무지 배치 및 수정");
-		System.out.println("\t\t\t4. 직원 삭제");
+		System.out.println("\t\t4. 직원 삭제");
 		System.out.println("\t\t\t\t\t\t\t\tB. 뒤로 가기");
 	}//menu
 }
