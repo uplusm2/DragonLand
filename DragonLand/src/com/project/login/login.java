@@ -45,7 +45,12 @@ public class login {
 		String loginPw;
 
 		// 로그인 메뉴
+		System.out.println("====================================================================================");
+		System.out.println("\t\t\t\t      [로그인]");
+		System.out.println("====================================================================================");
+		System.out.println("\t\t\t      (b를 누르면 뒤로 이동합니다.)");
 
+		System.out.print("\t\t\t\t  아이디: ");
 		System.out.println("\t\t\t\t\t====================================================================================");
 		System.out.println("\t\t\t\t\t\t\t\t\t\t[로그인]");
 		System.out.println("\t\t\t\t\t====================================================================================");
@@ -56,6 +61,7 @@ public class login {
 		
 
 	
+		System.out.print("\t\t\t\t  비밀번호: ");
 		System.out.print("\t\t\t\t\t\t\t\t\t\t비밀번호: ");
 		loginPw = login.nextLine();
 		
@@ -86,6 +92,9 @@ public class login {
 		} else if (loginCheck == 2) {
 
 			// 아이디 O 비밀번호 X
+			System.out.println("\t\t\t\t  비밀번호가 틀렸습니다.");
+
+			System.out.print("\t\t\t\t  다시 로그인 하시겠습니까?(y/n) : ");
 			System.out.println("\t\t\t\t\t\t\t\t\t\t비밀번호가 틀렸습니다.");
 
 			System.out.print("\t\t\t\t\t\t\t\t\t다시 로그인 하시겠습니까?(y/n) : ");
@@ -93,6 +102,7 @@ public class login {
 
 			if (relogin.equals("y")) {
 
+				System.out.println("\t\t\t\t  다시 시작합니다.");
 				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 시작합니다.");
 				login();
 			} else if (relogin.equals("n")) {
@@ -103,6 +113,9 @@ public class login {
 		} else if (loginCheck == 3) {
 
 			// 아이디 X 비밀번호 O
+			System.out.println("\t\t\t\t  아이디가 틀렸습니다.");
+
+			System.out.print("\t\t\t\t  다시 로그인 하시겠습니까?(y/n) : ");
 			System.out.println("\t\t\t\t\t\t\t\t\t\t아이디가 틀렸습니다.");
 
 			System.out.print("\t\t\t\t\t\t\t\t\t다시 로그인 하시겠습니까?(y/n) : ");
@@ -110,6 +123,7 @@ public class login {
 
 			if (relogin.equals("y")) {
 
+				System.out.println("\t\t\t\t  다시 시작합니다.");
 				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 시작합니다.");
 				login();
 			} else if (relogin.equals("n")) {
@@ -120,6 +134,9 @@ public class login {
 		} else if (loginCheck == 4) {
 
 			// 아이디 X 비밀번호 X
+			System.out.println("\t\t\t\t  아이디와 비밀번호 모두 틀렸습니다.");
+
+			System.out.print("\t\t\t\t  다시 로그인 하시겠습니까?(y/n) : ");
 			System.out.println("\t\t\t\t\t\t\t\t\t아이디와 비밀번호 모두 틀렸습니다.");
 
 			System.out.print("\t\t\t\t\t\t\t\t\t다시 로그인 하시겠습니까?(y/n) : ");
@@ -127,6 +144,7 @@ public class login {
 
 			if (relogin.equals("y")) {
 
+				System.out.println("\t\t\t\t  다시 시작합니다.");
 				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 시작합니다.");
 				login();
 			} else if (relogin.equals("n")) {
@@ -136,6 +154,9 @@ public class login {
 			
 		} 
 		else {
+			System.out.println("\t\t\t\t  로그인 오류");
+
+			System.out.print("\t\t\t\t  다시 로그인 하시겠습니까?(y/n) : ");
 			System.out.println("\t\t\t\t\t\t\t\t\t\t로그인 오류");
 
 			System.out.print("\t\t\t\t\t\t\t\t\t다시 로그인 하시겠습니까?(y/n) : ");
@@ -143,6 +164,7 @@ public class login {
 
 			if (relogin.equals("y")) {
 
+				System.out.println("\t\t\t\t  다시 시작합니다.");
 				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 시작합니다.");
 				login();
 			} else if (relogin.equals("n")) {

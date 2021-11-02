@@ -113,7 +113,7 @@ public class LandInfo {
 		head("티켓요금");
 		
 		/* 티켓 요금 */ 
-		System.out.println("\t\t\t\t\t\t\t\t[종류]\t\t  [금액]\t\t\t[비고]");
+		System.out.println("\t\t\t\t\t\t\t\t[종류]\t\t  [금액]\t\t[비고]");
 
 		ticketInfo.stream().forEach(ticket -> {
 			System.out.printf("\t\t\t\t\t\t\t\t%s\t\t  %s\t\t%s\t\r\n"
@@ -125,7 +125,7 @@ public class LandInfo {
 		System.out.println();
 		
 		/* 할인 카드 정보 */
-		System.out.println("\t\t\t\t\t\t\t\t*[제휴카드]");
+		System.out.println("\t\t\t\t\t\t\t\t*[제휴카드]*");
 		cardInfo.stream().forEach(card -> {
 				System.out.printf("\t\t\t\t\t\t\t\t%s카드 : %.0f%% 할인\n"
 						, card.getName()
