@@ -18,7 +18,7 @@ import com.project.user.UserPage;
 public class login {
 
 	private static ArrayList<User> list;
-
+	public static String loginId;
 	
 	/**
 	 * 로그인 출력 메인 메소드입니다.
@@ -42,7 +42,7 @@ public class login {
 		//System.out.println("Dragon Land"); //임시
 		//System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", Main.getState());
 		Scanner login = new Scanner(System.in);
-		String loginId;
+		//String loginId;
 		String loginPw;
 
 		// 로그인 메뉴
@@ -55,17 +55,16 @@ public class login {
 		System.out.print("\t\t\t\t\t\t\t\t\t\t아이디: ");
 		loginId = login.nextLine();
 		
-
+		if (loginId.equalsIgnoreCase("b")) {
+			Main.main(null); //뒤로가기(메인메뉴)
+		}
 	
 		System.out.print("\t\t\t\t\t\t\t\t\t\t비밀번호: ");
 		loginPw = login.nextLine();
 		
 		
-		if (loginId.equalsIgnoreCase("b")) {
-			Main.main(null); //뒤로가기(메인메뉴)
-		}
 		
-		if (loginId.equalsIgnoreCase("b")) {
+		if (loginPw.equalsIgnoreCase("b")) {
 			Main.main(null); //뒤로가기(메인메뉴)
 		}
 		
