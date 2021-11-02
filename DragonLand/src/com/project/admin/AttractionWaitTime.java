@@ -31,25 +31,24 @@ public class AttractionWaitTime {
 		while(true) {
 			head("어트랙션 대기열 관리");
 			showList(page);
-			System.out.println("< 이전 페이지 | 다음 페이지 > ");
-			System.out.println("B. 뒤로 가기");
 			System.out.println();
 			
-			System.out.println("대기열을 수정할 어트랙션을 입력해주세요.");
-			System.out.print("👉 ");
+			System.out.println("\t\t\t\t\t\t\t\t\t대기열을 수정할 어트랙션을 입력해주세요.");
+			System.out.println("\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
+			System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 			String sel = sc.nextLine();
 			System.out.println();
 			
 			if(sel.equals("<")) {
 				if(page == 0) {
-					System.out.println("첫 페이지입니다.");
+					System.out.println("\t\t\t\t\t\t\t\t\t첫 페이지입니다.");
 					pause();
 				}
 				else page--;
 			}
 			else if(sel.equals(">")) {
 				if(page == endPage-1) {
-					System.out.println("마지막 페이지입니다.");
+					System.out.println("\t\t\t\t\t\t\t\t\t마지막 페이지입니다.");
 					pause();
 				}
 				else page++;
@@ -58,7 +57,7 @@ public class AttractionWaitTime {
 			else if(sel.compareTo("0") > 0 && sel.compareTo(attractions.size()+"") < 1) 
 				changeWaitTime(sel);
 			else {
-				System.out.println("올바른 번호를 입력해주세요.");
+				System.out.println("\t\t\t\t\t\t\t\t\t올바른 번호를 입력해주세요.");
 				pause();
 			}
 			System.out.println();
@@ -75,15 +74,17 @@ public class AttractionWaitTime {
 		
 		endPage = (attractions.size()/10 != 0 && attractions.size()%10 == 0) ? attractions.size()/10 : attractions.size()/10+1;		
 		
-		System.out.println("[번호]\t\t[어트랙션 목록]\t\t[대기시간]");
+		System.out.println("\t\t\t\t\t\t\t[번호]\t\t\t[어트랙션 목록]\t\t\t[대기시간]");
 		for(int i = page*10; i < (page != endPage-1 ? page*10+10 : attractions.size()); i++) {
-			System.out.printf("%d\t\t%s\t\t%s\n"
+			System.out.printf("\t\t\t\t\t\t\t%4d\t\t\t%s\t\t\t%7s\n"
 					, i+1
 					, attractions.get(i).getName()
 					, attractions.get(i).getWaitTime() + "분"
 			);
 		}
-		System.out.printf("%d / %d\n", page+1, endPage);
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.printf("\t\t\t\t\t< 이전페이지\t\t\t\t     %d / %d\t\t\t\t   다음 페이지 >\n", page+1, endPage);
+		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.println();
 	}
 	
@@ -97,15 +98,15 @@ public class AttractionWaitTime {
 		int index = Integer.parseInt(number) - 1;
 		
 		while(true) {
-			System.out.println("선택한 어트랙션의 대기 시간을 입력해주세요.");
-			System.out.print("👉 ");
+			System.out.println("\t\t\t\t\t\t\t\t\t선택한 어트랙션의 대기 시간을 입력해주세요.");
+			System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 			String time = sc.nextLine();
 			System.out.println();
 			
 			if(checkTime(time)) {
 				attractions.get(index).setWaitTime(time);
 				
-				System.out.printf("[%s]의 대기시간을 [%s분]으로 수정하였습니다.\n"
+				System.out.printf("\t\t\t\t\t\t\t\t\t[%s]의 대기시간을 [%s분]으로 수정하였습니다.\n"
 						, attractions.get(index).getName(), time);
 				
 				Save.saveAttraction(attractions);
@@ -113,8 +114,8 @@ public class AttractionWaitTime {
 				break;
 			}
 			else {
-				System.out.println("최대 120분까지 입력 가능합니다.");
-				System.out.println("다시 입력해주세요.");
+				System.out.println("\t\t\t\t\t\t\t\t\t최대 120분까지 입력 가능합니다.");
+				System.out.println("\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
 				System.out.println();
 			}
 		
@@ -149,16 +150,16 @@ public class AttractionWaitTime {
 	 * @param title 현재 페이지의 헤더 제목
 	 */
 	public void head(String title) {
-		System.out.println("================================");
-		System.out.printf("[%s]\r\n", title);
-		System.out.println("================================");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.printf("\t\t\t\t\t\t\t\t\t\t[%s]\r\n", title);
+		System.out.println("\t\t\t\t\t================================================================================================");
 	}
 	
 	/**
 	 * 사용자 입력으로 Enter를 받으면 목록으로 돌아가는 pause 기능의 메소드
 	 */
 	public void pause() {
-		System.out.println("(엔터를 누르면 목록으로 돌아갑니다.)");
+		System.out.println("\t\t\t\t\t\t\t\t\t(엔터를 누르면 목록으로 돌아갑니다.)");
 		sc.nextLine();
 	}
 	

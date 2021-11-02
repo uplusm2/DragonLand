@@ -23,11 +23,11 @@ public class LandInfoAdmin {
 		
 		while(true) {
 			head("놀이공원 정보 관리");
-			System.out.println("1. 어트랙션 ON/OFF 관리");
-			System.out.println("2. 어트랙션 대기열 관리");
-			System.out.println("3. 퍼레이드 정보 관리");
-			System.out.println("B. 뒤로 가기");
-			System.out.print("👉 ");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t1. 어트랙션 ON/OFF 관리");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t2. 어트랙션 대기열 관리");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t3. 퍼레이드 정보 관리");
+			System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
+			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 			String sel = sc.nextLine();
 			System.out.println();
 			
@@ -35,7 +35,7 @@ public class LandInfoAdmin {
 			else if(sel.equals("2")) aWaitTime.showAttractionWaitTime();
 			else if(sel.equals("3")) paradeAdmin.showParadeInfo();
 			else if(sel.equalsIgnoreCase("B")) break;
-			else System.out.println("다시 입력해주세요.");
+			else System.out.println("\t\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
 		}
 	}
 
@@ -44,9 +44,9 @@ public class LandInfoAdmin {
 	 * @param title 현재 페이지의 헤더 제목
 	 */
 	public void head(String title) {
-		System.out.println("================================");
-		System.out.printf("[%s]\r\n", title);
-		System.out.println("================================");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.printf("\t\t\t\t\t\t\t\t\t\t[%s]\r\n", title);
+		System.out.println("\t\t\t\t\t================================================================================================");
 	}
 	
 	

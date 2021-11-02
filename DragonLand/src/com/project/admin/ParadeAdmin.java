@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import com.project.data.Location;
 import com.project.data.Parade;
+import com.project.landinfo.LandInfo;
 import com.project.main.Load;
 import com.project.main.Save;
 
@@ -29,11 +30,11 @@ public class ParadeAdmin {
 		while(true) {
 			head("퍼레이드 정보 관리");
 			showParade();
-			System.out.println("1. 퍼레이드 이름 수정");
-			System.out.println("2. 퍼레이드 날짜 수정");
-			System.out.println("3. 퍼레이드 정보 수정");
-			System.out.println("B. 뒤로 가기");
-			System.out.print("👉 ");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t1. 퍼레이드 이름 수정");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t2. 퍼레이드 날짜 수정");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t3. 퍼레이드 정보 수정");
+			System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
+			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 			String sel = sc.nextLine();
 			System.out.println();
 			
@@ -42,7 +43,7 @@ public class ParadeAdmin {
 			else if(sel.equals("3")) changeContent();
 			else if(sel.equalsIgnoreCase("B")) break;
 			else {
-				System.out.println("다시 입력해주세요.");
+				System.out.println("\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
 				pause();
 			}
 		}
@@ -56,8 +57,8 @@ public class ParadeAdmin {
 		paradeInfo = Load.loadParade();
 		
 		paradeInfo.stream().forEach(parade -> {
-			System.out.println(parade.getTitle());
-			System.out.printf("(%s.%s.%s ~ %s.%s.%s)\n"
+			System.out.printf("\t\t\t\t\t\t\t\t\t\t%s\n",parade.getTitle());
+			System.out.printf("\t\t\t\t\t\t\t\t\t   (%s.%s.%s ~ %s.%s.%s)\n"
 					, parade.getStartDate().substring(0, 4)
 					, parade.getStartDate().substring(4, 6)
 					, parade.getStartDate().substring(6)
@@ -65,12 +66,12 @@ public class ParadeAdmin {
 					, parade.getEndData().substring(4, 6)
 					, parade.getEndData().substring(6)
 			);
-			System.out.println(parade.getContent());
-			System.out.printf("장소 : %s\r\n\n", getLocate(parade.getLocate()));
+			System.out.printf("\t\t\t\t\t\t\t\t\t%s\n",parade.getContent());
+			System.out.printf("\t\t\t\t\t\t\t\t\t📌장소 : %s\r\n\n", getLocate(parade.getLocate()));
 			
-			System.out.println("[회차]\t[시간]");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t[회차]\t[시간]");
 			for(int i = 0; i < parade.getTime().size(); i++)
-				System.out.printf("%s\t%s\r\n", (i+1)+"회" , parade.getTime().get(i));
+				System.out.printf("\t\t\t\t\t\t\t\t\t\t%3s\t%s\r\n", (i+1)+"회" , parade.getTime().get(i));
 			System.out.println();	
 		});
 	}
@@ -81,15 +82,15 @@ public class ParadeAdmin {
 	 */
 	private void changeTitle() throws Exception {
 		head("퍼레이드 이름 수정");
-		System.out.println("퍼레이드 이름 수정");
-		System.out.print("👉 ");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t퍼레이드 이름 수정");
+		System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 		String title = sc.nextLine();
 		System.out.println();
 		
 		paradeInfo.stream().forEach(parade -> parade.setTitle(title));
 		Save.saveParade(paradeInfo);
 		
-		System.out.println("퍼레이드 이름이 수정 되었습니다.");
+		System.out.println("\t\t\t\t\t\t\t\t\t퍼레이드 이름이 수정 되었습니다.");
 		System.out.println();
 		
 		pause();
@@ -101,15 +102,15 @@ public class ParadeAdmin {
 	 */
 	private void changeDate() throws Exception {
 		head("퍼레이드 날짜 수정");
-		System.out.println("퍼레이드 날짜 수정(YYYYMMDD)");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t퍼레이드 날짜 수정(YYYYMMDD)");
 		
 		while(true) {
-			System.out.print("시작일 👉 ");
+			System.out.print("\t\t\t\t\t\t\t\t\t\t시작일 👉 ");
 			String startDate = sc.nextLine();
 			
 			if(startDate.length() != 8) {
 				System.out.println();
-				System.out.println("올바른 형식으로 입력 바랍니다.");
+				System.out.println("\t\t\t\t\t\t\t\t\t\t올바른 형식으로 입력 바랍니다.");
 			}
 			else {
 				paradeInfo.stream().forEach(parade -> parade.setStartDate(startDate));
@@ -118,12 +119,12 @@ public class ParadeAdmin {
 		}
 		
 		while(true) {
-			System.out.print("종료일 👉 ");
+			System.out.print("\t\t\t\t\t\t\t\t\t\t종료일 👉 ");
 			String endDate = sc.nextLine();
 			
 			if(endDate.length() != 8) {
 				System.out.println();
-				System.out.println("올바른 형식으로 입력 바랍니다.");
+				System.out.println("\t\t\t\t\t\t\t\t\t\t올바른 형식으로 입력 바랍니다.");
 			}
 			else {
 				paradeInfo.stream().forEach(parade -> parade.setStartDate(endDate));
@@ -134,7 +135,7 @@ public class ParadeAdmin {
 			
 		Save.saveParade(paradeInfo);
 		
-		System.out.println("퍼레이드 날짜가 수정 되었습니다.");
+		System.out.println("\t\t\t\t\t\t\t\t\t퍼레이드 날짜가 수정 되었습니다.");
 		System.out.println();
 		
 		pause();
@@ -146,15 +147,15 @@ public class ParadeAdmin {
 	 */
 	private void changeContent() throws Exception {
 		head("퍼레이드 내용 수정");
-		System.out.println("퍼레이드 내용 수정");
-		System.out.print("👉 ");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t퍼레이드 내용 수정");
+		System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 		String content = sc.nextLine();
 		System.out.println();
 		
 		paradeInfo.stream().forEach(parade -> parade.setContent(content));
 		Save.saveParade(paradeInfo);
 		
-		System.out.println("퍼레이드 내용이 수정 되었습니다.");
+		System.out.println("\t\t\t\t\t\t\t\t\t퍼레이드 내용이 수정 되었습니다.");
 		System.out.println();
 		
 		pause();
@@ -166,16 +167,16 @@ public class ParadeAdmin {
 	 * @param title 현재 페이지의 헤더 제목
 	 */
 	public void head(String title) {
-		System.out.println("================================");
-		System.out.printf("[%s]\r\n", title);
-		System.out.println("================================");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.printf("\t\t\t\t\t\t\t\t\t\t[%s]\r\n", title);
+		System.out.println("\t\t\t\t\t================================================================================================");
 	}
 	
 	/**
 	 * 사용자 입력으로 Enter를 받으면 목록으로 돌아가는 pause 기능의 메소드
 	 */
 	public void pause() {
-		System.out.println("(엔터를 누르면 목록으로 돌아갑니다.)");
+		System.out.println("\t\t\t\t\t\t\t\t\t(엔터를 누르면 목록으로 돌아갑니다.)");
 		sc.nextLine();
 	}
 
