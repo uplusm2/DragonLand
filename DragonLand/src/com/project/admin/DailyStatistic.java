@@ -49,15 +49,16 @@ public class DailyStatistic {
 		year=c1.get(Calendar.YEAR);
 		month=c1.get(Calendar.MONTH)+1;
 		
-		System.out.println("===========================================================================");
-		System.out.printf("                              [%d월 현황]\n",month);
-		System.out.printf("                             인원: %,d명\n",Integer.parseInt(list2.get(list2.size()-1).getTotalCount()));
-		System.out.printf("                             매출: %,d원\n",Integer.parseInt(list2.get(list2.size()-1).getTotalPrice()));
-		System.out.println("===========================================================================");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.printf("\t\t\t\t\t\t\t\t\t\t[%d월 현황]\n",month);
+		System.out.printf("\t\t\t\t\t\t\t\t\t\t인원: %,d명\n",Integer.parseInt(list2.get(list2.size()-1).getTotalCount()));
+		System.out.printf("\t\t\t\t\t\t\t\t\t\t매출: %,d원\n",Integer.parseInt(list2.get(list2.size()-1).getTotalPrice()));
+		System.out.println("\t\t\t\t\t================================================================================================");
 		output(year,month); //달력
-		System.out.println("                             상세 확인할 날짜를 입력하세요.(YYMMDD)");
-		System.out.println("                             B.뒤로가기");
-		System.out.print("                             👉");
+		
+		System.out.println("\t\t\t\t\t\t\t\t\t\t상세 확인할 날짜를 입력하세요.(YYMMDD)");
+		System.out.println("\t\t\t\t\t\t\t\t\t\tB.뒤로가기");
+		System.out.print("\t\t\t\t\t\t\t\t\t\t👉");
 		input=scan.nextLine();
 		
 		
@@ -76,17 +77,17 @@ public class DailyStatistic {
 		for (int i=0;;i++) {
 			
 			if(input.equals(list.get(i).getDate().substring(2, 8))) {
-				System.out.println("                             인원  매출");
-				System.out.printf("                             성인: %s명   %,d원\n",list.get(i).getAdultCount(),Integer.parseInt(list.get(i).getAdultPrice()));
-				System.out.printf("                             청소년: %s명   %,d원\n",list.get(i).getYouthCount(),Integer.parseInt(list.get(i).getYouthPrice()));
-				System.out.printf("                             어린이: %s명   %,d원\n",list.get(i).getKidCount(),Integer.parseInt(list.get(i).getKidPrice()));
+				System.out.println("\t\t\t\t\t\t\t\t\t\t    인원          매출");
+				System.out.printf("\t\t\t\t\t\t\t\t\t\t%s: %5s명   %,d원\n","성인",list.get(i).getAdultCount(),Integer.parseInt(list.get(i).getAdultPrice()));
+				System.out.printf("\t\t\t\t\t\t\t\t\t\t청소년: %s명   %,d원\n",list.get(i).getYouthCount(),Integer.parseInt(list.get(i).getYouthPrice()));
+				System.out.printf("\t\t\t\t\t\t\t\t\t\t어린이: %s명   %,d원\n",list.get(i).getKidCount(),Integer.parseInt(list.get(i).getKidPrice()));
 				
 				break;
 			}
 			//잘못 입력 됐을 때 에러를 못고침
 		}
 		
-		System.out.println("                             다시 검색하고 싶으면 엔터를 누르세요.");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t다시 검색하고 싶으면 엔터를 누르세요.");
 		String re = scan.nextLine();
 		menu();
 		
@@ -107,12 +108,12 @@ public class DailyStatistic {
 		
 		//달력 형식으로 출력하기
 		System.out.println();
-		System.out.println("================================================================================");
-		System.out.printf("                             %d년 %d월\n", year, month);
-		System.out.println("=================================================================================");
-		System.out.println("[일]\t[월]\t[화]\t[수]\t[목]\t[금]\t[토]");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.printf("\t\t\t\t\t\t\t\t\t\t%d년 %d월\n", year, month);
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t[일]\t[월]\t[화]\t[수]\t[목]\t[금]\t[토]");
 		
-		
+		System.out.print("\t\t\t\t\t\t\t\t");
 		//1일이 무슨 요일 > 탭의 갯수
 		for (int i=0; i<day_of_week; i++) {
 			System.out.print("\t");
@@ -126,7 +127,9 @@ public class DailyStatistic {
 			//토요일 > 개행
 			//if (i % 7 == 4) {
 			if ((i + day_of_week) % 7 == 0) {
+				
 				System.out.println();
+				System.out.print("\t\t\t\t\t\t\t\t");
 			}
 		}
 		

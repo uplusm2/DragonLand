@@ -21,7 +21,7 @@ public class AdminMenu {
 		
 		while(loop) {
 			menu();
-			System.out.print("                              👉 ");
+			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 			String sel = scan.nextLine();
 			System.out.println();
 			
@@ -33,17 +33,20 @@ public class AdminMenu {
 			}else if(sel.equals("3")){	
 				
 				Research.menu();
-			}else {	
-				loop = false;
-			}	
+			}else if(sel.equalsIgnoreCase("B")) {	
+				LoginAdmin.login();
+			}else {
+				System.out.println("다시 키를 입력해주세요.");
+				statistic();
+			}
 		}
 	}
 
 	public static void menu() {
-		System.out.println("1. 당월 이용자현황");
-		System.out.println("2. 전체 이용자현황");
-		System.out.println("3. 설문 조사");
-		System.out.println("B. 뒤로가기");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t1. 당월 이용자현황");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t2. 전체 이용자현황");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t3. 설문 조사");
+		System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로가기");
 		
 		
 	}
