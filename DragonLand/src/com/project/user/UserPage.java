@@ -27,11 +27,11 @@ import com.project.user.*;
 				scan = new Scanner(System.in);
 			}
 
-		public static void main(String[] args) throws Exception {
-			
-			userpage();
-			
-		}
+//		public static void main(String[] args) throws Exception {
+//			
+//			userpage();
+//			
+//		}
 		public static void userpage() throws Exception {
 			
 			System.out.println("\t\t\t\t\t================================================================================================");
@@ -47,7 +47,7 @@ import com.project.user.*;
 				
 			//로그인한 유저의 정보를 nowuser 배열에 저장
 			for (int i=0; i<list.size(); i++) {
-				if (list.get(i).getId().equals("hoeh5640")) {
+				if (list.get(i).getId().equals(login.loginId)) {
 					nowuser.add(list.get(i));
 				}
 			}		
