@@ -30,13 +30,12 @@ public class Survey {
 
 
 	public static void main(String[] args) throws Exception {
-//		SurveyMain();
-		attractionVote();
-
+		SurveyMain();
 	}
 
 	/**
-	 * Survey main.
+	 * 설문조사 메인 페이지입니다
+	 * 선택하여 원하는 곳으로 들어갑니다.
 	 *
 	 * @throws Exception the exception
 	 */
@@ -48,9 +47,12 @@ public class Survey {
 		AdminMenu admin = new AdminMenu();
 		String survey;
 
+		System.out.println("\t\t\t\t\t====================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t[설문조사]");
+		System.out.println("\t\t\t\t\t====================================================================================");
 		while (loop) {
 			menu();
-			System.out.print("👉 ");
+			System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 			survey = scan.nextLine();
 			System.out.println();
 
@@ -76,16 +78,20 @@ public class Survey {
 
 		list = Load.loadUserVoice();
 		
-		System.out.println("              =============================");
-		System.out.println("                         고객의 소리");
-		System.out.println("              =============================\n");
-		System.out.println("              고객님의 의견을 자유롭게 들려주세요\n");
-		System.out.println("                  (b를 누르면 뒤로 이동합니다.)");
+		System.out.println("\t\t\t\t\t====================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t[고객의 소리]");
+		System.out.println("\t\t\t\t\t====================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t고객님의 의견을 자유롭게 들려주세요");
+		System.out.println("\t\t\t\t\t\t\t\t\t(b를 누르면 뒤로 이동합니다.)");
 		System.out.println();
 
-		System.out.print("👉 ");
+		System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 		String content = scan.nextLine();
-		System.out.println("-----------------------------------------------------");
+		if(content.equalsIgnoreCase("B")) {
+			SurveyMain();
+		}
+		System.out.println("\t\t\t\t\t====================================================================================");
+		System.out.println("\t\t\t\t\t====================================================================================");
 		System.out.println();
 
 		String seq = String.format("W%04d", list.size() + 1);
@@ -97,7 +103,7 @@ public class Survey {
 		list.add(uv);
 		Save.saveUserVoice(list);// 저장
 
-		System.out.println("소중한 의견 감사합니다");
+		System.out.println("\t\t\t\t\t\t\t\t\t 고객님의 소중한 의견 감사합니다");
 		pause();
 
 	}
@@ -119,15 +125,17 @@ public class Survey {
 		
 		while(loop) {
 	
-			System.out.println("====================================================================================");
-			System.out.println("\t\t\t\t[이 달의 어트랙션 순위]");
-			System.out.println("====================================================================================\n");
+			System.out.println("\t\t\t\t\t====================================================================================");
+			System.out.println("\t\t\t\t\t\t\t\t\t[이 달의 어트랙션 순위]");
+			System.out.println("\t\t\t\t\t====================================================================================\n");
 			
 			voteList();
 			
-			System.out.println("< 이전 페이지 | 다음페이지 >");
-			System.out.println("B.뒤로가기");
-			System.out.print("👉 ");
+			System.out.println("\t\t\t\t\t====================================================================================");
+			System.out.printf("\t\t\t\t\t< 이전 페이지 \t\t\t\t%d/%d\t\t\t\t 다음 페이지 >%n", page+1, attraction.size()/10+1);
+			System.out.println("\t\t\t\t\t====================================================================================");
+			System.out.println("\t\t\t\t\t\t\t\t\tB.뒤로가기");
+			System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 			vote = scan.nextLine();
 			
 			
@@ -177,6 +185,9 @@ public class Survey {
 		// 투표수로 정렬
 		attraction.sort(new Comparator<Attraction>() {
 
+			/**
+			 * 투표수 정렬 
+			 */
 			@Override
 			public int compare(Attraction o1, Attraction o2) {
 				return Integer.parseInt(o2.getVote()) - Integer.parseInt(o1.getVote());
@@ -186,12 +197,12 @@ public class Survey {
 		
 		
 		
-		System.out.printf("%s\t%s\t%s%n"
+		System.out.printf("\t\t\t\t\t\t%s\t\t\t%s\t\t\t%s%n"
 				,"순위","이름","득표수");
 		for(int i=page*10; i< page*10+10 && i< attraction.size(); i++) {		
 			
 
-			System.out.printf("%s위\t%s\t%s표\n"
+			System.out.printf("\t\t\t\t\t\t%s위\t\t\t%s\t\t\t%s표\n"
 					,i+1
 					,attraction.get(i).getName()
 					,attraction.get(i).getVote());
@@ -201,20 +212,23 @@ public class Survey {
 			}
 		}
 		
-		System.out.printf("\t\t\t\t\t%d/%d%n", page+1, attraction.size()/10+1);
+	
 		
 	}
 	
 	public static void menu() {
-		System.out.println("1. 이달의 어트랙션 추천");
-		System.out.println("2. 고객의 소리");
-		System.out.println("B. 뒤로가기");
+		System.out.println();
+		System.out.println("\t\t\t\t\t\t\t\t\t1. 이달의 어트랙션 추천");
+		System.out.println();
+		System.out.println("\t\t\t\t\t\t\t\t\t2. 고객의 소리");
+		System.out.println();
+		System.out.println("\t\t\t\t\t\t\t\t\tB. 뒤로가기");
 
 	}
 
 	public static void pause() throws Exception {
 		System.out.println();
-		System.out.println("(엔터를 누르면 메뉴로 이동합니다.)");
+		System.out.println("\t\t\t\t\t\t\t\t\t(엔터를 누르면 메뉴로 이동합니다.)");
 		scan.nextLine();
 		Main.main(null);
 	}
