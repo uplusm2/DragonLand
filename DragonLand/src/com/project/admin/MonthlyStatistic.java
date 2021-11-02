@@ -55,10 +55,10 @@ public class MonthlyStatistic {
 	 * @throws Exception
 	 */
 	public static void list() throws Exception {
-		System.out.println("=====================");
-		System.out.println(" [전체 이용자 현황]");
-		System.out.println("=====================");
-		System.out.printf("[날짜]\t[총인원] [성인]\t[청소년]  [어린이]  [총매출]\r\n");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t[전체 이용자 현황]");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.printf("\t\t\t\t\t[날짜]\t[총인원] [성인]\t[청소년]  [어린이]  [총매출]\r\n");
 		
 		
 		
@@ -68,16 +68,18 @@ public class MonthlyStatistic {
 			
 		
 			
-			System.out.printf("%s\t %s\t  %s\t  %s\t   %s\t   %s\r\n",mms.getDate(),mms.getTotalCount(),
-					mms.getAdultCount(),mms.getYouthCount(),mms.getKidCount(),mms.getTotalPrice());
+			System.out.printf("\t\t\t\t\t%s\t %s\t  %,d\t  %,d\t   %,d\t   %,d\r\n",mms.getDate(),Integer.parseInt(mms.getTotalCount()),
+					Integer.parseInt(mms.getAdultCount()),Integer.parseInt(mms.getYouthCount()),Integer.parseInt(mms.getKidCount()),Integer.parseInt(mms.getTotalPrice()));
 			
 			
 			
 		}
-		System.out.printf("          %d/%d\n",num,(ld.loadMonthlySales().size()-1)/10+1);
-		System.out.println("<.이전 페이지   다음 페이지.>");
-		System.out.println("B.뒤로가기");
-		System.out.print("👉");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.printf("\t\t\t\t\t< 이전페이지                                      %d/%d                                       다음 페이지 >\n",num,(ld.loadMonthlySales().size()-1)/10+1);
+		System.out.println("\t\t\t\t\t================================================================================================");
+		
+		System.out.println("\t\t\t\t\t\t\t\t\t\tB.뒤로가기");
+		System.out.print("\t\t\t\t\t\t\t\t\t\t👉");
 		String index = scan.nextLine();
 		if(index.equals(">")){
 			start+=10;
@@ -92,7 +94,7 @@ public class MonthlyStatistic {
 				num--;
 				list();
 			}else {
-				System.out.println("뒤로 갈곳이 없습니다.");
+				System.out.println("\t\t\t\t\t\t\t\t\t\t뒤로 갈곳이 없습니다.");
 				list();
 			}
 				
@@ -100,7 +102,7 @@ public class MonthlyStatistic {
 			am.statistic();
 			
 		}else {
-			System.out.println("다시 입력해주세요.");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
 			list();
 		}
 		
