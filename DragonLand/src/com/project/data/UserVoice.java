@@ -100,11 +100,12 @@ public class UserVoice {
 
 	/**
 	 * 고객의 소리 객체의 상태를 문자열로 반환합니다.
-
+	 */
 	/**
 	 * 회원의 상태를 문자열로 반환합니다.
 
 	 */
+	
 	@Override
 	public String toString() {
 		return "UserVoice [seq=" + seq + ", date=" + date + ", content=" + content + "]";

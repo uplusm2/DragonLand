@@ -31,12 +31,13 @@ public class AttractionOnOff {
 		while(true) {
 			head("어트랙션 ON/OFF 관리");
 			showList(page);
-			System.out.println("< 이전 페이지 | 다음 페이지 > ");
-			System.out.println("B. 뒤로 가기");
+			System.out.println("\t\t\t\t\t< 이전 페이지 | 다음 페이지 > ");
+			
 			System.out.println();
 			
 			System.out.println("ON/OFF 관리할 어트랙션 번호 입력");
 			System.out.println("(전체 ON시 : ON, 전체 OFF시 : OFF)");
+			System.out.println("B. 뒤로 가기");
 			System.out.print("👉 ");
 			String sel = sc.nextLine();
 			System.out.println();
@@ -78,15 +79,15 @@ public class AttractionOnOff {
 		
 		endPage = (attractions.size()/10 != 0 && attractions.size()%10 == 0) ? attractions.size()/10 : attractions.size()/10+1;		
 		
-		System.out.println("[번호]\t\t[어트랙션 목록]\t\t[운행 여부]");
+		System.out.println("\t\t\t\t\t[번호]\t\t[어트랙션 목록]\t\t[운행 여부]");
 		for(int i = page*10; i < (page != endPage-1 ? page*10+10 : attractions.size()); i++) {
-			System.out.printf("%d\t\t%s\t\t%s\n"
+			System.out.printf("\t\t\t\t\t%d\t\t%s\t\t%s\n"
 					, i+1
 					, attractions.get(i).getName()
 					, attractions.get(i).getOn().equals("T") ? "ON" : "OFF"
 			);
 		}
-		System.out.printf("%d / %d\n", page+1, endPage);
+		System.out.printf("\t\t\t\t\t%d / %d\n", page+1, endPage);
 		System.out.println();
 	}
 	
@@ -149,9 +150,9 @@ public class AttractionOnOff {
 	 * @param title 현재 페이지의 헤더 제목
 	 */
 	public void head(String title) {
-		System.out.println("================================");
-		System.out.printf("[%s]\r\n", title);
-		System.out.println("================================");
+		System.out.println("\t\t\t\t\t================================");
+		System.out.printf("\t\t\t\t\t[%s]\r\n", title);
+		System.out.println("\t\t\t\t\t================================");
 	}
 	
 	/**
