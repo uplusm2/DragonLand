@@ -51,11 +51,18 @@ public class FindUser {
 		System.out.println("\t\t\t      (b를 누르면 뒤로 이동합니다.)");
 
 		System.out.print("\t\t\t\t  이름: ");
+		System.out.println("\t\t\t\t\t====================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t[ID/PW 찾기]");
+		System.out.println("\t\t\t\t\t====================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t   (b를 누르면 뒤로 이동합니다.)");
+
+		System.out.print("\t\t\t\t\t\t\t\t\t\t이름: ");
 		findName = find.nextLine();
 		if (findName.equalsIgnoreCase("b")) {
 			Main.main(null);
 		}
 		System.out.print("\t\t\t\t  주민등록번호: ");
+		System.out.print("\t\t\t\t\t\t\t\t\t\t주민등록번호: ");
 		findJumin = find.nextLine();
 		if (findJumin.equalsIgnoreCase("b")) {
 			Main.main(null);
@@ -82,6 +89,10 @@ public class FindUser {
 			System.out.println("====================================================================================");
 			System.out.println("\t\t\t\t  아이디 : " + s.getId());
 			System.out.println("\t\t\t\t  비밀번호 : " + s.getPw());
+			System.out.println("\t\t\t\t\t\t\t\t\t\t"+findName+"님의 아이디와 비밀번호입니다.");
+			System.out.println("====================================================================================");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t아이디 : " + s.getId());
+			System.out.println("\t\t\t\t\t\t\t\t\t\t비밀번호 : " + s.getPw());
 			System.out.println();
 			break;
 		
@@ -93,6 +104,9 @@ public class FindUser {
 			System.out.println("\t\t\t\t  1.로그인하러가기");
 			System.out.println("\t\t\t\t  2.메뉴");
 			System.out.print("\t\t\t\t  👉 ");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t1.로그인하러가기");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t2.메뉴");
+			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 			
 			String choice = find.nextLine();
 			
@@ -113,6 +127,9 @@ public class FindUser {
 			System.out.println("\t\t\t\t  이름과 주민등록번호가 틀렸습니다.");
 
 			System.out.print("\t\t\t\t  다시 찾으시겠습니까?(y/n) : ");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t이름과 주민등록번호가 틀렸습니다.");
+
+			System.out.print("\t\t\t\t\t\t\t\t\t\t다시 찾으시겠습니까?(y/n) : ");
 			String reFind = find.nextLine();
 
 			if (reFind.equalsIgnoreCase("y")) {
@@ -126,6 +143,9 @@ public class FindUser {
 			System.out.println("\t\t\t\t  유효한 값이 아닙니다.");
 
 			System.out.print("\t\t\t\t  다시 찾으시겠습니까?(y/n) : ");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t유효한 값이 아닙니다.");
+
+			System.out.print("\t\t\t\t\t\t\t\t\t\t다시 찾으시겠습니까?(y/n) : ");
 			String reFind = find.nextLine();
 
 			if (reFind.equalsIgnoreCase("y")) {

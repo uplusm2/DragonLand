@@ -51,6 +51,13 @@ public class join {
 
 		while (check) {
 			System.out.print("\t\t\t    아이디(4자~12자):  ");
+		System.out.println("\t\t\t\t\t====================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t[회원가입]");
+		System.out.println("\t\t\t\t\t====================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t(b를 누르면 뒤로 이동합니다.)");
+
+		while (check) {
+			System.out.print("\t\t\t\t\t\t\t\t\t아이디(4자~12자):  ");
 
 			id = join.nextLine();
 			if (idCheck(id)) {
@@ -62,6 +69,7 @@ public class join {
 
 		while (check) {
 			System.out.print("\t\t\t    비밀번호: ");
+			System.out.print("\t\t\t\t\t\t\t\t\t비밀번호: ");
 			pw = join.nextLine();
 			if (pwCheck(pw)) {
 				continue;
@@ -72,6 +80,7 @@ public class join {
 
 		while (check) {
 			System.out.print("\t\t\t    비밀번호 확인: ");
+			System.out.print("\t\t\t\t\t\t\t\t\t비밀번호 확인: ");
 			pwCheck = join.nextLine();
 			if (pwSameCheck(pwCheck, pw)) {
 				continue;
@@ -81,6 +90,7 @@ public class join {
 		}
 		while (check) {
 			System.out.print("\t\t\t    이름: ");
+			System.out.print("\t\t\t\t\t\t\t\t\t이름: ");
 			name = join.nextLine();
 			if (nameCheck(name)) {
 				continue;
@@ -91,6 +101,7 @@ public class join {
 
 		while (check) {
 			System.out.print("\t\t\t    주민등록번호(-없이 13자리를 입력해주세요): ");
+			System.out.print("\t\t\t\t\t\t\t\t\t주민등록번호(-없이 13자리를 입력해주세요): ");
 			jumin = join.nextLine();
 			if (juminCheck(jumin)) {
 				continue;
@@ -100,6 +111,7 @@ public class join {
 		}
 		while (check) {
 			System.out.print("\t\t\t    주소: ");
+			System.out.print("\t\t\t\t\t\t\t\t\t주소: ");
 			address = join.nextLine();
 			if (addressCheck(address)) {
 				continue;
@@ -110,6 +122,7 @@ public class join {
 
 		while (check) {
 			System.out.print("\t\t\t    전화번호: ");
+			System.out.print("\t\t\t\t\t\t\t\t\t전화번호: ");
 			phoneNum = join.nextLine();
 			if (phoneCheck(phoneNum)) {
 				continue;
@@ -127,8 +140,17 @@ public class join {
 		System.out.println("\t\t\t    회원가입이 완료되었습니다!");
 		System.out.println("\t\t\t    엔터를 누르시면 메인메뉴로 이동합니다.");
 
+		System.out.println();
+		System.out.println("\t\t\t\t\t====================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t회원가입이 완료되었습니다!");
+		System.out.println("\t\t\t\t\t\t\t\t\t엔터를 누르시면 메인메뉴로 이동합니다.");
+		System.out.println("\t\t\t\t\t====================================================================================");
+		
+		pause();
+		
 	}
 
+	
 	/**
 	 * 아이디 유효성검사 메소드입니다
 	 * @param id 아이디
@@ -143,6 +165,7 @@ public class join {
 		for (User user : list) {
 			if (user.getId().equals(id)) {
 				System.out.println("\t\t\t    중복된 아이디 입니다.");
+				System.out.println("\t\t\t\t\t\t\t\t\t중복된 아이디 입니다.");
 				return true;
 			}
 		}
@@ -151,6 +174,7 @@ public class join {
 		// 4~12글자 제한
 		if (id.length() < 4 || id.length() > 12) {
 			System.out.println("\t\t\t    아이디는 4 ~ 12자로 입력해주세요.");
+			System.out.println("\t\t\t\t\t\t\t\t\t아이디는 4 ~ 12자로 입력해주세요.");
 			// 다시 입력받기
 			return true;
 		}
@@ -170,6 +194,7 @@ public class join {
 		// 4~12글자 제한
 		if (pw.length() < 4 || pw.length() > 12) {
 			System.out.println("\t\t\t    비밀번호는 4 ~ 12자리로 입력해주세요.");
+			System.out.println("\t\t\t\t\t\t\t\t\t비밀번호는 4 ~ 12자리로 입력해주세요.");
 
 			return true;
 		}
@@ -189,6 +214,7 @@ public class join {
 		// 4~12글자 제한
 		if (!pwCheck.equals(pw)) {
 			System.out.println("\t\t\t    입력하신 비밀번호와 다릅니다.");
+			System.out.println("\t\t\t\t\t\t\t\t\t입력하신 비밀번호와 다릅니다.");
 
 			return true;
 		}
@@ -210,6 +236,7 @@ public class join {
 
 		if (n == true) {
 			System.out.println("\t\t\t    이름은 한글로만 입력해주세요");
+			System.out.println("\t\t\t\t\t\t\t\t\t이름은 한글로만 입력해주세요");
 		}
 
 		return n;
@@ -240,6 +267,7 @@ public class join {
 		if (result == jumin.charAt(12) - '0') {
 			if (jumin.length() > 13) {
 				System.out.println("\t\t\t    주민번호는 13자 이내로 입력해주세요");
+				System.out.println("\t\t\t\t\t\t\t\t\t주민번호는 13자 이내로 입력해주세요");
 
 				return true;
 			}
@@ -247,6 +275,7 @@ public class join {
 
 		} else {
 			System.out.println("\t\t\t    올바르지않는 주민등록번호입니다");
+			System.out.println("\t\t\t\t\t\t\t\t\t올바르지않는 주민등록번호입니다");
 			return true;
 		}
 
@@ -277,10 +306,19 @@ public class join {
 		// 30자 이내
 		if (address.length() > 31) {
 			System.out.println("\t\t\t    주소는 30자 이내로 입력해주세요");
+			System.out.println("\t\t\t\t\t\t\t\t\t주소는 30자 이내로 입력해주세요");
 
 			return true;
 		}
 
 		return false;
 	}
+	
+	public static void pause() throws Exception {
+		Scanner join = new Scanner(System.in);
+		System.out.println();
+		join.nextLine();
+		Main.main(null);
+	}
+
 }
