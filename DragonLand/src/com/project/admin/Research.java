@@ -110,7 +110,7 @@ public class Research {
 			
 		}
 		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.printf("\t\t\t\t\t< 이전 페이지                                %d/%d                                다음 페이지 >\n",num,(list2.size()-1)/10+1);
+		System.out.printf("\t\t\t\t\t< 이전 페이지                                %d/%d                                 다음 페이지 >\n",num,(list2.size()-1)/10+1);
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.println("\t\t\t\t\t\t\t\t\t\tB.뒤로가기");
 		System.out.print("\t\t\t\t\t\t\t\t\t\t👉");
