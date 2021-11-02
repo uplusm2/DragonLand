@@ -26,12 +26,15 @@ public class UserTicketReservation {
 	private static HashMap<String, Integer> map;
 	
 	static {
-		userNum = "U0001"; //TODO 로그인 회원 정보로 수정
+		userNum = UserPage.nowuser.get(0).getSeq(); //TODO 로그인 회원 정보로 수정, UserPage에서 쓴 거 받아왔어요.
 		scan = new Scanner(System.in);
 		today = Calendar.getInstance();
 		map = new HashMap<String, Integer>(3);
 	}
 
+	public static void main(String[] args) throws Exception {
+		reserve();
+	}
 	/**
 	 * 티켓의 예매를 진행합니다.
 	 * @param args
@@ -44,12 +47,12 @@ public class UserTicketReservation {
 			select();
 			pay();
 			
-			TicketReservation t = new TicketReservation(String.format("T%tF0001", today).replace("-", "").replace("T2021", "T21")
+			TicketReservation t = new TicketReservation(String.format("T%tF0001", today).replace("-", "") 
 					, 2021 + date //선택한 티켓 날짜
 					, String.valueOf(map.get("성인"))
 					, String.valueOf(map.get("청소년"))
 					, String.valueOf(map.get("어린이"))
-					, String.valueOf(cardNum)
+					, String.format("C%03d", cardNum) //TODO 카드번호 입력 수정
 					, String.valueOf(totalPrice)
 					, userNum);
 			reservationList.add(t);
@@ -60,7 +63,6 @@ public class UserTicketReservation {
 		}
 		
 		pause();
-		UserPage.userpage(); //UserPage로
 		
 	}//TODO reserve
 	
@@ -142,17 +144,23 @@ public class UserTicketReservation {
 		System.out.println("\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
 		System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 		date = scan.nextLine();
+		if(date.equalsIgnoreCase("B")) {
+			UserPage.userpage();
+		}
 		System.out.println();
 		
 	}//menu
 	
 	/**
 	 * 엔터를 누르기 전까지 화면 이동을 멈춥니다.
+	 * @throws Exception 
 	 */
-	public static void pause() {
+	public static void pause() throws Exception {
 		System.out.println();
 		System.out.println("\t\t\t\t\t\t\t\t\t(엔터를 누르면 메뉴로 이동합니다.)");
 		scan.nextLine();
+		scan.nextLine();
+		UserPage.userpage();
 	}//pause
 	
 	/**
