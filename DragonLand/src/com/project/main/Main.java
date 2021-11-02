@@ -86,33 +86,7 @@ public class Main {
 									+ Integer.parseInt(r.getYouthCount())
 									+ Integer.parseInt(r.getKidCount()));
 		
-		
-		try {
-			//티켓예매정보.txt 파일 참조
-			BufferedReader reader = new BufferedReader(new FileReader(Path.ticketReservation));
-			
-			//오늘 날짜 YYYYMMDD 형태로 String 변수에 저장
-			
-			//혼잡도 비교를 위한 변수
-			int total = 0;
-
-			//파일 한 줄씩 읽으며 오늘 날짜와 예매일이 일치하면 total에 인원수 추가
-			String line = null;
-			while ((line = reader.readLine()) != null) {
-				String[] temp = line.split("■");
-				if(temp[1].equals(today)) {
-					total += Integer.parseInt(temp[2]);
-					total += Integer.parseInt(temp[3]);
-					total += Integer.parseInt(temp[4]);
-				}
-			}
-			reader.close();
-			//500을 기준으로 혼잡도 return
 			return total < 500 ? "쾌적" : "혼잡";
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
 	}
 
 	/**
