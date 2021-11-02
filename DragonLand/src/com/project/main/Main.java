@@ -3,12 +3,12 @@ package com.project.main;
 import java.io.*;
 import java.util.*;
 
-import com.project.admin.LoginAdmin;
+import com.project.admin.*;
 import com.project.data.*;
-import com.project.findUser.FindUser;
-import com.project.join.join;
-import com.project.landinfo.LandInfo;
-import com.project.login.login;
+import com.project.findUser.*;
+import com.project.join.*;
+import com.project.landinfo.*;
+import com.project.login.*;
 
 /**
  * Main 클래스입니다.
@@ -18,10 +18,13 @@ public class Main {
 	private static Scanner scan;
 	private static LoginAdmin lg;
 	private static LandInfo landinfo;
+	private static Calendar c;
+	
 	static {
 		scan = new Scanner(System.in);
 		lg=new LoginAdmin();
 		landinfo = new LandInfo();
+		c = Calendar.getInstance();
 	}
 	
 	/**
@@ -29,34 +32,37 @@ public class Main {
 	 * @param args
 	 * @throws Exception
 	 */
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		
 		System.out.println("Dragon Land"); //임시
 
 		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", getState());
-		
 		boolean loop = true;
-		while(loop) {
-			menu();
-			System.out.print("👉 ");
-			String sel = scan.nextLine();
-			System.out.println();
-			
-			if(sel.equals("1")) {		
-				//LandInfo.menu();
-				landinfo.menu();
-			}else if(sel.equals("2")){	
-				login.login();
-			}else if(sel.equals("3")){	
-				join.Join();
-			}else if(sel.equals("4")){	
-				FindUser.findeUser();
-			}else if(sel.equals("5")){	
-				loop = false;
-			}else {
-				System.out.println("다시 입력해주세요.");
-				pause();
+		try {
+			while(loop) {
+				menu();
+				System.out.print("👉 ");
+				String sel = scan.nextLine();
+				System.out.println();
+				
+				if(sel.equals("1")) {		
+					//LandInfo.menu();
+					landinfo.menu();
+				}else if(sel.equals("2")){	
+					login.login();
+				}else if(sel.equals("3")){	
+					join.Join();
+				}else if(sel.equals("4")){	
+					FindUser.findeUser();
+				}else if(sel.equals("5")){	
+					loop = false;
+				}else {
+					System.out.println("다시 입력해주세요.");
+					pause();
+				}
 			}
+		} catch (Exception e) {
+			System.out.println("잘못된 입력입니다.");
 		}
 	}
 
@@ -65,12 +71,13 @@ public class Main {
 	 * @return
 	 */
 	public static String getState() {
+		
+		
 		try {
 			//티켓예매정보.txt 파일 참조
 			BufferedReader reader = new BufferedReader(new FileReader(Path.ticketReservation));
 			
 			//오늘 날짜 YYYYMMDD 형태로 String 변수에 저장
-			Calendar c = Calendar.getInstance();
 			String today = String.format("%tF", c).replace("-", "");
 			
 			//혼잡도 비교를 위한 변수
