@@ -215,7 +215,9 @@ import com.test.java.file.MyPath;
 		
 			if(!nowuserattraction.isEmpty()) {
 			
+				System.out.println("\t\t\t\t\t\t\t\t[번호]\t[날짜]\t\t[시간]  [놀이기구]  [예약 인원]");
 			for (int i=0; i<nowuserattraction.size(); i++) {
+				System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t %s\t%s\t\t%s\r\n"
 				System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]     [시간]  [놀이기구]  [예약 인원]");
 				System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t%s\t%s      %s\r\n"
 														  , i+1
@@ -241,7 +243,9 @@ import com.test.java.file.MyPath;
 				System.out.println("\t\t\t\t\t\t\t\t\t\t[예약 어트랙션]");
 				System.out.println("\t\t\t\t\t================================================================================================");
 			
+				System.out.println("\t\t\t\t\t\t\t\t[번호]\t[날짜]\t\t[시간]  [놀이기구]  [예약 인원]");
 				for (int i=0; i<nowuserattraction.size(); i++) {
+					System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t %s\t%s\t\t%s\r\n"
 					System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]     [시간]  [놀이기구]  [예약 인원]");
 					System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t%s\t%s      %s\r\n"
 															  , i+1
@@ -630,7 +634,3 @@ import com.test.java.file.MyPath;
 		}
 		
 	}//UserPage
-
-
-	
-
