@@ -3,17 +3,12 @@ package com.project.landinfo;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.*;
 
 import com.project.data.Attraction;
 import com.project.data.Location;
 import com.project.main.Load;
-
-enum Type{
-	가족, 게임, 공포, 관람, 스릴, 어린이, 연인
-}
 
 /**
  * AttractionInfo 클래스입니다.
@@ -22,6 +17,10 @@ enum Type{
  *
  */
 public class AttractionInfo {
+	
+	public enum Type {
+		가족, 게임, 공포, 관람, 스릴, 어린이, 연인
+	}
 
 	private static Scanner sc = new Scanner(System.in);
 	private static int page;
@@ -125,10 +124,6 @@ public class AttractionInfo {
 		
 		System.out.println("\t\t\t\t\t[번호]\t\t[이름]\t\t\t[분류]\t[탑승인원]\t[운행시간]\t[위치]");
 		for(int i = page*10; i < (page != endPage-1 ? page*10+10 : list.size()); i++) {
-
-			//System.out.printf("\t\t\t\t\t%4d\t\t%-13s\t%3s\t%5s\t\t%s\t%s\n"
-
-			//System.out.printf("\t\t\t\t\t%4d\t\t%-13s\t%3s\t%5s\t\t%s\t%s\n"
 			System.out.printf("\t\t\t\t\t%4d\t\t%-15s\t%3s\t\t%5s\t\t%s\t%s\n"
 
 					, i+1
