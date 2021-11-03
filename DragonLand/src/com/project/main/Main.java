@@ -69,7 +69,8 @@ public class Main {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			main(args);
+			//e.printStackTrace();
 			//System.out.println("\t\t\t\t\t\t\t\t\t잘못된 입력입니다.");
 		}
 	}
