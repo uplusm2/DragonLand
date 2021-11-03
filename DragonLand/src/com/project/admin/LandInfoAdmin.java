@@ -23,11 +23,11 @@ public class LandInfoAdmin {
 		
 		while(true) {
 			head("놀이공원 정보 관리");
-			System.out.println("\t\t\t\t\t\t\t\t\t1. 어트랙션 ON/OFF 관리");
-			System.out.println("\t\t\t\t\t\t\t\t\t2. 어트랙션 대기열 관리");
-			System.out.println("\t\t\t\t\t\t\t\t\t3. 퍼레이드 정보 관리");
-			System.out.println("\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
-			System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t1. 어트랙션 ON/OFF 관리");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t2. 어트랙션 대기열 관리");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t3. 퍼레이드 정보 관리");
+			System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
+			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 			String sel = sc.nextLine();
 			System.out.println();
 			

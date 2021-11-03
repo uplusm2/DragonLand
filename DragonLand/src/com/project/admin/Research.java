@@ -105,7 +105,7 @@ public class Research {
 		for(int i=startVoice;i<endVoice;i++) {
 			list2 = Load.loadUserVoice();
 			
-			System.out.printf("\t\t\t\t\t\t\t %d.\t\t[%s/%s/%s]\t%s\n",i+1,list2.get(list2.size()-1-i).getDate().substring(2, 4),list2.get(list2.size()-1-i).getDate().substring(4,6)
+			System.out.printf("\t\t\t\t\t\t\t %3d\t\t[%s/%s/%s]\t%s\n",i+1,list2.get(list2.size()-1-i).getDate().substring(2, 4),list2.get(list2.size()-1-i).getDate().substring(4,6)
 					,list2.get(list2.size()-1-i).getDate().substring(6),list2.get(list2.size()-1-i).getContent());
 			
 		}
