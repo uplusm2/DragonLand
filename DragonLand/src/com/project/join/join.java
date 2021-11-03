@@ -123,7 +123,10 @@ public class join {
 			break;
 		}
 
-		String seq = String.format("U%03d", list.size() + 1);
+		list = Load.loadUser();
+		User lastSeq = list.get((list.size()-1));
+
+		String seq = String.format("U%03d", Integer.parseInt(lastSeq.getSeq().substring(1))+1);
 
 		User u = new User(seq, id, pw, name, jumin, phoneNum, address, false);
 		list.add(u);
