@@ -55,7 +55,7 @@ public class Employee {
 				if(page != 0) {
 					page--;
 				} else {
-					System.out.println("이전 페이지가 없습니다.");
+					System.out.println("\t\t\t\t\t\t\t\t이전 페이지가 없습니다.");
 					pause();
 				}
 			}else if(sel.equals(">")){	
@@ -63,11 +63,11 @@ public class Employee {
 				if(page != list.size()/10) {
 					page++;
 				} else {
-					System.out.println("다음 페이지가 없습니다.");
+					System.out.println("\t\t\t\t\t\t\t\t다음 페이지가 없습니다.");
 					pause();
 				}
 			}else {
-				System.out.println("다시 입력해주세요.");
+				System.out.println("\t\t\t\t\t\t\t\t다시 입력해주세요.");
 				pause();
 			}
 		}
