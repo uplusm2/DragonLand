@@ -163,7 +163,7 @@ public class Survey {
 				page++;
 				
 			} else {
-				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
+				System.out.println("\t\t\t\t\t\t\t\t\t\t추천이 완료되었습니다!!");
 				//attractionVote();
 			}
 
@@ -213,7 +213,7 @@ public class Survey {
 				Save.saveAttraction(attraction);
 			}
 		}
-		System.out.println("\t\t\t\t\t\t\t\t\t투표가 완료되었습니다!");
+		//System.out.println("\t\t\t\t\t\t\t\t\t투표가 완료되었습니다!");
 	}
 
 
