@@ -21,6 +21,7 @@ import com.test.java.file.MyPath;
 			private static ArrayList<User> nowuser;
 			private static ArrayList<TicketReservation> ticketr;
 			private static ArrayList<TicketReservation> nowuserticket;
+			private static ArrayList<TicketReservation> nowusertickettoday;
 			private static ArrayList<AttractionReservation> attractionr;
 			private static ArrayList<AttractionReservation> nowuserattraction;
 			
@@ -44,6 +45,7 @@ import com.test.java.file.MyPath;
 			attractionr = Load.loadAttractionReservation();
 			nowuser = new ArrayList<User>();
 			nowuserticket = new ArrayList<TicketReservation>();
+			nowusertickettoday = new ArrayList<TicketReservation>();
 			nowuserattraction = new ArrayList<AttractionReservation>();
 				
 			//로그인한 유저의 정보를 nowuser 배열에 저장
@@ -66,7 +68,15 @@ import com.test.java.file.MyPath;
 					nowuserattraction.add(attractionr.get(i));
 				}
 			}
-
+			
+			//로그인한 유저의 오늘티켓정보를 nowusertickettoday 배열에 저장
+			for (int i=0; i<ticketr.size(); i++) {
+				if (ticketr.get(i).getUserNum().equals(nowuser.get(0).getSeq()) && isToday(ticketr.get(i).getDate())) {
+					
+					nowusertickettoday.add(ticketr.get(i));
+						
+				}
+			}
 			
 			boolean loop = true;
 			while(loop) {
@@ -628,6 +638,19 @@ import com.test.java.file.MyPath;
 			Save.saveUser(list);
 
 		}
+		
+		public static boolean isToday(String date) {
+			Calendar now = Calendar.getInstance();
+			boolean today = true;
+			
+			if(!date.substring(0, 4).equals(now.get(Calendar.YEAR) + "")) today = false;
+			if(!date.substring(4, 6).equals(now.get(Calendar.MONTH) + 1 +"")) today = false;
+			if(!date.substring(6, 8).equals(now.get(Calendar.DATE) < 10 ? "0"+now.get(Calendar.DATE) : now.get(Calendar.DATE)+""))
+				today = false;
+			
+			return today;
+		}
+		
 		
 	}//UserPage
 
