@@ -10,7 +10,6 @@ import com.project.login.login;
 import com.project.main.Load;
 import com.project.main.Save;
 import com.project.user.*;
-import com.test.java.file.MyPath;
 
 
 
@@ -18,14 +17,16 @@ import com.test.java.file.MyPath;
 
 			private static Scanner scan;
 			private static ArrayList<User> list;
-			private static ArrayList<User> nowuser;
+			static ArrayList<User> nowuser;
 			private static ArrayList<TicketReservation> ticketr;
 			private static ArrayList<TicketReservation> nowuserticket;
 			private static ArrayList<AttractionReservation> attractionr;
 			private static ArrayList<AttractionReservation> nowuserattraction;
+			private static UserAttractionReservation userAttractionReservation;
 			
 			static {
 				scan = new Scanner(System.in);
+				userAttractionReservation = new UserAttractionReservation();
 			}
 
 //		public static void main(String[] args) throws Exception {
@@ -82,7 +83,7 @@ import com.test.java.file.MyPath;
 					UserTicketReservation.reserve();
 					
 				}else if(sel.equals("3")){	
-					attractionreservation();
+					userAttractionReservation.menu();
 					
 				}else if(sel.equals("4")){	
 					Survey.SurveyMain();
@@ -215,11 +216,11 @@ import com.test.java.file.MyPath;
 		
 			if(!nowuserattraction.isEmpty()) {
 			
-				System.out.println("\t\t\t\t\t\t\t\t[번호]\t[날짜]\t\t[시간]  [놀이기구]  [예약 인원]");
+				System.out.println("\t\t\t\t\t\t\t[번호]\t\t[날짜]\t\t[시간]  [놀이기구]  [예약 인원]");
 			for (int i=0; i<nowuserattraction.size(); i++) {
-				System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t %s\t%s\t\t%s\r\n"
-				System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]     [시간]  [놀이기구]  [예약 인원]");
-				System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t%s\t%s      %s\r\n"
+				//System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t %s\t%s\t\t%s\r\n"
+				//System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]       [시간]  [놀이기구]  [예약 인원]");
+				System.out.printf("\t\t\t\t\t\t\t%d\t\t%s\t  %s:00\t%s         %s\r\n"
 														  , i+1
 														  ,	nowuserattraction.get(i).getDate().substring(0,4) + "-" + 
 															nowuserattraction.get(i).getDate().substring(4,6) + "-" + 
@@ -245,7 +246,7 @@ import com.test.java.file.MyPath;
 			
 				System.out.println("\t\t\t\t\t\t\t\t[번호]\t[날짜]\t\t[시간]  [놀이기구]  [예약 인원]");
 				for (int i=0; i<nowuserattraction.size(); i++) {
-					System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t %s\t%s\t\t%s\r\n"
+				//	System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t %s\t%s\t\t%s\r\n"
 					System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]     [시간]  [놀이기구]  [예약 인원]");
 					System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t%s\t%s      %s\r\n"
 															  , i+1
@@ -303,9 +304,9 @@ import com.test.java.file.MyPath;
 		
 		if(!nowuserticket.isEmpty()) {
 			
-			System.out.println("\t\t\t\t\t\t\t\t[번호]\t[날짜]\t\t[매수]\t\t\t\t[금액]");
+			System.out.println("\t\t\t\t\t\t\t[번호]\t\t[날짜]\t\t[매수]\t\t\t\t[금액]");
 			for (int i=0; i<nowuserticket.size(); i++) {
-				System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t[성인 %s매/청소년 %s매/유아 %s매]\t%s\r\n"
+				System.out.printf("\t\t\t\t\t\t\t%3d\t\t%s\t[성인 %s매/청소년 %s매/유아 %s매]\t%s\r\n"
 														  , i+1
 														  ,	nowuserticket.get(i).getDate().substring(0,4) + "-" + 
 															nowuserticket.get(i).getDate().substring(4,6) + "-" + 
@@ -513,17 +514,22 @@ import com.test.java.file.MyPath;
 		
 				System.out.println("\t\t\t\t\t\t\t\t\t회원 탈퇴를 진행합니다.");
 				System.out.println("\t\t\t\t\t\t\t\t\t회원 비밀번호를 입력해주세요.");
-				System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
+				System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 				String input = scan.nextLine();
-		
+				System.out.println();
+				
 				if (input.equals(nowuser.get(0).getPw())) {
-						System.out.println("\t\t\t\t\t\t\t\t\t회원 탈퇴시에는 사용자의 모든 정보가 삭제됩니다.");
+						
+					System.out.println("\t\t\t\t\t\t\t\t\t회원 탈퇴시에는 사용자의 모든 정보가 삭제됩니다.");
 						System.out.println("\t\t\t\t\t\t\t\t\t정말로 탈퇴에 동의하시겠습니까? (Y/N)");
-						System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
+						System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 						String input2 = scan.nextLine();
+						System.out.println();
 					if (input2.equalsIgnoreCase("Y")) {
 							userdelete();
-							System.out.println("\t\t\t\t\t\t\t\t\t회원 탈퇴가 정상적으로 처리되었습니다. 이용해 주셔서 감사합니다.");
+							System.out.println("\t\t\t\t\t\t\t\t\t회원 탈퇴가 정상적으로 처리되었습니다.");
+							System.out.println("\t\t\t\t\t\t\t\t\t이용해 주셔서 감사합니다.");
+							System.out.println();
 							System.out.println("\t\t\t\t\t\t\t\t\t엔터를 누르면 로그인 창으로 이동합니다.");
 							scan.nextLine();
 							login.login();

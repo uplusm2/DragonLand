@@ -60,6 +60,7 @@ public class DailyStatistic {
 		System.out.println("\t\t\t\t\t\t\t\t\t\tB.뒤로가기");
 		System.out.print("\t\t\t\t\t\t\t\t\t\t👉");
 		input=scan.nextLine();
+		System.out.println();
 		
 		
 		Calendar startDay = Calendar.getInstance();
@@ -107,10 +108,10 @@ public class DailyStatistic {
 		day_of_week = getDayOfWeek(year, month);
 		
 		//달력 형식으로 출력하기
-		System.out.println();
-		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.printf("\t\t\t\t\t\t\t\t\t\t%d년 %d월\n", year, month);
-		System.out.println("\t\t\t\t\t================================================================================================");
+//		System.out.println();
+//		System.out.println("\t\t\t\t\t================================================================================================");
+//		System.out.printf("\t\t\t\t\t\t\t\t\t\t%d년 %d월\n", year, month);
+//		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.println("\t\t\t\t\t\t\t\t[일]\t[월]\t[화]\t[수]\t[목]\t[금]\t[토]");
 		
 		System.out.print("\t\t\t\t\t\t\t\t");

@@ -61,7 +61,7 @@ public class Survey {
 			} else if (survey.equals("2")) {
 				userVoice(); // 고객의 소리
 			} else if (survey.equalsIgnoreCase("b")) {
-				admin.menu(); // 관리자 메뉴로
+				UserPage.userpage(); // 관리자 메뉴로
 			} else {
 				loop = false;
 			}
@@ -80,14 +80,14 @@ public class Survey {
 
 		System.out.println(
 				"\t\t\t\t\t================================================================================================");
-		System.out.println("\t\t\t\t\t\t\t\t\t\t\t[고객의 소리]");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t[고객의 소리]");
 		System.out.println(
 				"\t\t\t\t\t================================================================================================");
-		System.out.println("\t\t\t\t\t\t\t\t\t\t  고객님의 의견을 자유롭게 들려주세요");
-		System.out.println("\t\t\t\t\t\t\t\t\t\t   (b를 누르면 뒤로 이동합니다.)");
+		System.out.println("\t\t\t\t\t\t\t\t\t고객님의 의견을 자유롭게 들려주세요");
+		System.out.println("\t\t\t\t\t\t\t\t\t(b를 누르면 뒤로 이동합니다.)");
 		System.out.println();
 
-		System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
+		System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 		String content = scan.nextLine();
 		if (content.equalsIgnoreCase("B")) {
 			SurveyMain();
@@ -107,7 +107,7 @@ public class Survey {
 		list.add(uv);
 		Save.saveUserVoice(list);// 저장
 
-		System.out.println("\t\t\t\t\t\t\t\t\t\t 고객님의 소중한 의견 감사합니다");
+		System.out.println("\t\t\t\t\t\t\t\t\t고객님의 소중한 의견 감사합니다");
 		pause();
 
 	}
@@ -126,7 +126,7 @@ public class Survey {
 
 			System.out.println(
 					"\t\t\t\t\t================================================================================================");
-			System.out.println("\t\t\t\t\t\t\t\t\t\t[어트랙션을 추천해주세요]");
+			System.out.println("\t\t\t\t\t\t\t\t\t[어트랙션을 추천해주세요]");
 			System.out.println(
 					"\t\t\t\t\t================================================================================================");
 
@@ -134,15 +134,15 @@ public class Survey {
 
 			System.out.println(
 					"\t\t\t\t\t================================================================================================");
-			System.out.printf("\t\t\t\t\t< 이전 페이지 \t\t\t\t\t%d/%d\t\t\t\t     다음 페이지 >%n", page + 1,
+			System.out.printf("\t\t\t\t\t< 이전 페이지 \t\t\t\t\t%d/%d\t\t\t\t   다음 페이지 >%n", page + 1,
 					attraction.size() / 10);
 			System.out.println(
 					"\t\t\t\t\t================================================================================================");
-			System.out.println("\t\t\t\t\t\t\t\t\t\t추천하고싶으신 놀이기구 번호를 선택해주세요");
-			System.out.println("\t\t\t\t\t\t\t\t\t\tB.뒤로가기");
+			System.out.println("\t\t\t\t\t\t\t\t\t추천하고싶으신 놀이기구 번호를 선택해주세요");
+			System.out.println("\t\t\t\t\t\t\t\t\tB.뒤로가기");
 
 			VoteAttraction();
-			pause();
+			//pause();
 
 			if (vote.equalsIgnoreCase("B")) {
 				// 뒤로 가기
@@ -152,6 +152,7 @@ public class Survey {
 				if (page != 0) {
 
 					page--;
+					
 				} else {
 					System.out.println("\t\t\t\t\t\t\t\t\t\t이전 페이지가 없습니다.");
 					voteList();
@@ -160,9 +161,10 @@ public class Survey {
 				// 다음 페이지
 
 				page++;
+				
 			} else {
 				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
-
+				//attractionVote();
 			}
 
 		}
@@ -178,16 +180,17 @@ public class Survey {
 
 		attraction = Load.loadAttraction();
 
-		System.out.println("\t\t\t\t\t\t\t\t\t[번호]\t\t\t\t[이름]"); // 헤드
+		System.out.println("\t\t\t\t\t\t\t\t  [번호]\t\t\t[이름]"); // 헤드
 		for (int i = page * 10; i < page * 10 + 10 && i < attraction.size(); i++) {
 
-			System.out.printf("\t\t\t\t\t\t\t\t\t%s\t\t\t\t%-13s\n", attraction.get(i).getSeq(),
+			System.out.printf("\t\t\t\t\t\t\t\t   %s\t\t\t\t%-13s\n", attraction.get(i).getSeq(),
 					attraction.get(i).getName(), attraction.get(i).getVote());
 
 			if (page >= attraction.size() / 10 + 1) {
 
 			}
 		}
+		
 
 	}
 
@@ -196,7 +199,7 @@ public class Survey {
 		Attraction atData = new Attraction();
 		attraction = Load.loadAttraction();
 
-		System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
+		System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 		vote = scan.nextLine();
 
 
@@ -210,23 +213,21 @@ public class Survey {
 				Save.saveAttraction(attraction);
 			}
 		}
+		System.out.println("\t\t\t\t\t\t\t\t\t투표가 완료되었습니다!");
 	}
 
 
 
 	public static void menu() {
-		System.out.println();
 		System.out.println("\t\t\t\t\t\t\t\t\t\t1. 이달의 어트랙션 추천");
-		System.out.println();
 		System.out.println("\t\t\t\t\t\t\t\t\t\t2. 고객의 소리");
-		System.out.println();
 		System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로가기");
 
 	}
 
 	public static void pause() throws Exception {
 		System.out.println();
-		System.out.println("\t\t\t\t\t\t\t\t\t\t(엔터를 누르면 메뉴로 이동합니다.)");
+		System.out.println("\t\t\t\t\t\t\t\t\t(엔터를 누르면 메뉴로 이동합니다.)");
 		scan.nextLine();
 		Main.main(null);
 	}

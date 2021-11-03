@@ -78,9 +78,9 @@ public class FindUser {
 			
 			if (s.getName().equals(findName) && s.getJumin().equals(findJumin)) {
 			
-			System.out.println("====================================================================================");
-			System.out.println("\t\t\t\t\t\t\t\t\t\t"+findName+"님의 아이디와 비밀번호입니다.");
-			System.out.println("====================================================================================");
+			System.out.println("\t\t\t\t\t================================================================================================");
+			System.out.println("\t\t\t\t\t\t\t\t\t"+findName+"님의 아이디와 비밀번호입니다.");
+			System.out.println("\t\t\t\t\t================================================================================================");
 			System.out.println("\t\t\t\t\t\t\t\t\t\t아이디 : " + s.getId());
 			System.out.println("\t\t\t\t\t\t\t\t\t\t비밀번호 : " + s.getPw());
 			System.out.println();

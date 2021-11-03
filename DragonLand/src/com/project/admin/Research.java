@@ -101,7 +101,7 @@ public class Research {
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.println("\t\t\t\t\t\t\t\t\t\t[고객의 소리]");
 		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.println("\t\t\t\t\t\t\t[번호]\t\t [날짜]\t\t[내용]");
+		System.out.println("\t\t\t\t\t\t\t[번호]\t\t[날짜]\t\t[내용]");
 		for(int i=startVoice;i<endVoice;i++) {
 			list2 = Load.loadUserVoice();
 			
@@ -161,7 +161,7 @@ public class Research {
 		System.out.println("\t\t\t\t\t\t[순위]\t\t\t[어트랙션]\t\t\t\t [표]");
 		for(int i=startRanking;i<endRanking;i++) {
 						
-			System.out.printf("\t\t\t\t\t\t  %s위\t\t\t%-13s\t\t\t%s표\n"
+			System.out.printf("\t\t\t\t\t\t%3s위\t\t\t%-13s\t\t\t%s표\n"
 		               ,i+1
 		               ,list2.get(i).getName()
 		               ,list2.get(i).getVote());
