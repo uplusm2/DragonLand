@@ -115,7 +115,7 @@ public class UserAttractionReservation {
 				else page++;
 			}
 			else if(sel.equalsIgnoreCase("B")) return;
-			else if(sel.compareTo("0") > 0 && sel.compareTo(list.size()+"") < 1) 
+			else if(Integer.parseInt(sel) > 0 && Integer.parseInt(sel) <= list.size() )
 				selectTime(sel);
 			else {
 				System.out.println("\t\t\t\t\t\t\t\t\t올바른 번호를 입력해주세요.");
@@ -145,7 +145,8 @@ public class UserAttractionReservation {
 			System.out.println();
 			
 			if(inputTimeNum.equalsIgnoreCase("B")) break;
-			else if(inputTimeNum.compareTo("0") > 0 && inputTimeNum.compareTo(availdTime.size()+"") < 1) {
+			
+			else if(Integer.parseInt(inputTimeNum) > 0 && Integer.parseInt(inputTimeNum) <= availdTime.size()) {
 				// 예약 로직
 				// 1. 이미 내 예약 상황에 해당 날짜, 해당 시간에 예약이 있을 경우 error
 				// 2. 만약 선택한 번호의 reserveCnt가 다 차있으면 error
@@ -160,20 +161,17 @@ public class UserAttractionReservation {
 				if(isExistTime(selectTime)) {
 					System.out.println("\t\t\t\t\t\t\t\t\t이미 해당 시간에 예약 정보가 존재합니다.");
 					pause();
-					break;
 				}
 				
-				if(remainSeat == 0) {
+				else if(remainSeat == 0) {
 					System.out.println("\t\t\t\t\t\t\t\t\t예약 인원이 꽉 차 예약이 불가합니다.");
 					pause();
-					break;
 				}
 				else 
 					reserve();
 			}
 			else {
 				System.out.println("\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
-				System.out.printf("\t\t\t\t\t\t\t\t\t왜 안될까? %s ", inputTimeNum);
 				pause();
 			}
 			
@@ -185,7 +183,8 @@ public class UserAttractionReservation {
 	
 	public void reserve() throws Exception {
 		while(true) {
-			System.out.printf("\t\t\t\t\t\t\t예약 인원을 선택해주세요. (가능한 인원 수 : %s명)\n", getMyTicketReserveCnt());
+			System.out.printf("\t\t\t\t\t\t\t\t\t예약 인원을 선택해주세요.\n");
+			System.out.printf("\t\t\t\t\t\t\t\t\t(가능한 인원 수 : %s명)\n", getMyTicketReserveCnt());
 			System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 			String inputReserveCnt = sc.nextLine();
 			System.out.println();
@@ -217,23 +216,20 @@ public class UserAttractionReservation {
 							, inputReserveCnt
 							, getUserSeq());
 				
-				System.out.println(r);
+				//SAVE 로직
+				reserveList.add(r);
+				Save.saveAttractionReservation(reserveList);
+				
 				System.out.println("\t\t\t\t\t\t\t\t\t예약이 완료되었습니다.");
 				pause();
 				break;
-				
-				//SAVE 로직
-//				reserveList.add(r);
-//				Save.saveAttractionReservation(reserveList);
-				
 			}
 		}
-		
 	}
 	
 	/**
 	 * 예약 가능한 시간 목록을 보여줍니다.
-	 * @param number
+	 * @param number 선택한 어트랙션 번호
 	 * @throws Exception
 	 */
 	public void showTimeTable(String number) throws Exception {
@@ -241,14 +237,17 @@ public class UserAttractionReservation {
 		selectAttraction = list.get(Integer.parseInt(number) - 1);
 		
 		head(String.format("%s 예약", selectAttraction.getName()));
+		System.out.println("\t\t\t\t\t\t\t[번호]\t\t\t[예약 가능 시간]\t\t[예약 현황]");
 		
 		for(int i = 0; i < availdTime.size(); i++) {
-			System.out.printf("\t\t\t\t\t\t\t\t\t%d. %s (%d/ %s)\n"
+			System.out.printf("\t\t\t\t\t\t\t%4d\t\t\t%10s\t\t\t  %d / %s\n"
 					, i+1
 					, availdTime.get(i) + ":00"
 					, getReserveCnt(availdTime.get(i), selectAttraction.getSeq())
 					, selectAttraction.getCapacity());
 		}
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.println();
 	}
 	
 	/**
@@ -319,11 +318,40 @@ public class UserAttractionReservation {
 	 * @throws Exception
 	 */
 	public String getReserveSeq(String selectTime, String attractionSeq) throws Exception {
-		String reserveSeq = "R" + getToday().substring(2) + selectTime + getLastOrder(selectTime, attractionSeq);
+		
+		// 예약순번 생성
+		int iOrder = getLastOrder(selectTime, attractionSeq);
+		String sOrder = "";
+		
+		if(iOrder < 10) sOrder = "00"+ iOrder;
+		else if(iOrder < 100) sOrder = "0"+ iOrder;
+		else sOrder = iOrder + "";
+		
+		// 예약번호 생성
+		String reserveSeq = "R" + getToday().substring(2) + selectTime + sOrder;
 		
 		return reserveSeq;
 	}
 	
+	/**
+	 * 선택한 어트랙션의 예약 희망 시간 마지막 예약 순번을 반환하는 메소드
+	 * @param selectHour
+	 * @param selectAttraction
+	 * @return
+	 * @throws Exception
+	 */
+	public int getLastOrder(String selectHour, String selectAttraction) throws Exception {
+		reserveList = Load.loadAttractionReservation();
+		
+		int lastOrder = 1;
+		for(AttractionReservation list : reserveList) {
+			if(isToday(list.getDate())
+					&& list.getHour().equals(selectHour) 
+					&& list.getAttractionNum().equals(selectAttraction))
+				lastOrder++;
+		}
+		return lastOrder;
+	}
 
 	/**
 	 * 선택한 타입의 어트랙션 대기열을 1페이지씩 보여줍니다.
@@ -360,11 +388,10 @@ public class UserAttractionReservation {
 		// 현재시간 추출
 		Calendar now = Calendar.getInstance();
 		ArrayList<String> list = new ArrayList();
-		int availdHour = now.get(Calendar.HOUR) + 1;
+		int availdHour = now.get(Calendar.HOUR_OF_DAY) + 1;
 		
 		// 예약 가능한 시간 리스트 생성
 		for(int i = availdHour; i < 22; i++)
-//		for(int i = 9; i < 22; i++)
 			list.add(i < 10 ? "0"+i : ""+i);
 		
 		return list;
@@ -391,25 +418,7 @@ public class UserAttractionReservation {
 		return totalReserve;
 	}
 	
-	/**
-	 * 선택한 어트랙션의 예약 희망 시간 마지막 예약 순번을 반환하는 메소드
-	 * @param selectHour
-	 * @param selectAttraction
-	 * @return
-	 * @throws Exception
-	 */
-	public int getLastOrder(String selectHour, String selectAttraction) throws Exception {
-		reserveList = Load.loadAttractionReservation();
-		
-		int lastOrder = 1;
-		for(AttractionReservation list : reserveList) {
-			if(isToday(list.getDate())
-					&& list.getHour().equals(selectHour) 
-					&& list.getAttractionNum().equals(selectAttraction))
-				lastOrder++;
-		}
-		return lastOrder;
-	}
+
 	
 	/**
 	 * 유저가 선택한 시간대에 다른 예약 어트랙션이 있는지 확인하는 메소드
