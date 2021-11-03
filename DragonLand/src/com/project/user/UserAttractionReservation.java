@@ -363,8 +363,8 @@ public class UserAttractionReservation {
 		int availdHour = now.get(Calendar.HOUR) + 1;
 		
 		// 예약 가능한 시간 리스트 생성
-//		for(int i = availdHour; i < 22; i++)
-		for(int i = 9; i < 22; i++)
+		for(int i = availdHour; i < 22; i++)
+//		for(int i = 9; i < 22; i++)
 			list.add(i < 10 ? "0"+i : ""+i);
 		
 		return list;
