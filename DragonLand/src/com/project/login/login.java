@@ -7,6 +7,7 @@ import com.project.admin.LoginAdmin;
 import com.project.data.*;
 import com.project.main.Load;
 import com.project.main.Main;
+import com.project.user.UserPage;
 
 
 /**
@@ -17,7 +18,7 @@ import com.project.main.Main;
 public class login {
 
 	private static ArrayList<User> list;
-
+	public static String loginId;
 	
 	/**
 	 * 로그인 출력 메인 메소드입니다.
@@ -38,33 +39,32 @@ public class login {
 	 */
 	public static void login() throws Exception {
 
-//		System.out.println("Dragon Land"); //임시
-//		System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", Main.getState());
+		//System.out.println("Dragon Land"); //임시
+		//System.out.printf("🎈오늘 용용랜드는 %s합니다.🎈%n%n", Main.getState());
 		Scanner login = new Scanner(System.in);
-		String loginId;
+		//String loginId;
 		String loginPw;
 
 		// 로그인 메뉴
 
-		System.out.println("              =============================");
-		System.out.println("                           로그인");
-		System.out.println("              =============================");
-		System.out.println("                  (b를 누르면 뒤로 이동합니다.)");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t[로그인]");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t(B를 누르면 뒤로 이동합니다.)");
 
-		System.out.print("                         아이디: ");
+		System.out.print("\t\t\t\t\t\t\t\t\t\t아이디: ");
 		loginId = login.nextLine();
-		
-
-	
-		System.out.print("                        비밀번호: ");
-		loginPw = login.nextLine();
-		
 		
 		if (loginId.equalsIgnoreCase("b")) {
 			Main.main(null); //뒤로가기(메인메뉴)
 		}
+	
+		System.out.print("\t\t\t\t\t\t\t\t\t\t비밀번호: ");
+		loginPw = login.nextLine();
 		
-		if (loginId.equalsIgnoreCase("b")) {
+		
+		
+		if (loginPw.equalsIgnoreCase("b")) {
 			Main.main(null); //뒤로가기(메인메뉴)
 		}
 		
@@ -80,22 +80,23 @@ public class login {
 
 		
 			// 로그인 확인 후 메뉴 출력
-			Main.main(null); // 회원 페이지 이동 
+			UserPage.userpage(); // 회원 페이지 이동 
+			
 
 			// 2번 비밀번호 틀림
 		} else if (loginCheck == 2) {
 
 			// 아이디 O 비밀번호 X
-			System.out.println("비밀번호가 틀렸습니다.");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t비밀번호가 틀렸습니다.");
 
-			System.out.print("다시 로그인 하시겠습니까?(y/n) : ");
+			System.out.print("\t\t\t\t\t\t\t\t\t다시 로그인 하시겠습니까?(Y/N) : ");
 			String relogin = login.nextLine();
 
-			if (relogin.equals("y")) {
+			if (relogin.equalsIgnoreCase("y")) {
 
-				System.out.println("다시 시작합니다.");
+				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 시작합니다.\r");
 				login();
-			} else if (relogin.equals("n")) {
+			} else if (relogin.equalsIgnoreCase("n")) {
 				Main.main(null);
 			}
 
@@ -103,16 +104,16 @@ public class login {
 		} else if (loginCheck == 3) {
 
 			// 아이디 X 비밀번호 O
-			System.out.println("아이디가 틀렸습니다.");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t아이디가 틀렸습니다.");
 
-			System.out.print("다시 로그인 하시겠습니까?(y/n) : ");
+			System.out.print("\t\t\t\t\t\t\t\t\t다시 로그인 하시겠습니까?(Y/N) : ");
 			String relogin = login.nextLine();
 
-			if (relogin.equals("y")) {
+			if (relogin.equalsIgnoreCase("y")) {
 
-				System.out.println("다시 시작합니다.");
+				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 시작합니다.\r");
 				login();
-			} else if (relogin.equals("n")) {
+			} else if (relogin.equalsIgnoreCase("n")) {
 				Main.main(null);
 			}
 
@@ -120,32 +121,32 @@ public class login {
 		} else if (loginCheck == 4) {
 
 			// 아이디 X 비밀번호 X
-			System.out.println("아이디와 비밀번호 모두 틀렸습니다.");
+			System.out.println("\t\t\t\t\t\t\t\t\t아이디와 비밀번호 모두 틀렸습니다.");
 
-			System.out.print("다시 로그인 하시겠습니까?(y/n) : ");
+			System.out.print("\t\t\t\t\t\t\t\t\t다시 로그인 하시겠습니까?(Y/N) : ");
 			String relogin = login.nextLine();
 
-			if (relogin.equals("y")) {
-
-				System.out.println("다시 시작합니다.");
+			if (relogin.equalsIgnoreCase("y")) {
+				
+				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 시작합니다.\r");
 				login();
-			} else if (relogin.equals("n")) {
+			} else if (relogin.equalsIgnoreCase("n")) {
 				Main.main(null);
 			}
 			
 			
 		} 
 		else {
-			System.out.println("로그인 오류");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t로그인 오류");
 
-			System.out.print("다시 로그인 하시겠습니까?(y/n) : ");
+			System.out.print("\t\t\t\t\t\t\t\t\t다시 로그인 하시겠습니까?(y/n) : ");
 			String relogin = login.nextLine();
 
-			if (relogin.equals("y")) {
+			if (relogin.equalsIgnoreCase("y")) {
 
-				System.out.println("다시 시작합니다.");
+				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 시작합니다.\r");
 				login();
-			} else if (relogin.equals("n")) {
+			} else if (relogin.equalsIgnoreCase("n")) {
 				Main.main(null);
 			}
 		}

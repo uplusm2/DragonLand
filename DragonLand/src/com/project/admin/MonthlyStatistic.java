@@ -21,33 +21,19 @@ public class MonthlyStatistic {
 	private static int start;
 	private static int end;
 	private static int num;
-	private static Load ld;
-	private static MonthlySales mms;
-	private static AdminMenu am;
+	private static ArrayList<MonthlySales> list;
 	
 	static {
 		scan = new Scanner(System.in);
 		start =0;
 		end=10;
 		num=1;
-		am=new AdminMenu();
-		mms = new MonthlySales();
-		
 	}
 	
 	public static void statistic() throws Exception {
-		
-			
-			
-		
-		
-		
+	
 			list();
-			
-			
-		
-		
-		
+	
 	}
 	
 	/**
@@ -55,29 +41,30 @@ public class MonthlyStatistic {
 	 * @throws Exception
 	 */
 	public static void list() throws Exception {
-		System.out.println("=====================");
-		System.out.println(" [전체 이용자 현황]");
-		System.out.println("=====================");
-		System.out.printf("[날짜]\t[총인원] [성인]\t[청소년]  [어린이]  [총매출]\r\n");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t[전체 이용자 현황]");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.printf("\t\t\t\t\t\t\t\t[날짜]\t[총인원] [성인]\t[청소년]  [어린이]   [총매출]\r\n");
 		
 		
+		list=Load.loadMonthlySales();
 		
-		
-		for(int i=start;i<end&&i<ld.loadMonthlySales().size();i++) {
-			mms=(MonthlySales) ld.loadMonthlySales().get(i);
+		for(int i=start;i<end&&i<list.size();i++) {
 			
-		
 			
-			System.out.printf("%s\t %s\t  %s\t  %s\t   %s\t   %s\r\n",mms.getDate(),mms.getTotalCount(),
-					mms.getAdultCount(),mms.getYouthCount(),mms.getKidCount(),mms.getTotalPrice());
+			System.out.printf("\t\t\t\t\t\t\t\t%s\t %,d\t  %,d\t  %,d\t   %,d    %,d\r\n",list.get(list.size()-1-i).getDate(),Integer.parseInt(list.get(list.size()-1-i).getTotalCount()),
+					Integer.parseInt(list.get(list.size()-1-i).getAdultCount()),Integer.parseInt(list.get(list.size()-1-i).getYouthCount())
+					,Integer.parseInt(list.get(list.size()-1-i).getKidCount()),Integer.parseInt(list.get(list.size()-1-i).getTotalPrice()));
 			
 			
 			
 		}
-		System.out.printf("          %d/%d\n",num,(ld.loadMonthlySales().size()-1)/10+1);
-		System.out.println("<.이전 페이지   다음 페이지.>");
-		System.out.println("B.뒤로가기");
-		System.out.print("👉");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.printf("\t\t\t\t\t< 이전페이지                                    %d/%d                                다음 페이지 >\n",num,(list.size()-1)/10+1);
+		System.out.println("\t\t\t\t\t================================================================================================");
+		
+		System.out.println("\t\t\t\t\t\t\t\t\t\tB.뒤로가기");
+		System.out.print("\t\t\t\t\t\t\t\t\t\t👉");
 		String index = scan.nextLine();
 		if(index.equals(">")){
 			start+=10;
@@ -92,15 +79,15 @@ public class MonthlyStatistic {
 				num--;
 				list();
 			}else {
-				System.out.println("뒤로 갈곳이 없습니다.");
+				System.out.println("\t\t\t\t\t\t\t\t\t\t뒤로 갈곳이 없습니다.");
 				list();
 			}
 				
 		}else if(index.equals("b")||index.equals("B")) {
-			am.statistic();
+			AdminMenu.statistic();
 			
 		}else {
-			System.out.println("다시 입력해주세요.");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
 			list();
 		}
 		

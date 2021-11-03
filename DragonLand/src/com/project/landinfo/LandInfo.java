@@ -64,9 +64,10 @@ public class LandInfo {
 			System.out.printf("\t\t\t\t\t\t\t\t\t%s\n",parade.getContent());
 			System.out.printf("\t\t\t\t\t\t\t\t\t📌장소 : %s\r\n\n", getLocate(parade.getLocate()));
 			
-			System.out.println("\t\t\t\t\t\t\t\t\t\t[회차]\t[시간]");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t[회차]--[시간]");
 			for(int i = 0; i < parade.getTime().size(); i++)
-				System.out.printf("\t\t\t\t\t\t\t\t\t\t%3s\t%s\r\n", (i+1)+"회" , parade.getTime().get(i));
+				System.out.printf("\t\t\t\t\t\t\t\t\t\t|%3s\t%s |\r\n", (i+1)+"회" , parade.getTime().get(i));
+			System.out.println("\t\t\t\t\t\t\t\t\t\t -------------");
 			System.out.println();	
 		});
 		
@@ -113,7 +114,7 @@ public class LandInfo {
 		head("티켓요금");
 		
 		/* 티켓 요금 */ 
-		System.out.println("\t\t\t\t\t\t\t\t[종류]\t\t  [금액]\t\t\t[비고]");
+		System.out.println("\t\t\t\t\t\t\t\t[종류]\t\t  [금액]\t\t[비고]");
 
 		ticketInfo.stream().forEach(ticket -> {
 			System.out.printf("\t\t\t\t\t\t\t\t%s\t\t  %s\t\t%s\t\r\n"
@@ -125,14 +126,15 @@ public class LandInfo {
 		System.out.println();
 		
 		/* 할인 카드 정보 */
-		System.out.println("\t\t\t\t\t\t\t\t*[제휴카드]");
+		System.out.println("\t\t\t\t\t\t\t\t\t  ---- *[제휴카드]* --- ");
 		cardInfo.stream().forEach(card -> {
-				System.out.printf("\t\t\t\t\t\t\t\t%s카드 : %.0f%% 할인\n"
+				System.out.printf("\t\t\t\t\t\t\t\t\t | %s카드 : %.0f%% 할인 |\n"
 						, card.getName()
 						,(1 - Double.parseDouble(card.getDiscount()))*100
 				);
 			}
 		);
+		System.out.println("\t\t\t\t\t\t\t\t\t  ---------------------");
 		System.out.println();
 		
 		pageBack();
@@ -161,14 +163,16 @@ public class LandInfo {
 	 * 사용자 입력으로 'B'를 받으면 이전 메뉴로 돌아가는 기능의 메소드
 	 */
 	public void pageBack() {
+		
 		while(true) {
+			
 			System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
 			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 			String sel = sc.nextLine();
 			System.out.println();
 			
 			if(sel.equalsIgnoreCase("B")) break;
-			else System.out.println("\t\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
+			else System.out.println("\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
 			System.out.println();
 		}
 	}

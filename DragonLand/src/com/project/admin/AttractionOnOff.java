@@ -31,27 +31,25 @@ public class AttractionOnOff {
 		while(true) {
 			head("어트랙션 ON/OFF 관리");
 			showList(page);
-			System.out.println("\t\t\t\t\t< 이전 페이지 | 다음 페이지 > ");
-			
 			System.out.println();
 			
-			System.out.println("ON/OFF 관리할 어트랙션 번호 입력");
-			System.out.println("(전체 ON시 : ON, 전체 OFF시 : OFF)");
-			System.out.println("B. 뒤로 가기");
-			System.out.print("👉 ");
+			System.out.println("\t\t\t\t\t\t\t\t\tON/OFF 관리할 어트랙션 번호 입력");
+			System.out.println("\t\t\t\t\t\t\t\t\t(전체 ON시 : ON, 전체 OFF시 : OFF)");
+			System.out.println("\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
+			System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 			String sel = sc.nextLine();
 			System.out.println();
 			
 			if(sel.equals("<")) {
 				if(page == 0) {
-					System.out.println("첫 페이지입니다.");
+					System.out.println("\t\t\t\t\t\t\t\t\t첫 페이지입니다.");
 					pause();
 				}
 				else page--;
 			}
 			else if(sel.equals(">")) {
 				if(page == endPage-1) {
-					System.out.println("마지막 페이지입니다.");
+					System.out.println("\t\t\t\t\t\t\t\t\t마지막 페이지입니다.");
 					pause();
 				}
 				else page++;
@@ -62,7 +60,7 @@ public class AttractionOnOff {
 			else if(sel.compareTo("0") > 0 && sel.compareTo(attractions.size()+"") < 1) 
 				changeOnOff(sel);
 			else {
-				System.out.println("다시 입력해주세요.");
+				System.out.println("\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
 				pause();
 			}
 			System.out.println();
@@ -79,15 +77,17 @@ public class AttractionOnOff {
 		
 		endPage = (attractions.size()/10 != 0 && attractions.size()%10 == 0) ? attractions.size()/10 : attractions.size()/10+1;		
 		
-		System.out.println("\t\t\t\t\t[번호]\t\t[어트랙션 목록]\t\t[운행 여부]");
+		System.out.println("\t\t\t\t\t\t\t[번호]\t\t\t[어트랙션 목록]\t\t\t[운행 여부]");
 		for(int i = page*10; i < (page != endPage-1 ? page*10+10 : attractions.size()); i++) {
-			System.out.printf("\t\t\t\t\t%d\t\t%s\t\t%s\n"
+			System.out.printf("\t\t\t\t\t\t\t%4d\t\t\t%-13s\t\t%7s\n"
 					, i+1
 					, attractions.get(i).getName()
 					, attractions.get(i).getOn().equals("T") ? "ON" : "OFF"
 			);
 		}
-		System.out.printf("\t\t\t\t\t%d / %d\n", page+1, endPage);
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.printf("\t\t\t\t\t< 이전페이지\t\t\t\t     %d / %d\t\t\t\t   다음 페이지 >\n", page+1, endPage);
+		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.println();
 	}
 	
@@ -102,28 +102,28 @@ public class AttractionOnOff {
 		int index = Integer.parseInt(number) - 1;
 		boolean state = attractions.get(index).getOn().equals("T") ? true : false;
 		
-		System.out.printf("입력하신 [%s]를 %s 하시겠습니까?(Y/N)\n"
+		System.out.printf("\t\t\t\t\t\t\t\t\t입력하신 [%s]를 %s 하시겠습니까?(Y/N)\n"
 				, attractions.get(index).getName(), state ? "OFF" : "ON" );
 			
 		while(true) {
-			System.out.print("👉 ");
+			System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 			String sel = sc.nextLine();
 			System.out.println();
 			
 			if(sel.equalsIgnoreCase("Y")) {
 				attractions.get(index).setOn(!state ? "T" : "F");
-				System.out.printf("[%s]를 %s 하였습니다.\n", attractions.get(index).getName(), !state ? "ON" : "OFF");
+				System.out.printf("\t\t\t\t\t\t\t\t\t[%s]를 %s 하였습니다.\n", attractions.get(index).getName(), !state ? "ON" : "OFF");
 				
 				Save.saveAttraction(attractions);
 				pause();
 				break;
 			}
 			else if(sel.equalsIgnoreCase("N")) {
-				System.out.println("변경을 취소합니다.");
+				System.out.println("\t\t\t\t\t\t\t\t\t변경을 취소합니다.");
 				pause();
 				break;
 			}
-			else System.out.println("다시 입력해주세요.");
+			else System.out.println("\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
 		}
 	}
 	
@@ -140,7 +140,7 @@ public class AttractionOnOff {
 		else if(change.equalsIgnoreCase("OFF"))
 			attractions.stream().forEach(attraction -> attraction.setOn("F"));
 		
-		System.out.printf("전체 어트랙션을 %s 하였습니다.\n", change.equalsIgnoreCase("ON") ? "ON" : "OFF");
+		System.out.printf("\t\t\t\t\t\t\t\t\t전체 어트랙션을 %s 하였습니다.\n", change.equalsIgnoreCase("ON") ? "ON" : "OFF");
 		Save.saveAttraction(attractions);
 		pause();
 	}
@@ -150,16 +150,16 @@ public class AttractionOnOff {
 	 * @param title 현재 페이지의 헤더 제목
 	 */
 	public void head(String title) {
-		System.out.println("\t\t\t\t\t================================");
-		System.out.printf("\t\t\t\t\t[%s]\r\n", title);
-		System.out.println("\t\t\t\t\t================================");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.printf("\t\t\t\t\t\t\t\t\t\t[%s]\r\n", title);
+		System.out.println("\t\t\t\t\t================================================================================================");
 	}
 	
 	/**
 	 * 사용자 입력으로 Enter를 받으면 목록으로 돌아가는 pause 기능의 메소드
 	 */
 	public void pause() {
-		System.out.println("(엔터를 누르면 목록으로 돌아갑니다.)");
+		System.out.println("\t\t\t\t\t\t\t\t\t(엔터를 누르면 목록으로 돌아갑니다.)");
 		sc.nextLine();
 	}
 	

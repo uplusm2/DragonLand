@@ -26,15 +26,15 @@ public class LoginAdmin {
 		while(loop) {
 			menu();
 			
-			System.out.print("\t\t\t\t\t\t\t\t\t\t 👉 ");
+			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 			String sel = scan.nextLine();
 			System.out.println();
 			
 			if(sel.equals("1")) {		
-				UserManagement.main(null);
+				UserManagement.manage();
 			}else if(sel.equals("2")){	
 				//직원관리
-				Employee.main(null);
+				Employee.manage();
 			}else if(sel.equals("3")){	
 				//어트랙션 관리
 				lda.menu();
@@ -55,10 +55,10 @@ public class LoginAdmin {
 	 * 관리자 메뉴
 	 */
 	public static void menu() {
-		System.out.println("\t\t\t\t\t\t================================================================================");
-		System.out.println("\t\t\t\t\t\t\t\t\t\t [관리자 메뉴]");
-		System.out.println("\t\t\t\t\t\t================================================================================");
-		System.out.println("\t\t\t\t\t\t\t\t\t\t 관리자님 환영합니다!");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t[관리자 메뉴]");
+		System.out.println("\t\t\t\t\t================================================================================================");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t관리자님 환영합니다!");
 		
 		System.out.println("\t\t\t\t\t\t\t\t\t\t1. 회원관리");
 		System.out.println("\t\t\t\t\t\t\t\t\t\t2. 직원관리");

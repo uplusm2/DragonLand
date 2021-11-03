@@ -3,17 +3,12 @@ package com.project.landinfo;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.*;
 
 import com.project.data.Attraction;
 import com.project.data.Location;
 import com.project.main.Load;
-
-enum Type{
-	가족, 게임, 공포, 관람, 스릴, 어린이, 연인
-}
 
 /**
  * AttractionInfo 클래스입니다.
@@ -22,6 +17,10 @@ enum Type{
  *
  */
 public class AttractionInfo {
+	
+	public enum Type {
+		가족, 게임, 공포, 관람, 스릴, 어린이, 연인
+	}
 
 	private static Scanner sc = new Scanner(System.in);
 	private static int page;
@@ -48,7 +47,7 @@ public class AttractionInfo {
 			head("어트랙션 정보");
 			System.out.println("\t\t\t\t\t\t\t\t\t   나에게 맞는 어트랙션을 찾아보세요.");
 			System.out.printf("\t\t\t\t\t\t\t\t1.%s\t2.%s\t\t3.%s\t\t4.%s\n", "전체보기", Type.가족, Type.게임, Type.공포);
-			System.out.printf("\t\t\t\t\t\t\t\t5.%s\t\t6.%s\t\t7.%s\t\t8.%s\n", Type.관람, Type.스릴, Type.어린이, Type.연인);
+			System.out.printf("\t\t\t\t\t\t\t\t5.%s\t\t6.%s\t\t7.%s\t8.%s\n", Type.관람, Type.스릴, Type.어린이, Type.연인);
 
 			System.out.println("\t\t\t\t\t\t\t\tB. 뒤로 가기");
 			System.out.print("\t\t\t\t\t\t\t\t👉 ");
@@ -123,9 +122,10 @@ public class AttractionInfo {
 		if(type == null) head("전체 어트랙션 정보");
 		else head(String.format("%s 어트랙션 정보", type));
 		
-		System.out.println("\t\t\t\t\t[번호]\t\t[이름]\t\t[분류]\t\t[탑승인원]\t [운행시간]\t[위치]");
+		System.out.println("\t\t\t\t\t[번호]\t\t[이름]\t\t\t[분류]\t[탑승인원]\t[운행시간]\t[위치]");
 		for(int i = page*10; i < (page != endPage-1 ? page*10+10 : list.size()); i++) {
-			System.out.printf("\t\t\t\t\t%4d\t\t%-10s\t%3s\t\t%5s\t\t%s\t%s\n"
+			System.out.printf("\t\t\t\t\t%4d\t\t%-15s\t%3s\t%5s\t\t%s\t%s\n"
+
 					, i+1
 					, list.get(i).getName()
 					, list.get(i).getAttractionType()
@@ -135,7 +135,7 @@ public class AttractionInfo {
 			);
 		}
 		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.printf("\t\t\t\t\t< 이전페이지\t\t\t\t     %d / %d\t\t\t\t     다음 페이지 >\n", page+1, endPage);
+		System.out.printf("\t\t\t\t\t< 이전페이지\t\t\t\t     %d / %d\t\t\t\t   다음 페이지 >\n", page+1, endPage);
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.println();
 	}
@@ -188,7 +188,7 @@ public class AttractionInfo {
 	 * 사용자 입력으로 Enter를 받으면 목록으로 돌아가는 pause 기능의 메소드
 	 */
 	public void pause() {
-		System.out.println("\t\t\t\t\t\t\t\t\t\t(엔터를 누르면 목록으로 돌아갑니다.)");
+		System.out.println("\t\t\t\t\t\t\t\t\t(엔터를 누르면 목록으로 돌아갑니다.)");
 		sc.nextLine();
 	}
 	
