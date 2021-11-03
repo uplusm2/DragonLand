@@ -11,7 +11,6 @@ import com.project.login.login;
 import com.project.main.Load;
 import com.project.main.Save;
 import com.project.user.*;
-import com.test.java.file.MyPath;
 
 
 
@@ -93,7 +92,18 @@ import com.test.java.file.MyPath;
 					UserTicketReservation.reserve();
 					
 				}else if(sel.equals("3")){	
-					attractionreservation();
+					if(!nowusertickettoday.isEmpty()) {
+							UserAttractionReservation.menu();																		
+						}else{
+							
+							System.out.println("\t\t\t\t\t\t\t\t금일 예약 티켓이 없습니다.");
+							System.out.println("\t\t\t\t\t\t\t\t어트랙션 예약은 당일 티켓이 있어야만 가능합니다.");
+							
+							System.out.println("");
+							System.out.println("\t\t\t\t\t\t\t\t\t엔터를 누르시면 유저 페이지로 돌아갑니다.");
+							scan.nextLine();
+							userpage();
+						}
 					
 				}else if(sel.equals("4")){	
 					Survey.SurveyMain();
@@ -119,18 +129,6 @@ import com.test.java.file.MyPath;
 			System.out.println("\t\t\t\t\t\t\t\t\t\t3. 놀이기구 예약");
 			System.out.println("\t\t\t\t\t\t\t\t\t\t4. 설문 조사");
 			System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
-		}
-		
-		private static void usersurvey() {
-			
-		}
-
-		private static void attractionreservation() {
-			
-		}
-
-		private static void ticketreservation() {
-			
 		}
 		
 
@@ -681,6 +679,7 @@ import com.project.user.*;
 			static ArrayList<User> nowuser;
 			private static ArrayList<TicketReservation> ticketr;
 			private static ArrayList<TicketReservation> nowuserticket;
+			private static ArrayList<TicketReservation> nowusertickettoday;
 			private static ArrayList<AttractionReservation> attractionr;
 			private static ArrayList<AttractionReservation> nowuserattraction;
 			private static UserAttractionReservation userAttractionReservation;
@@ -728,6 +727,16 @@ import com.project.user.*;
 					nowuserattraction.add(attractionr.get(i));
 				}
 			}
+			
+			//로그인한 유저의 오늘티켓정보를 nowusertickettoday 배열에 저장
+			for (int i=0; i<ticketr.size(); i++) {
+				if (ticketr.get(i).getUserNum().equals(nowuser.get(0).getSeq()) && isToday(ticketr.get(i).getDate())) {
+					
+					nowusertickettoday.add(ticketr.get(i));
+						
+				}
+				
+			}
 
 			
 			boolean loop = true;
@@ -744,7 +753,18 @@ import com.project.user.*;
 					UserTicketReservation.reserve();
 					
 				}else if(sel.equals("3")){	
-					userAttractionReservation.menu();
+					if(!nowusertickettoday.isEmpty()) {
+							UserAttractionReservation.menu();																		
+						}else{
+							
+							System.out.println("\t\t\t\t\t\t\t\t금일 예약 티켓이 없습니다.");
+							System.out.println("\t\t\t\t\t\t\t\t어트랙션 예약은 당일 티켓이 있어야만 가능합니다.");
+							
+							System.out.println("");
+							System.out.println("\t\t\t\t\t\t\t\t\t엔터를 누르시면 유저 페이지로 돌아갑니다.");
+							scan.nextLine();
+							userpage();
+						}
 					
 				}else if(sel.equals("4")){	
 					Survey.SurveyMain();
@@ -770,18 +790,6 @@ import com.project.user.*;
 			System.out.println("\t\t\t\t\t\t\t\t\t\t3. 놀이기구 예약");
 			System.out.println("\t\t\t\t\t\t\t\t\t\t4. 설문 조사");
 			System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
-		}
-		
-		private static void usersurvey() {
-			
-		}
-
-		private static void attractionreservation() {
-			
-		}
-
-		private static void ticketreservation() {
-			
 		}
 		
 
@@ -1298,6 +1306,17 @@ import com.project.user.*;
 			
 			Save.saveUser(list);
 
+		}
+		public static boolean isToday(String date) {
+			Calendar now = Calendar.getInstance();
+			boolean today = true;
+			
+			if(!date.substring(0, 4).equals(now.get(Calendar.YEAR) + "")) today = false;
+			if(!date.substring(4, 6).equals(now.get(Calendar.MONTH) + 1 +"")) today = false;
+			if(!date.substring(6, 8).equals(now.get(Calendar.DATE) < 10 ? "0"+now.get(Calendar.DATE) : now.get(Calendar.DATE)+""))
+				today = false;
+			
+			return today;
 		}
 		
 	}//UserPage
