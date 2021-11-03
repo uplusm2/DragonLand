@@ -30,11 +30,11 @@ public class ParadeAdmin {
 		while(true) {
 			head("퍼레이드 정보 관리");
 			showParade();
-			System.out.println("\t\t\t\t\t\t\t\t\t1. 퍼레이드 이름 수정");
-			System.out.println("\t\t\t\t\t\t\t\t\t2. 퍼레이드 날짜 수정");
-			System.out.println("\t\t\t\t\t\t\t\t\t3. 퍼레이드 정보 수정");
-			System.out.println("\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
-			System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t1. 퍼레이드 이름 수정");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t2. 퍼레이드 날짜 수정");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t3. 퍼레이드 정보 수정");
+			System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
+			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 			String sel = sc.nextLine();
 			System.out.println();
 			

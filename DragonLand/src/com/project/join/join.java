@@ -51,12 +51,17 @@ public class join {
 
 		while (check) {
 			System.out.print("\t\t\t\t\t\t\t\t\t아이디(4자~12자):  ");
-
+			
 			id = join.nextLine();
+			if (id.equalsIgnoreCase("B")) { 
+				System.out.println();
+				Main.main(null); //뒤로가기(메인메뉴)
+			}
 			if (idCheck(id)) {
 				continue;
 			}
-
+		
+	
 			break;
 		}
 
@@ -66,7 +71,7 @@ public class join {
 			if (pwCheck(pw)) {
 				continue;
 			}
-
+		
 			break;
 		}
 
@@ -118,7 +123,10 @@ public class join {
 			break;
 		}
 
-		String seq = String.format("U%03d", list.size() + 1);
+		list = Load.loadUser();
+		User lastSeq = list.get((list.size()-1));
+
+		String seq = String.format("U%03d", Integer.parseInt(lastSeq.getSeq().substring(1))+1);
 
 		User u = new User(seq, id, pw, name, jumin, phoneNum, address, false);
 		list.add(u);
@@ -170,6 +178,7 @@ public class join {
 	 * @param pw 비밀번호
 	 * @throws Exception 
 	 */	
+	
 	
 	public static boolean pwCheck(String pw) {
 

@@ -16,6 +16,7 @@ import com.project.main.*;
  *
  */
 
+
 public class Survey {
 	private static Scanner scan;
 	private static int page;
@@ -46,7 +47,7 @@ public class Survey {
 
 		System.out.println(
 				"\t\t\t\t\t================================================================================================");
-		System.out.println("\t\t\t\t\t\t\t\t\t\t     [설문조사]");
+		System.out.println("\t\t\t\t\t\t\t\t\t\t[설문조사]");
 		System.out.println(
 				"\t\t\t\t\t================================================================================================");
 		while (loop) {
