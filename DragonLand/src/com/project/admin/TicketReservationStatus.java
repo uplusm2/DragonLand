@@ -61,9 +61,9 @@ public class TicketReservationStatus {
 		
 		
 		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.println("\t\t\t\t\t\t\t\t\t\t[당일 티켓 예매자 목록]");
+		System.out.println("\t\t\t\t\t\t\t\t\t   [당일 티켓 예매자 목록]");
 		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.println("\t\t\t\t\t[회원번호]   [아이디]    [이름]   [주민번호]      [핸드폰번호]       [매수]");
+		System.out.println("\t\t\t\t\t[회원번호]   [아이디]    [이름]   [주민번호]       [핸드폰번호]      [매수]");
 		
 		
 		

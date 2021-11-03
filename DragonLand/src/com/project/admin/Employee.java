@@ -273,7 +273,7 @@ public class Employee {
 	 */
 	private static void head(String title){
 		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.printf("\t\t\t\t\t\t\t\t\t\t    [%s]%n", title);
+		System.out.printf("\t\t\t\t\t\t\t\t\t\t[%s]%n", title);
 		System.out.println("\t\t\t\t\t================================================================================================");
 	}
 	

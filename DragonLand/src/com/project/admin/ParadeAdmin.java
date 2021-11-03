@@ -128,7 +128,7 @@ public class ParadeAdmin {
 				System.out.println("\t\t\t\t\t\t\t\t\t\t올바른 형식으로 입력 바랍니다.");
 			}
 			else {
-				paradeInfo.stream().forEach(parade -> parade.setStartDate(endDate));
+				paradeInfo.stream().forEach(parade -> parade.setEndData(endDate));
 				break;
 			}
 		}

@@ -129,7 +129,7 @@ public class UserManagement {
 		select();
 		
 		boolean flag = false;
-		System.out.printf("\t\t\t\t\t[%s]\t  [%s]\t    [%s]    [%s]  [%s]    [%s]\t\t\t  [%s]%n"
+		System.out.printf("\t\t\t\t\t[%s]\t  [%s]\t    [%s]    [%s]  [%s]   [%s]   [%s]%n"
 				,"번호","ID","PW","이름","주민등록번호","핸드폰 번호","주소");
 		for(User u : list) {
 			if(u.getName().equalsIgnoreCase(sel)) {

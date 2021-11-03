@@ -50,7 +50,7 @@ public class login {
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.println("\t\t\t\t\t\t\t\t\t\t[로그인]");
 		System.out.println("\t\t\t\t\t================================================================================================");
-		System.out.println("\t\t\t\t\t\t\t\t\t(b를 누르면 뒤로 이동합니다.)");
+		System.out.println("\t\t\t\t\t\t\t\t\t(B를 누르면 뒤로 이동합니다.)");
 
 		System.out.print("\t\t\t\t\t\t\t\t\t\t아이디: ");
 		loginId = login.nextLine();
@@ -89,14 +89,14 @@ public class login {
 			// 아이디 O 비밀번호 X
 			System.out.println("\t\t\t\t\t\t\t\t\t\t비밀번호가 틀렸습니다.");
 
-			System.out.print("\t\t\t\t\t\t\t\t\t다시 로그인 하시겠습니까?(y/n) : ");
+			System.out.print("\t\t\t\t\t\t\t\t\t다시 로그인 하시겠습니까?(Y/N) : ");
 			String relogin = login.nextLine();
 
-			if (relogin.equals("y")) {
+			if (relogin.equalsIgnoreCase("y")) {
 
-				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 시작합니다.");
+				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 시작합니다.\r");
 				login();
-			} else if (relogin.equals("n")) {
+			} else if (relogin.equalsIgnoreCase("n")) {
 				Main.main(null);
 			}
 
@@ -106,14 +106,14 @@ public class login {
 			// 아이디 X 비밀번호 O
 			System.out.println("\t\t\t\t\t\t\t\t\t\t아이디가 틀렸습니다.");
 
-			System.out.print("\t\t\t\t\t\t\t\t\t다시 로그인 하시겠습니까?(y/n) : ");
+			System.out.print("\t\t\t\t\t\t\t\t\t다시 로그인 하시겠습니까?(Y/N) : ");
 			String relogin = login.nextLine();
 
-			if (relogin.equals("y")) {
+			if (relogin.equalsIgnoreCase("y")) {
 
-				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 시작합니다.");
+				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 시작합니다.\r");
 				login();
-			} else if (relogin.equals("n")) {
+			} else if (relogin.equalsIgnoreCase("n")) {
 				Main.main(null);
 			}
 
@@ -123,14 +123,14 @@ public class login {
 			// 아이디 X 비밀번호 X
 			System.out.println("\t\t\t\t\t\t\t\t\t아이디와 비밀번호 모두 틀렸습니다.");
 
-			System.out.print("\t\t\t\t\t\t\t\t\t다시 로그인 하시겠습니까?(y/n) : ");
+			System.out.print("\t\t\t\t\t\t\t\t\t다시 로그인 하시겠습니까?(Y/N) : ");
 			String relogin = login.nextLine();
 
-			if (relogin.equals("y")) {
-
-				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 시작합니다.");
+			if (relogin.equalsIgnoreCase("y")) {
+				
+				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 시작합니다.\r");
 				login();
-			} else if (relogin.equals("n")) {
+			} else if (relogin.equalsIgnoreCase("n")) {
 				Main.main(null);
 			}
 			
@@ -142,11 +142,11 @@ public class login {
 			System.out.print("\t\t\t\t\t\t\t\t\t다시 로그인 하시겠습니까?(y/n) : ");
 			String relogin = login.nextLine();
 
-			if (relogin.equals("y")) {
+			if (relogin.equalsIgnoreCase("y")) {
 
-				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 시작합니다.");
+				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 시작합니다.\r");
 				login();
-			} else if (relogin.equals("n")) {
+			} else if (relogin.equalsIgnoreCase("n")) {
 				Main.main(null);
 			}
 		}
