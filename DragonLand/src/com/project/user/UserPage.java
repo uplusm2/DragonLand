@@ -18,15 +18,16 @@ import com.project.user.*;
 
 			private static Scanner scan;
 			private static ArrayList<User> list;
-			private static ArrayList<User> nowuser;
+			static ArrayList<User> nowuser;
 			private static ArrayList<TicketReservation> ticketr;
 			private static ArrayList<TicketReservation> nowuserticket;
 			private static ArrayList<TicketReservation> nowusertickettoday;
 			private static ArrayList<AttractionReservation> attractionr;
 			private static ArrayList<AttractionReservation> nowuserattraction;
-			
+			private static UserAttractionReservation userattractionreservation;
 			static {
 				scan = new Scanner(System.in);
+				userattractionreservation = new UserAttractionReservation();
 			}
 
 		public static void userpage() throws Exception {
@@ -88,7 +89,7 @@ import com.project.user.*;
 					
 				}else if(sel.equals("3")){	
 					if(!nowusertickettoday.isEmpty()) {
-							UserAttractionReservation.menu();																		
+						userattractionreservation.menu();																		
 						}else{
 							
 							System.out.println("\t\t\t\t\t\t\t\t금일 예약 티켓이 없습니다.");
@@ -220,8 +221,8 @@ import com.project.user.*;
 			if(!nowuserattraction.isEmpty()) {
 			
 			for (int i=0; i<nowuserattraction.size(); i++) {
-				System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]     [시간]  [놀이기구]  [예약 인원]");
-				System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t%s\t%s      %s\r\n"
+				System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]      [시간]  [놀이기구]  [예약 인원]");
+				System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t%s:00\t   %s\t        %s\r\n"
 														  , i+1
 														  ,	nowuserattraction.get(i).getDate().substring(0,4) + "-" + 
 															nowuserattraction.get(i).getDate().substring(4,6) + "-" + 
@@ -657,4 +658,3 @@ import com.project.user.*;
 		
 		
 	}//UserPage
-	
