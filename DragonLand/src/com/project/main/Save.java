@@ -13,7 +13,11 @@ import com.project.data.*;
 public class Save {
 	public static BufferedWriter writer;
 
-
+	/**
+	 * 어트랙션 정보를 저장합니다.
+	 * @param list 어트랙션
+	 * @throws Exception
+	 */
 	public static void saveAttraction(ArrayList<Attraction> list) throws Exception {
 		writer = new BufferedWriter(new FileWriter(Path.attraction));
 
