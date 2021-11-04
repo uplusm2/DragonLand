@@ -59,7 +59,7 @@ public class DailyStatistic {
 		System.out.printf("\t\t\t\t\t\t\t\t\t\t매출: %,d원\n",Integer.parseInt(list2.get(list2.size()-1).getTotalPrice()));
 		System.out.println("\t\t\t\t\t================================================================================================");
 		output(year,month); //달력
-		
+		System.out.println();
 		System.out.println("\t\t\t\t\t\t\t\t\t상세 확인할 날짜를 입력하세요.(YYMMDD)");
 		System.out.println("\t\t\t\t\t\t\t\t\t\tB.뒤로가기");
 		System.out.print("\t\t\t\t\t\t\t\t\t\t👉");
