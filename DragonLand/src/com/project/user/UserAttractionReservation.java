@@ -15,6 +15,11 @@ import com.project.login.login;
 import com.project.main.Load;
 import com.project.main.Save;
 
+/**
+ * 어트랙션 예약 클래스입니다.
+ * @author 써니
+ *
+ */
 public class UserAttractionReservation {
 	
 	private static Scanner sc = new Scanner(System.in);
@@ -76,7 +81,7 @@ public class UserAttractionReservation {
 	
 	/**
 	 * 선택한 분류의 어트랙션 목록을 만들고 보여줍니다.
-	 * @param type
+	 * @param type 선택한 어트랙션 타입
 	 * @throws Exception
 	 */
 	public void showAttractionList(Type type) throws Exception {
@@ -128,8 +133,8 @@ public class UserAttractionReservation {
 	
 	
 	/**
-	 * 어트랙션 예약을 위한 시간대 선택 및 예약
-	 * @param number
+	 * 어트랙션 예약을 위한 시간대 선택을 합니다.
+	 * @param number 선택한 어트랙션 번호
 	 * @throws Exception
 	 */
 	private void selectTime(String number) throws Exception {
@@ -179,8 +184,11 @@ public class UserAttractionReservation {
 		}
 		
 	}
-	
-	
+
+	/**
+	 * 어트랙션 예약을 진행합니다.
+	 * @throws Exception
+	 */
 	public void reserve() throws Exception {
 		while(true) {
 			System.out.printf("\t\t\t\t\t\t\t\t\t예약 인원을 선택해주세요.\n");
@@ -255,7 +263,7 @@ public class UserAttractionReservation {
 	 * @return
 	 * @throws Exception
 	 */
-	public int getMyTicketReserveCnt() throws Exception {
+	private int getMyTicketReserveCnt() throws Exception {
 		ArrayList<TicketReservation> ticketList = Load.loadTicketReservation();
 		
 		int ticketHuman = 0;
@@ -273,7 +281,7 @@ public class UserAttractionReservation {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getUserSeq() throws Exception {
+	private String getUserSeq() throws Exception {
 		for(User user : users) {
 			if(user.getId().equals(login.loginId))
 				return user.getSeq();
@@ -285,7 +293,7 @@ public class UserAttractionReservation {
 	 * YYYYMMDD 형식의 오늘 날짜를 반환하는 메소드
 	 * @return
 	 */
-	public String getToday() {
+	private String getToday() {
 		Calendar now = Calendar.getInstance();
 		String today = "" + now.get(Calendar.YEAR)
 						+ (now.get(Calendar.MONTH) + 1)
@@ -298,7 +306,7 @@ public class UserAttractionReservation {
 	 * @param date 날짜
 	 * @return
 	 */
-	public boolean isToday(String date) {
+	private boolean isToday(String date) {
 		Calendar now = Calendar.getInstance();
 		boolean today = true;
 		
@@ -317,7 +325,7 @@ public class UserAttractionReservation {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getReserveSeq(String selectTime, String attractionSeq) throws Exception {
+	private String getReserveSeq(String selectTime, String attractionSeq) throws Exception {
 		
 		// 예약순번 생성
 		int iOrder = getLastOrder(selectTime, attractionSeq);
@@ -340,7 +348,7 @@ public class UserAttractionReservation {
 	 * @return
 	 * @throws Exception
 	 */
-	public int getLastOrder(String selectHour, String selectAttraction) throws Exception {
+	private int getLastOrder(String selectHour, String selectAttraction) throws Exception {
 		reserveList = Load.loadAttractionReservation();
 		
 		int lastOrder = 1;
@@ -384,7 +392,7 @@ public class UserAttractionReservation {
 	 * 예약 가능한 어트랙션 시간 리스트를 반환하는 메소드
 	 * @return
 	 */
-	public ArrayList getAvalidTime() {
+	private ArrayList getAvalidTime() {
 		// 현재시간 추출
 		Calendar now = Calendar.getInstance();
 		ArrayList<String> list = new ArrayList();
@@ -405,7 +413,7 @@ public class UserAttractionReservation {
 	 * @return
 	 * @throws Exception
 	 */
-	public int getReserveCnt(String selectHour, String selectAttraction) throws Exception {
+	private int getReserveCnt(String selectHour, String selectAttraction) throws Exception {
 		reserveList = Load.loadAttractionReservation();
 		
 		int totalReserve = 0;
@@ -426,7 +434,7 @@ public class UserAttractionReservation {
 	 * @return
 	 * @throws Exception
 	 */
-	public boolean isExistTime(String selectHour) throws Exception {
+	private boolean isExistTime(String selectHour) throws Exception {
 		reserveList = Load.loadAttractionReservation();
 		
 		boolean existTime = false;
@@ -440,14 +448,14 @@ public class UserAttractionReservation {
 	}
 	
 	
-	public void head(String title) {
+	private void head(String title) {
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.printf("\t\t\t\t\t\t\t\t\t\t[%s]\r\n", title);
 		System.out.println("\t\t\t\t\t================================================================================================");
 	}
 	
 	
-	public void pause() {
+	private void pause() {
 		System.out.println("\t\t\t\t\t\t\t\t\t(엔터를 누르면 목록으로 돌아갑니다.)");
 		sc.nextLine();
 	}
