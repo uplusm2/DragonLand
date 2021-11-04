@@ -203,12 +203,14 @@ public class Employee {
 				System.out.printf("\t\t\t\t\t[%s]\t[%s]\t[%s]\t\t\t[%s]\t\t\t[%s]\t[%s]%n"//flag 때문에 for문 밖으로 빼기 애매함.
 						,"번호","이름","나이","주소","핸드폰 번호","근무지");
 				
-				System.out.printf("\t\t\t\t\t %s\t%s\t%4s\t%s\t%s\t%s%n"
+				System.out.printf("\t\t\t\t\t %s%6s%6s\t%-25s\t%-13s\t%s%n"
 								, s.getSeq()
 								, s.getName()
 								, s.getAge()
 								, s.getAddress()
-								, s.getPhoneNum()
+								, s.getPhoneNum().substring(0,3) + "-" 
+										+ s.getPhoneNum().substring(3,7) + "-" 
+										+ s.getPhoneNum().substring(7)
 								, s.getWorkPlace());
 				flag = true;
 			}
@@ -241,7 +243,7 @@ public class Employee {
 			if(list.get(i).getSeq().equals("")) {
 				break;
 			}
-			System.out.printf("\t\t\t\t\t %s\t%s\t%4s\t%s\t%s\t%s%n"
+			System.out.printf("\t\t\t\t\t %s%6s%6s\t%-25s\t%-13s\t%s%n"
 							, list.get(i).getSeq()
 							, list.get(i).getName()
 							, list.get(i).getAge()
