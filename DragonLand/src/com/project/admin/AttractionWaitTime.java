@@ -7,6 +7,11 @@ import com.project.data.Attraction;
 import com.project.main.Load;
 import com.project.main.Save;
 
+/**
+ * 어트랙션 대기열을 관리하는 클래스입니다.
+ * @author 써니
+ *
+ */
 public class AttractionWaitTime {
 	
 	private static Scanner sc = new Scanner(System.in);
@@ -23,7 +28,7 @@ public class AttractionWaitTime {
 	}
 	
 	/**
-	 * 관리자 화면 > 어트랙션 대기열 관리 페이지를 보여주고 입력을 받아 수정합니다.
+	 * 어트랙션 대기열 관리 페이지를 보여주고 입력을 받아 수정합니다.
 	 * @throws Exception
 	 */
 	public void showAttractionWaitTime() throws Exception {
@@ -54,7 +59,7 @@ public class AttractionWaitTime {
 				else page++;
 			}
 			else if(sel.equalsIgnoreCase("B")) return;
-			else if(sel.compareTo("0") > 0 && sel.compareTo(attractions.size()+"") < 1) 
+			else if(Integer.parseInt(sel) > 0 && Integer.parseInt(sel) <= attractions.size()) 
 				changeWaitTime(sel);
 			else {
 				System.out.println("\t\t\t\t\t\t\t\t\t올바른 번호를 입력해주세요.");
@@ -145,20 +150,13 @@ public class AttractionWaitTime {
 		return flag;
 	}
 	
-	/**
-	 * 현재 페이지의 헤더를 출력합니다.
-	 * @param title 현재 페이지의 헤더 제목
-	 */
-	public void head(String title) {
+	private void head(String title) {
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.printf("\t\t\t\t\t\t\t\t\t\t[%s]\r\n", title);
 		System.out.println("\t\t\t\t\t================================================================================================");
 	}
 	
-	/**
-	 * 사용자 입력으로 Enter를 받으면 목록으로 돌아가는 pause 기능의 메소드
-	 */
-	public void pause() {
+	private void pause() {
 		System.out.println("\t\t\t\t\t\t\t\t\t(엔터를 누르면 목록으로 돌아갑니다.)");
 		sc.nextLine();
 	}
