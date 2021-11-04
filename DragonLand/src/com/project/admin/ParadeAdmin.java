@@ -9,6 +9,11 @@ import com.project.landinfo.LandInfo;
 import com.project.main.Load;
 import com.project.main.Save;
 
+/**
+ * 퍼레이드 관리 클래스
+ * @author 써니
+ *
+ */
 public class ParadeAdmin {
 	
 	private static Scanner sc = new Scanner(System.in);
