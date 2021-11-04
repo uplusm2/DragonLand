@@ -10,6 +10,11 @@ import com.project.data.Parade;
 import com.project.data.Ticket;
 import com.project.main.Load;
 
+/**
+ * 용용랜드 정보 클래스입니다.
+ * @author 써니
+ *
+ */
 public class LandInfo {
 	
 	private static Scanner sc = new Scanner(System.in);
@@ -140,32 +145,20 @@ public class LandInfo {
 		pageBack();
 	}
 	
-	/**
-	 * 현재 페이지의 헤더를 출력합니다.
-	 * @param title 현재 페이지의 헤더 제목
-	 */
-	public void head(String title) {
+
+	private void head(String title) {
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.printf("\t\t\t\t\t\t\t\t\t\t[%s]\r\n", title);
 		System.out.println("\t\t\t\t\t================================================================================================");
 	}
-	
-	/**
-	 * 편의시설의 헤더를 출력합니다.
-	 * @param type 편의시설 타입
-	 */
-	public void facilityHead(String type) {
+
+	private void facilityHead(String type) {
 		System.out.printf("\t\t\t\t\t\t\t\t\t\t📍 %s 📍\n", type);
 		System.out.println("\t\t\t\t\t\t[번호]\t\t[이름]\t\t\t[이용시간]\t\t[위치]");
 	}
 	
-	/**
-	 * 사용자 입력으로 'B'를 받으면 이전 메뉴로 돌아가는 기능의 메소드
-	 */
-	public void pageBack() {
-		
+	private void pageBack() {
 		while(true) {
-			
 			System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
 			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 			String sel = sc.nextLine();
@@ -177,12 +170,7 @@ public class LandInfo {
 		}
 	}
 	
-	/**
-	 * 놀이공원 위치 번호를 받아, 놀이공원 위치를 반환합니다.
-	 * @param locateNum 놀이공원 위치 번호
-	 * @return
-	 */
-	public String getLocate(String locateNum) {
+	private String getLocate(String locateNum) {
 		try {
 			ArrayList<Location> location = Load.loadLocation();
 			for(int i = 0; i < location.size(); i++) {
