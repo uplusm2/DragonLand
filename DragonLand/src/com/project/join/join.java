@@ -18,11 +18,11 @@ public class join {
 
 	private static ArrayList<User> list;
 
-	public static void main(String[] args) throws Exception {
-
-		Join();
-
-	}
+//	public static void main(String[] args) throws Exception {
+//
+//		Join();
+//
+//	}
 
 	/**
 	 * 회원가입 메소드입니다
@@ -308,6 +308,11 @@ public class join {
 		return false;
 	}
 	
+	
+	/**
+	 * 회원가입이 완료되면 메뉴로 보내주는 메소드입니다
+	 * @throws Exception
+	 */
 	public static void pause() throws Exception {
 		Scanner join = new Scanner(System.in);
 		System.out.println();

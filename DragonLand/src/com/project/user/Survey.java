@@ -29,10 +29,10 @@ public class Survey {
 
 	}
 
-	public static void main(String[] args) throws Exception {
+//	public static void main(String[] args) throws Exception {
 //		SurveyMain();
-		attractionVote();
-	}
+//		attractionVote();
+//	}
 
 	/**
 	 * 설문조사 메인 페이지입니다 선택하여 원하는 곳으로 들어갑니다.
@@ -194,6 +194,12 @@ public class Survey {
 
 	}
 
+	
+	/**
+	 * 투표수 누적시켜주는 메소드입니다.
+	 * @throws Exception
+	 */
+	
 	public static void VoteAttraction() throws Exception {
 
 		Attraction atData = new Attraction();
@@ -217,7 +223,9 @@ public class Survey {
 	}
 
 
-
+	/**
+	 * 설문조사 메뉴를 나타내는 메소드입니다
+	 */
 	public static void menu() {
 		System.out.println("\t\t\t\t\t\t\t\t\t\t1. 이달의 어트랙션 추천");
 		System.out.println("\t\t\t\t\t\t\t\t\t\t2. 고객의 소리");
@@ -225,6 +233,10 @@ public class Survey {
 
 	}
 
+	/**
+	 * 작업을 완료하고 엔터를 누르면 메인으로 돌아가게 해주는 메소드입니다.
+	 * @throws Exception
+	 */
 	public static void pause() throws Exception {
 		System.out.println();
 		System.out.println("\t\t\t\t\t\t\t\t\t(엔터를 누르면 메뉴로 이동합니다.)");
