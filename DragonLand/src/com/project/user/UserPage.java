@@ -12,7 +12,11 @@ import com.project.main.Load;
 import com.project.main.Save;
 import com.project.user.*;
 
-
+/**
+ * 유저 페이지 클래스입니다.
+ * @author songj
+ *
+ */
 
 	public class UserPage {
 
