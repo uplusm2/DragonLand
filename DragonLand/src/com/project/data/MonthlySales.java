@@ -51,57 +51,146 @@ public class MonthlySales {
 		this.totalPrice = totalPrice;
 	}
 	
+	/**
+	 * 날짜를 반환합니다.
+	 * @return
+	 */
 	public String getDate() {
 		return date;
 	}
+	
+	/**
+	 * 날짜를 설정합니다.
+	 * @param date
+	 */
 	public void setDate(String date) {
 		this.date = date;
 	}
+	
+	/**
+	 * 어른 수를 반환합니다.
+	 * @return
+	 */
 	public String getAdultCount() {
 		return adultCount;
 	}
+	
+	/**
+	 * 어른 수를 설정합니다.
+	 * @param adultCount
+	 */
 	public void setAdultCount(String adultCount) {
 		this.adultCount = adultCount;
 	}
+	
+	/**
+	 * 청소년 수를 반환합니다.
+	 * @return
+	 */
 	public String getYouthCount() {
 		return youthCount;
 	}
+	
+	/**
+	 * 청소년 수를 설정합니다.
+	 * @param youthCount
+	 */
 	public void setYouthCount(String youthCount) {
 		this.youthCount = youthCount;
 	}
+	
+	/**
+	 * 어린이 수를 반환합니다.
+	 * @return
+	 */
 	public String getKidCount() {
 		return kidCount;
 	}
+	
+	/**
+	 * 어린이 수를 설정합니다.
+	 * @param kidCount
+	 */
 	public void setKidCount(String kidCount) {
 		this.kidCount = kidCount;
 	}
+	
+	/**
+	 * 어른 총 금액을 반환합니다.
+	 * @return
+	 */
 	public String getAdultPrice() {
 		return adultPrice;
 	}
+	
+	/**
+	 * 어른 총 금액을 설정합니다.
+	 * @param adultPrice
+	 */
 	public void setAdultPrice(String adultPrice) {
 		this.adultPrice = adultPrice;
 	}
+	
+	/**
+	 * 청소년 총 금액을 반환합니다.
+	 * @return
+	 */
 	public String getYouthPrice() {
 		return youthPrice;
 	}
+	
+	/**
+	 * 청소년 총 금액을 설정합니다.
+	 * @param youthPrice
+	 */
 	public void setYouthPrice(String youthPrice) {
 		this.youthPrice = youthPrice;
 	}
+	
+	/**
+	 * 어린이 총 금액을 반환합니다.
+	 * @return
+	 */
 	public String getKidPrice() {
 		return kidPrice;
 	}
+	
+	/**
+	 * 어린이 총 금액을 설정합니다.
+	 * @param kidPrice
+	 */
 	public void setKidPrice(String kidPrice) {
 		this.kidPrice = kidPrice;
 	}
+	
+	/**
+	 * 총 인원수를 반환합니다.
+	 * @return
+	 */
 	public String getTotalCount() {
 		return totalCount;
 	}
+	
+	/**
+	 * 총 인원수를 설정합니다.
+	 * @param totalCount
+	 */
 	public void setTotalCount(String totalCount) {
 		this.totalCount = totalCount;
 	}
+	
+	/**
+	 * 총 금액을 반환합니다.
+	 * @return
+	 */
 	public String getTotalPrice() {
 		return totalPrice;
 	}
+	
+	/**
+	 * 총 금액을 설정합니다.
+	 * @param totalPrice
+	 */
 	public void setTotalPrice(String totalPrice) {
 		this.totalPrice = totalPrice;
 	}
