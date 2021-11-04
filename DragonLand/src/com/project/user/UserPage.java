@@ -252,10 +252,10 @@ import com.project.user.*;
 				System.out.println("\t\t\t\t\t================================================================================================");
 				System.out.println("\t\t\t\t\t\t\t\t\t\t[예약 어트랙션]");
 				System.out.println("\t\t\t\t\t================================================================================================");
-				System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]     [시간]  [놀이기구]  [예약 인원]");			
+				System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]      [시간]  [놀이기구]  [예약 인원]");			
 				for (int i=0; i<nowuserattraction.size(); i++) {
 
-					System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t%s:00\t%s      %s\r\n"
+					System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t%s:00\t   %s\t        %s\r\n"
 															  , i+1
 															  ,	nowuserattraction.get(i).getDate().substring(0,4) + "-" + 
 																nowuserattraction.get(i).getDate().substring(4,6) + "-" + 
