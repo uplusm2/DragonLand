@@ -20,17 +20,6 @@ public class login {
 	private static ArrayList<User> list;
 	public static String loginId;
 	
-	/**
-	 * 로그인 출력 메인 메소드입니다.
-	 *
-	 *
-	 * @throws Exception 예외처리
-	 */
-	public static void main(String[] args) throws Exception {
-
-		login();
-
-	}
 
 	/**
 	 * 로그인 메소드입니다.
