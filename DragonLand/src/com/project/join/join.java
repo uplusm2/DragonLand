@@ -18,12 +18,6 @@ public class join {
 
 	private static ArrayList<User> list;
 
-//	public static void main(String[] args) throws Exception {
-//
-//		Join();
-//
-//	}
-
 	/**
 	 * 회원가입 메소드입니다
 	 * @throws Exception 
