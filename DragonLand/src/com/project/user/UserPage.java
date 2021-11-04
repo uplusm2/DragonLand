@@ -521,14 +521,18 @@ import com.project.user.*;
 		
 				System.out.println("\t\t\t\t\t\t\t\t\t회원 탈퇴를 진행합니다.");
 				System.out.println("\t\t\t\t\t\t\t\t\t회원 비밀번호를 입력해주세요.");
-				System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
+				System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 				String input = scan.nextLine();
+				
+				System.out.print("");
 		
 				if (input.equals(nowuser.get(0).getPw())) {
 						System.out.println("\t\t\t\t\t\t\t\t\t회원 탈퇴시에는 사용자의 모든 정보가 삭제됩니다.");
 						System.out.println("\t\t\t\t\t\t\t\t\t정말로 탈퇴에 동의하시겠습니까? (Y/N)");
-						System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
+						System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 						String input2 = scan.nextLine();
+						System.out.print("");
+					
 					if (input2.equalsIgnoreCase("Y")) {
 							userdelete();
 							System.out.println("\t\t\t\t\t\t\t\t\t회원 탈퇴가 정상적으로 처리되었습니다. 이용해 주셔서 감사합니다.");
