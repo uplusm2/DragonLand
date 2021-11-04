@@ -36,6 +36,10 @@ public class MonthlyStatistic {
 		num=1;
 	}
 	
+	/**
+	 * 월별통계를 보여주는 메소드입니다.
+	 * @throws Exception
+	 */
 	public static void statistic() throws Exception {
 	
 			list();
