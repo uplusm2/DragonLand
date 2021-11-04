@@ -40,46 +40,47 @@ import com.project.user.*;
 		 */
 		public static void userpage() throws Exception {
 				
-			list = Load.loadUser();
-			ticketr = Load.loadTicketReservation();
-			attractionr = Load.loadAttractionReservation();
-			nowuser = new ArrayList<User>();
-			nowuserticket = new ArrayList<TicketReservation>();
-			nowusertickettoday = new ArrayList<TicketReservation>();
-			nowuserattraction = new ArrayList<AttractionReservation>();
-				
-			//로그인한 유저의 정보를 nowuser 배열에 저장
-			for (int i=0; i<list.size(); i++) {
-				if (list.get(i).getId().equals(login.loginId)) {
-					nowuser.add(list.get(i));
-				}
-			}		
 			
-			//로그인한 유저의 티켓정보를 nowuserticket 배열에 저장
-			for (int i=0; i<ticketr.size(); i++) {
-				if (ticketr.get(i).getUserNum().equals(nowuser.get(0).getSeq())) {
-					nowuserticket.add(ticketr.get(i));
-				}
-			}
-			
-			//로그인한 유저의 티켓정보를 nowattraction 배열에 저장
-			for (int i=0; i<attractionr.size(); i++) {
-				if (attractionr.get(i).getUserNum().equals(nowuser.get(0).getSeq())) {
-					nowuserattraction.add(attractionr.get(i));
-				}
-			}
-			
-			//로그인한 유저의 오늘티켓정보를 nowusertickettoday 배열에 저장
-			for (int i=0; i<ticketr.size(); i++) {
-				if (ticketr.get(i).getUserNum().equals(nowuser.get(0).getSeq()) && isToday(ticketr.get(i).getDate())) {
-					
-					nowusertickettoday.add(ticketr.get(i));
-						
-				}
-			}
 			
 			boolean loop = true;
 			while(loop) {
+				list = Load.loadUser();
+				ticketr = Load.loadTicketReservation();
+				attractionr = Load.loadAttractionReservation();
+				nowuser = new ArrayList<User>();
+				nowuserticket = new ArrayList<TicketReservation>();
+				nowusertickettoday = new ArrayList<TicketReservation>();
+				nowuserattraction = new ArrayList<AttractionReservation>();
+					
+				//로그인한 유저의 정보를 nowuser 배열에 저장
+				for (int i=0; i<list.size(); i++) {
+					if (list.get(i).getId().equals(login.loginId)) {
+						nowuser.add(list.get(i));
+					}
+				}		
+				
+				//로그인한 유저의 티켓정보를 nowuserticket 배열에 저장
+				for (int i=0; i<ticketr.size(); i++) {
+					if (ticketr.get(i).getUserNum().equals(nowuser.get(0).getSeq())) {
+						nowuserticket.add(ticketr.get(i));
+					}
+				}
+				
+				//로그인한 유저의 티켓정보를 nowattraction 배열에 저장
+				for (int i=0; i<attractionr.size(); i++) {
+					if (attractionr.get(i).getUserNum().equals(nowuser.get(0).getSeq())) {
+						nowuserattraction.add(attractionr.get(i));
+					}
+				}
+				
+				//로그인한 유저의 오늘티켓정보를 nowusertickettoday 배열에 저장
+				for (int i=0; i<ticketr.size(); i++) {
+					if (ticketr.get(i).getUserNum().equals(nowuser.get(0).getSeq()) && isToday(ticketr.get(i).getDate())) {
+						
+						nowusertickettoday.add(ticketr.get(i));
+							
+					}
+				}
 			System.out.println("\t\t\t\t\t================================================================================================");
 			System.out.println("\t\t\t\t\t\t\t\t\t\t[회원 메뉴]");
 			System.out.println("\t\t\t\t\t================================================================================================");
@@ -229,7 +230,7 @@ import com.project.user.*;
 			System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]      [시간]  [놀이기구]  [예약 인원]");			
 			for (int i=0; i<nowuserattraction.size(); i++) {
 
-				System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t%s:00\t   %s\t        %s\r\n"
+				System.out.printf("\t\t\t\t\t\t\t\t  %d       %s    %s:00      %s           %s\r\n"
 														  , i+1
 														  ,	nowuserattraction.get(i).getDate().substring(0,4) + "-" + 
 															nowuserattraction.get(i).getDate().substring(4,6) + "-" + 
@@ -255,7 +256,7 @@ import com.project.user.*;
 				System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]      [시간]  [놀이기구]  [예약 인원]");			
 				for (int i=0; i<nowuserattraction.size(); i++) {
 
-					System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t%s:00\t   %s\t        %s\r\n"
+					System.out.printf("\t\t\t\t\t\t\t\t  %d       %s    %s:00      %s           %s\r\n"
 															  , i+1
 															  ,	nowuserattraction.get(i).getDate().substring(0,4) + "-" + 
 																nowuserattraction.get(i).getDate().substring(4,6) + "-" + 
@@ -265,16 +266,18 @@ import com.project.user.*;
 															  ,	nowuserattraction.get(i).getCount());
 					
 				}	
-					
+				System.out.println();
 				System.out.println("\t\t\t\t\t\t\t\t\t취소할 예약 번호를 입력해주세요.");
 				System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 				String input2 = scan.nextLine();
+				
 				int a = Integer.parseInt(input2);
 				
 				if (a <= nowuserattraction.size()) {
 					
 					String seq = nowuserattraction.get(a-1).getSeq();
 		             userattractionreservationdelete(seq);
+		            
 					System.out.println("\t\t\t\t\t\t\t\t\t예약이 취소되었습니다.");
 					userpage();
 				} else {
@@ -311,9 +314,9 @@ import com.project.user.*;
 		
 		if(!nowuserticket.isEmpty()) {
 			
-			System.out.println("\t\t\t\t\t\t\t\t[번호]\t[날짜]\t\t[매수]\t\t\t\t[금액]");
+			System.out.println("\t\t\t\t\t\t\t[번호]\t\t  [날짜]\t\t  [매수]\t\t[금액]");
 			for (int i=0; i<nowuserticket.size(); i++) {
-				System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t[성인 %s매/청소년 %s매/유아 %s매]\t%s\r\n"
+				System.out.printf("\t\t\t\t\t\t\t%3d\t\t%s\t성인 %s매/청소년 %s매/유아 %s매\t%,d\r\n"
 														  , i+1
 														  ,	nowuserticket.get(i).getDate().substring(0,4) + "-" + 
 															nowuserticket.get(i).getDate().substring(4,6) + "-" + 
@@ -321,7 +324,7 @@ import com.project.user.*;
 														  ,	nowuserticket.get(i).getAdultCount()
 														  ,	nowuserticket.get(i).getYouthCount()
 														  ,	nowuserticket.get(i).getKidCount()
-														  ,	nowuserticket.get(i).getPrice());
+														  ,	Integer.parseInt(nowuserticket.get(i).getPrice()));
 				
 			}
 		
@@ -338,9 +341,9 @@ import com.project.user.*;
 				System.out.println("\t\t\t\t\t\t\t\t\t\t[예매 티켓]");
 				System.out.println("\t\t\t\t\t================================================================================================");
 				
-				System.out.println("\t\t\t\t\t\t\t\t[번호]\t[날짜]\t\t[매수]\t\t\t\t[금액]");
+				System.out.println("\t\t\t\t\t\t\t[번호]\t\t  [날짜]\t\t  [매수]\t\t[금액]");
 				for (int i=0; i<nowuserticket.size(); i++) {
-					System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t[성인 %s매/청소년 %s매/유아 %s매]\t%s\r\n"
+					System.out.printf("\t\t\t\t\t\t\t%3d\t\t%s\t성인 %s매/청소년 %s매/유아 %s매\t%,d\r\n"
 															  , i+1
 															  ,	nowuserticket.get(i).getDate().substring(0,4) + "-" + 
 																nowuserticket.get(i).getDate().substring(4,6) + "-" + 
@@ -348,10 +351,10 @@ import com.project.user.*;
 															  ,	nowuserticket.get(i).getAdultCount()
 															  ,	nowuserticket.get(i).getYouthCount()
 															  ,	nowuserticket.get(i).getKidCount()
-															  ,	nowuserticket.get(i).getPrice());
+															  ,	Integer.parseInt(nowuserticket.get(i).getPrice()));
 					
 				}
-					
+				System.out.println();
 				System.out.println("\t\t\t\t\t\t\t\t\t취소할 티켓 번호를 입력해주세요.");
 				System.out.print("\t\t\t\t\t\t\t\t\t👉 ");
 				String input2 = scan.nextLine();

@@ -40,7 +40,7 @@ public class AdminMenu {
 			}else if(sel.equalsIgnoreCase("B")) {	
 				LoginAdmin.login();
 			}else {
-				System.out.println("다시 키를 입력해주세요.");
+				System.out.println("\t\t\t\t\t\t\t\t\t\t다시 키를 입력해주세요.");
 				statistic();
 			}
 		}
