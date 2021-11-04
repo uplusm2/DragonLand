@@ -48,63 +48,122 @@ public class TicketReservation {
 
 
 	
-
+	/**
+	 * 티켓번호를 반환합니다.
+	 * @return
+	 */
 	public String getSeq() {
 		return seq;
 	}
-
+	
+	/**
+	 * 티켓번호를 설정합니다.
+	 * @param seq
+	 */
 	public void setSeq(String seq) {
 		this.seq = seq;
 	}
-
+	
+	/**
+	 * 날짜를 반환합니다.
+	 * @return
+	 */
 	public String getDate() {
 		return date;
 	}
 
+	/**
+	 * 날짜를 설정합니다.
+	 * @param date
+	 */
 	public void setDate(String date) {
 		this.date = date;
 	}
-
+	
+	/**
+	 * 총 어른 수를 반환합니다.
+	 * @return
+	 */
 	public String getAdultCount() {
 		return adultCount;
 	}
-
+	
+	/**
+	 * 총 어른 수를 설정합니다.
+	 * @param adultCount
+	 */
 	public void setAdultCount(String adultCount) {
 		this.adultCount = adultCount;
 	}
-
+	
+	/**
+	 * 총 청소년 수를 반환합니다.
+	 * @return
+	 */
 	public String getYouthCount() {
 		return youthCount;
 	}
-
+	
+	/**
+	 * 총 청소년 수를 설정합니다.
+	 * @param youthCount
+	 */
 	public void setYouthCount(String youthCount) {
 		this.youthCount = youthCount;
 	}
-
+	
+	/**
+	 * 총 어린이 수를 반환합니다.
+	 * @return
+	 */
 	public String getKidCount() {
 		return kidCount;
 	}
-
+	
+	/**
+	 * 총 어린이 수를 설정합니다.
+	 * @param kidCount
+	 */
 	public void setKidCount(String kidCount) {
 		this.kidCount = kidCount;
 	}
-
+	
+	/**
+	 * 카드 넘버를 반환합니다.
+	 * @return
+	 */
 	public String getCardNum() {
 		return cardNum;
 	}
-
+	
+	/**
+	 * 카드 넘버를 설정합니다.
+	 * @param cardNum
+	 */
 	public void setCardNum(String cardNum) {
 		this.cardNum = cardNum;
 	}
-
+	
+	/**
+	 * 가격을 반환합니다.
+	 * @return
+	 */
 	public String getPrice() {
 		return price;
 	}
-
+	
+	/**
+	 * 가격을 설정합니다.
+	 * @param price
+	 */
 	public void setPrice(String price) {
 		this.price = price;
 	}
-
+	
+	/**
+	 * 회원번호를 반환합니다.
+	 * @return
+	 */
 	public String getUserNum() {
 		return userNum;
 	}
