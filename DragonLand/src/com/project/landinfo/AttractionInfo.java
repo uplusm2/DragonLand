@@ -11,13 +11,18 @@ import com.project.data.Location;
 import com.project.main.Load;
 
 /**
- * AttractionInfo 클래스입니다.
- * 용용랜드 정보 > 어트랙션 정보 메뉴 화면으로 '이달의 어트랙션 순위'와 '어트랙션 정보'를 타입별로 보여줍니다.
+ * 어트랙션 정보 클래스입니다.
+ * '이달의 어트랙션 순위'와 '어트랙션 정보'를 타입별로 보여줍니다.
  * @author 써니
  *
  */
 public class AttractionInfo {
 	
+	/**
+	 * 놀이기구 타입을 정의해놓은 enum 클래스입니다.
+	 * @author 써니
+	 *
+	 */
 	public enum Type {
 		가족, 게임, 공포, 관람, 스릴, 어린이, 연인
 	}
@@ -37,7 +42,7 @@ public class AttractionInfo {
 	}
 	
 	/**
-	 * 용용랜드 정보 > 어트랙션 정보 메뉴를 보여줍니다.
+	 * 어트랙션 정보 메뉴를 보여줍니다.
 	 * @throws Exception
 	 */
 	public void menu() throws Exception {
@@ -98,7 +103,7 @@ public class AttractionInfo {
 	
 	/**
 	 * 선택한 분류의 어트랙션 목록을 만들고 보여줍니다.
-	 * @param type
+	 * @param type 선택한 놀이기구 타입
 	 * @throws Exception
 	 */
 	public void showAttractionList(Type type) throws Exception {
@@ -140,22 +145,13 @@ public class AttractionInfo {
 		System.out.println();
 	}
 	
-	/**
-	 * 현재 페이지의 헤더를 출력합니다.
-	 * @param title 현재 페이지의 헤더 제목
-	 */
-	public void head(String title) {
+	private void head(String title) {
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.printf("\t\t\t\t\t\t\t\t\t\t[%s]\r\n", title);
 		System.out.println("\t\t\t\t\t================================================================================================");
 	}
-
-	/**
-	 * 여러 페이지가 있는 화면에서 페이지를 넘겨 볼 수 있게 사용자 입력을 받고 탐색합니다.
-	 * @param type
-	 * @throws Exception
-	 */
-	public void pageExplore(Type type) throws Exception {
+	
+	private void pageExplore(Type type) throws Exception {
 		while(true) {
 			System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
 			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
@@ -184,20 +180,12 @@ public class AttractionInfo {
 		}
 	}
 	
-	/**
-	 * 사용자 입력으로 Enter를 받으면 목록으로 돌아가는 pause 기능의 메소드
-	 */
-	public void pause() {
+	private void pause() {
 		System.out.println("\t\t\t\t\t\t\t\t\t(엔터를 누르면 목록으로 돌아갑니다.)");
 		sc.nextLine();
 	}
 	
-	/**
-	 * 놀이공원 위치 번호를 받아, 놀이공원 위치를 반환합니다.
-	 * @param locateNum 놀이공원 위치 번호
-	 * @return
-	 */
-	public String getLocate(String locateNum) {
+	private String getLocate(String locateNum) {
 		try {
 			ArrayList<Location> location = Load.loadLocation();
 			for(int i = 0; i < location.size(); i++) {
@@ -209,6 +197,5 @@ public class AttractionInfo {
 		
 		return "위치를 찾을 수 없습니다.";
 	}
-	
 	
 }
