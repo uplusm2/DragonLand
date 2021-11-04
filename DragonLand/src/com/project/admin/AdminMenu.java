@@ -15,7 +15,10 @@ public class AdminMenu {
 	static {
 		scan = new Scanner(System.in);
 	}
-	
+	/**
+	 * 놀이공원 통계메뉴 들어가는 메소드
+	 * @throws Exception
+	 */
 	public static void statistic() throws Exception {
 		boolean loop = true;
 		
@@ -42,7 +45,10 @@ public class AdminMenu {
 			}
 		}
 	}
-
+	
+	/**
+	 * 메뉴를 보여주는 메소드
+	 */
 	public static void menu() {
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.println("\t\t\t\t\t\t\t\t\t\t[놀이공원 통계]");
