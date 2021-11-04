@@ -239,6 +239,15 @@ public class join {
 
 
 	public static boolean juminCheck(String jumin) {
+		
+		list = Load.loadUser();
+		
+		for (User user : list) {
+			if (user.getJumin().equals(jumin)) {
+				System.out.println("\t\t\t\t\t\t\t\t\t중복된 주민등록번호 입니다.");
+				return true;
+			}
+		}
 
 		int[] juminNum = { 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5 };
 
