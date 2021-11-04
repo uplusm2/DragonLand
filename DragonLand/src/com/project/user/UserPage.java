@@ -30,11 +30,11 @@ import com.project.user.*;
 				userattractionreservation = new UserAttractionReservation();
 			}
 
+		/**
+		 * 로그인 후 나오는 유저페이지입니다.
+		 * @throws Exception
+		 */
 		public static void userpage() throws Exception {
-			
-			System.out.println("\t\t\t\t\t================================================================================================");
-			System.out.println("\t\t\t\t\t\t\t\t\t\t[회원 메뉴]");
-			System.out.println("\t\t\t\t\t================================================================================================");
 				
 			list = Load.loadUser();
 			ticketr = Load.loadTicketReservation();
@@ -76,6 +76,9 @@ import com.project.user.*;
 			
 			boolean loop = true;
 			while(loop) {
+			System.out.println("\t\t\t\t\t================================================================================================");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t[회원 메뉴]");
+			System.out.println("\t\t\t\t\t================================================================================================");
 				menu();
 				System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
 				String sel = scan.nextLine();
@@ -122,7 +125,7 @@ import com.project.user.*;
 			System.out.printf("\t\t\t\t\t\t\t\t\t\t%s님 환영합니다!\r\n", nowuser.get(0).getName());
 			System.out.println("\t\t\t\t\t\t\t\t\t\t1. My Page");
 			System.out.println("\t\t\t\t\t\t\t\t\t\t2. 티켓 예매");
-			System.out.println("\t\t\t\t\t\t\t\t\t\t3. 놀이기구 예약");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t3. 어트랙션 예약");
 			System.out.println("\t\t\t\t\t\t\t\t\t\t4. 설문 조사");
 			System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
 		}
@@ -140,7 +143,7 @@ import com.project.user.*;
 
 			System.out.println("\t\t\t\t\t\t\t\t\t\t1. 개인 정보 확인");
 			System.out.println("\t\t\t\t\t\t\t\t\t\t2. 티켓 예매 정보 확인");
-			System.out.println("\t\t\t\t\t\t\t\t\t\t3. 놀이기구 예약 정보 확인");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t3. 어트랙션 예약 정보 확인");
 			System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로가기");
 			
 			boolean loop = true;
@@ -219,9 +222,9 @@ import com.project.user.*;
 			System.out.println("\t\t\t\t\t================================================================================================");
 		
 			if(!nowuserattraction.isEmpty()) {
-			
+			System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]      [시간]  [놀이기구]  [예약 인원]");			
 			for (int i=0; i<nowuserattraction.size(); i++) {
-				System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]      [시간]  [놀이기구]  [예약 인원]");
+
 				System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t%s:00\t   %s\t        %s\r\n"
 														  , i+1
 														  ,	nowuserattraction.get(i).getDate().substring(0,4) + "-" + 
@@ -235,7 +238,7 @@ import com.project.user.*;
 		
 			System.out.println();
 			
-			System.out.println("\t\t\t\t\t\t\t\t\t\t1. 예매 취소");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t1. 예약 취소");
 			System.out.println("\t\t\t\t\t\t\t\t\t\tB. 뒤로 가기");
 			
 			System.out.print("\t\t\t\t\t\t\t\t\t\t👉 ");
@@ -245,9 +248,9 @@ import com.project.user.*;
 				System.out.println("\t\t\t\t\t================================================================================================");
 				System.out.println("\t\t\t\t\t\t\t\t\t\t[예약 어트랙션]");
 				System.out.println("\t\t\t\t\t================================================================================================");
-			
+				System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]     [시간]  [놀이기구]  [예약 인원]");			
 				for (int i=0; i<nowuserattraction.size(); i++) {
-					System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]     [시간]  [놀이기구]  [예약 인원]");
+
 					System.out.printf("\t\t\t\t\t\t\t\t%d\t%s\t%s\t%s      %s\r\n"
 															  , i+1
 															  ,	nowuserattraction.get(i).getDate().substring(0,4) + "-" + 
@@ -268,7 +271,7 @@ import com.project.user.*;
 					
 					String seq = nowuserattraction.get(a-1).getSeq();
 		             userattractionreservationdelete(seq);
-					System.out.println("\t\t\t\t\t\t\t\t\t예매가 취소되었습니다.");
+					System.out.println("\t\t\t\t\t\t\t\t\t예약이 취소되었습니다.");
 					userpage();
 				} else {
 					System.out.println("\t\t\t\t\t\t\t\t\t올바른 번호가 아닙니다.");
@@ -555,7 +558,7 @@ import com.project.user.*;
 		 * 회원 탈퇴, 현재 회원의 정보를 삭제합니다.
 		 * @throws Exception
 		 */		
-		private static void userdelete() throws Exception {
+		public static void userdelete() throws Exception {
 			
 			BufferedReader reader = new BufferedReader(new FileReader(Path.user));
 			
@@ -587,7 +590,7 @@ import com.project.user.*;
 		 * @throws Exception
 		 */
 		
-		private static void userticketreservationdelete(String seq) throws Exception {
+		public static void userticketreservationdelete(String seq) throws Exception {
 			
 			BufferedReader reader = new BufferedReader(new FileReader(Path.ticketReservation));
 			
@@ -617,7 +620,7 @@ import com.project.user.*;
 		 * @param seq
 		 * @throws Exception
 		 */
-		private static void userattractionreservationdelete(String seq) throws Exception {
+		public static void userattractionreservationdelete(String seq) throws Exception {
 			
 			BufferedReader reader = new BufferedReader(new FileReader(Path.attractionReservation));
 			
@@ -644,6 +647,11 @@ import com.project.user.*;
 
 		}
 		
+		/**
+		 * 오늘 날짜를 반환하는 메소드
+		 * @param isToday
+		 * @throws Exception
+		 */
 		public static boolean isToday(String date) {
 			Calendar now = Calendar.getInstance();
 			boolean today = true;
