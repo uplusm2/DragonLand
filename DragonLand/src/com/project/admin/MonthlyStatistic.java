@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
-
-import com.project.*;
 import com.project.data.DailySales;
 import com.project.data.MonthlySales;
 import com.project.data.Path;
