@@ -71,7 +71,7 @@ public class UserManagement {
 	 * 회원을 삭제합니다.
 	 * @throws Exception
 	 */
-	private static void delete() throws Exception {
+	public static void delete() throws Exception {
 		head("회원 삭제");
 		
 		System.out.println("\t\t\t\t\t\t\t\t삭제할 회원의 번호를 입력하세요.");
@@ -123,7 +123,7 @@ public class UserManagement {
 	 * 회원을 검색합니다.
 	 * @throws Exception
 	 */
-	private static void search() throws Exception {
+	public static void search() throws Exception {
 		head("회원 검색");
 		System.out.println("\t\t\t\t\t\t\t\t검색할 회원의 이름을 입력하세요.");
 		select();
@@ -159,7 +159,7 @@ public class UserManagement {
 	/**
 	 * 입력을 받아 sel 변수에 저장합니다.
 	 */
-	private static void select() {
+	public static void select() {
 		System.out.print("\t\t\t\t\t\t\t\t👉 ");
 		sel = scan.nextLine();
 		System.out.println();
@@ -169,7 +169,7 @@ public class UserManagement {
 	 * 회원을 조회합니다.2
 	 * @throws Exception
 	 */
-	private static void list() throws Exception {
+	public static void list() throws Exception {
 		System.out.printf("\t\t\t\t\t[%s]\t  [%s]\t    [%s]    [%s]  [%s]    [%s]\t\t\t  [%s]%n"
 						,"번호","ID","PW","이름","주민등록번호","연락처","주소");
 		for(int i=page*10; i<page*10+10&&i<list.size(); i++) {
@@ -194,7 +194,7 @@ public class UserManagement {
 	/**
 	 * 엔터를 누르기 전까지 화면 이동을 멈춥니다.
 	 */
-	private static void pause() {
+	public static void pause() {
 		System.out.println();
 		System.out.println("\t\t\t\t\t\t\t\t(엔터를 누르면 메뉴로 이동합니다.)");
 		scan.nextLine();
@@ -202,9 +202,10 @@ public class UserManagement {
 	
 	/**
 	 * 헤더를 출력합니다.
-	 * @param title 
+	 * @param title 제목
 	 */
-	private static void head(String title){
+	
+	public static void head(String title){
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.printf("\t\t\t\t\t\t\t\t\t\t    [%s]%n", title);
 		System.out.println("\t\t\t\t\t================================================================================================");
@@ -214,7 +215,7 @@ public class UserManagement {
 	 * 메뉴를 보여줍니다.
 	 * @throws Exception
 	 */
-	private static void menu() throws Exception {
+	public static void menu() throws Exception {
 		head("회원 관리");
 		list();
 		
