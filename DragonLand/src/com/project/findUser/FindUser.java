@@ -22,13 +22,6 @@ public class FindUser {
 	
 	
 	private static ArrayList<User> list;
-
-//	public static void main(String[] args) throws Exception {
-//
-//		findeUser();
-//
-//	}
-
 	
 	
 	/**
