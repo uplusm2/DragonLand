@@ -5,7 +5,7 @@ import com.project.data.*;
 import com.project.main.*;
 
 /**
- * UserReserVation 클래스입니다.
+ * UserReservation 클래스입니다.
  * 사용자의 티켓 예매를 돕습니다.
  * @author 이유미
  */
@@ -31,10 +31,7 @@ public class UserTicketReservation {
 		today = Calendar.getInstance();
 		map = new HashMap<String, Integer>(3);
 	}
-
-	public static void main(String[] args) throws Exception {
-		reserve();
-	}
+	
 	/**
 	 * 티켓의 예매를 진행합니다.
 	 * @param args
@@ -208,8 +205,8 @@ public class UserTicketReservation {
 	
 	/**
 	 * 해당월의 1일이 무슨 요일인지 반환합니다.
-	 * @param year
-	 * @param month
+	 * @param year 년도
+	 * @param month 
 	 * @return
 	 */
 	public static int getDayOfWeek(int year, int month) {
@@ -229,8 +226,8 @@ public class UserTicketReservation {
 
 	/**
 	 * 해당월의 마지막일을 반환합니다.
-	 * @param year
-	 * @param month
+	 * @param year 년도
+	 * @param month 월
 	 * @return
 	 */
 	private static int getLastDay(int year, int month) {
@@ -247,7 +244,7 @@ public class UserTicketReservation {
 
 	/**
 	 * 해당해가 윤년인지 boolean값으로 반환합니다.
-	 * @param year
+	 * @param year 년도
 	 * @return
 	 */
 	public static boolean isLeapYear(int year) {
