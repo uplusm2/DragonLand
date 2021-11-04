@@ -7,12 +7,17 @@ import com.project.data.Attraction;
 import com.project.main.Load;
 import com.project.main.Save;
 
+/**
+ * 놀이공원 정보 관리 클래스입니다.
+ * @author 써니
+ *
+ */
 public class LandInfoAdmin {
 
 	private static Scanner sc = new Scanner(System.in);
 	
 	/**
-	 * 관리자 > 놀이공원 정보 관리 메뉴를 보여줍니다.
+	 * 놀이공원 정보 관리 메뉴를 보여줍니다.
 	 * @throws Exception
 	 */
 	public void menu() throws Exception {
@@ -39,11 +44,7 @@ public class LandInfoAdmin {
 		}
 	}
 
-	/**
-	 * 현재 페이지의 헤더를 출력합니다.
-	 * @param title 현재 페이지의 헤더 제목
-	 */
-	public void head(String title) {
+	private void head(String title) {
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.printf("\t\t\t\t\t\t\t\t\t\t[%s]\r\n", title);
 		System.out.println("\t\t\t\t\t================================================================================================");
