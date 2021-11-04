@@ -77,7 +77,7 @@ public class Employee {
 	 * 직원을 삭제합니다. 
 	 * @throws Exception
 	 */
-	private static void delete() throws Exception {
+	public static void delete() throws Exception {
 		head("직원 삭제");
 		System.out.println("\t\t\t\t\t\t\t\t삭제할 직원의 번호를 입력하세요.");
 		select();
@@ -124,7 +124,7 @@ public class Employee {
 	 * 직원의 근무지를 배치 및 수정합니다.
 	 * @throws Exception
 	 */
-	private static void edit() throws Exception {
+	public static void edit() throws Exception {
 		head("직원 근무지 배치 및 수정");
 		System.out.println("\t\t\t\t\t\t\t\t직원 번호를 입력하세요."); //뒤로가기?
 		select();
@@ -192,7 +192,7 @@ public class Employee {
 	/**
 	 * 직원을 검색합니다.
 	 */
-	private static void search() {
+	public static void search() {
 		head("직원 검색");
 		System.out.println("\t\t\t\t\t\t\t\t검색할 직원의 이름을 입력하세요.");
 		select();
@@ -226,7 +226,7 @@ public class Employee {
 	/**
 	 * 입력을 받아 sel 변수에 저장합니다.
 	 */
-	private static void select() {
+	public static void select() {
 		System.out.print("\t\t\t\t\t\t\t\t👉 ");
 		sel = scan.nextLine();
 		System.out.println();
@@ -236,7 +236,7 @@ public class Employee {
 	 * 직원을 조회합니다.
 	 * @throws Exception
 	 */
-	private static void list() throws Exception {
+	public static void list() throws Exception {
 		System.out.printf("\t\t\t\t\t[%s]\t[%s]\t[%s]\t\t\t[%s]\t\t\t[%s]\t[%s]%n"
 						,"번호","이름","나이","주소","핸드폰 번호","근무지");
 		for(int i=page*10; i<page*10+10&&i<list.size(); i++) {
