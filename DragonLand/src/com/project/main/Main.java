@@ -62,7 +62,8 @@ public class Main {
 				}else if(sel.equals("4")){	
 					FindUser.findeUser();
 				}else if(sel.equals("5")){	
-					loop = false;
+					System.out.println("\t\t\t\t\t\t\t\t\t\t안녕히가세요~~ 다음에 또 놀러오세요~!");
+					break;
 				}else {
 					System.out.println("\t\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
 					pause();
