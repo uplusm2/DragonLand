@@ -1,5 +1,10 @@
 package com.project.data;
 
+/**
+ * .txt 파일과 연계하는 클래스
+ * @author songj
+ *
+ */
 public class Path {
 	public static String userVoice = "data\\고객의소리.txt";
 	public static String attractionReservation = "data\\어트랙션예약정보.txt";
