@@ -30,6 +30,10 @@ public class DailyStatistic {
 		input=null;
 	}
 	
+	/**
+	 * 일별통계 메뉴출력 메소드입니다.
+	 * @throws Exception
+	 */
 	public static void statistic() throws Exception {
 	
 		
