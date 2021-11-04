@@ -7,6 +7,11 @@ import com.project.data.Attraction;
 import com.project.main.Load;
 import com.project.main.Save;
 
+/**
+ * 어트랙션 운행여부를 관리하는 클래스입니다.
+ * @author 써니
+ *
+ */
 public class AttractionOnOff {
 	
 	private static Scanner sc = new Scanner(System.in);
@@ -23,7 +28,7 @@ public class AttractionOnOff {
 	}
 	
 	/**
-	 * 관리자 화면 > 어트랙션 ON/OFF 관리 페이지를 보여주고 입력을 받아 수정합니다.
+	 * 어트랙션 ON/OFF 관리 페이지를 보여주고 입력을 받아 수정합니다.
 	 * @throws Exception
 	 */
 	public void showAttractionOnOff() throws Exception {
@@ -57,7 +62,7 @@ public class AttractionOnOff {
 			else if(sel.equalsIgnoreCase("B")) return;
 			else if(sel.equalsIgnoreCase("ON") || sel.equalsIgnoreCase("OFF")) 
 				changeAllOnOff(sel);
-			else if(sel.compareTo("0") > 0 && sel.compareTo(attractions.size()+"") < 1) 
+			else if(Integer.parseInt(sel) > 0 && Integer.parseInt(sel) <= attractions.size()) 
 				changeOnOff(sel);
 			else {
 				System.out.println("\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
@@ -129,7 +134,7 @@ public class AttractionOnOff {
 	
 	/**
 	 * 모든 어트랙션을 ON/OFF 합니다.
-	 * @param change ON or OFF
+	 * @param ON or OFF
 	 * @throws Exception
 	 */
 	public void changeAllOnOff(String change) throws Exception {
@@ -145,20 +150,13 @@ public class AttractionOnOff {
 		pause();
 	}
 
-	/**
-	 * 현재 페이지의 헤더를 출력합니다.
-	 * @param title 현재 페이지의 헤더 제목
-	 */
-	public void head(String title) {
+	private void head(String title) {
 		System.out.println("\t\t\t\t\t================================================================================================");
 		System.out.printf("\t\t\t\t\t\t\t\t\t\t[%s]\r\n", title);
 		System.out.println("\t\t\t\t\t================================================================================================");
 	}
 	
-	/**
-	 * 사용자 입력으로 Enter를 받으면 목록으로 돌아가는 pause 기능의 메소드
-	 */
-	public void pause() {
+	private void pause() {
 		System.out.println("\t\t\t\t\t\t\t\t\t(엔터를 누르면 목록으로 돌아갑니다.)");
 		sc.nextLine();
 	}
