@@ -19,6 +19,11 @@ public class LoginAdmin {
 		am = new AdminMenu();
 		lda = new LandInfoAdmin();
 	}
+	
+	/**
+	 * 관리자 로그인 후 뜨는 화면 메소드
+	 * @throws Exception
+	 */
 	public static void login() throws Exception {
 		
 		boolean loop = true;
