@@ -29,10 +29,7 @@ public class Survey {
 
 	}
 
-//	public static void main(String[] args) throws Exception {
-//		SurveyMain();
-//		attractionVote();
-//	}
+
 
 	/**
 	 * 설문조사 메인 페이지입니다 선택하여 원하는 곳으로 들어갑니다.
