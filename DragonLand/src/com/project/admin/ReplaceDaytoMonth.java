@@ -30,10 +30,19 @@ public class ReplaceDaytoMonth {
 		
 	}
 	
+	/**
+	 * 실행하는 메인
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception {
 		replace();
 	}
 	
+	/**
+	 * 교체해주는 메소드 입니다.
+	 * @throws Exception
+	 */
 	public static void replace() throws Exception {
 		
 		list1 = Load.loadDailySales();
