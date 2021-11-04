@@ -28,6 +28,7 @@ import com.project.user.*;
 			private static ArrayList<TicketReservation> nowusertickettoday;
 			private static ArrayList<AttractionReservation> attractionr;
 			private static ArrayList<AttractionReservation> nowuserattraction;
+			private static ArrayList<Attraction> attraction;
 			private static UserAttractionReservation userattractionreservation;
 			static {
 				scan = new Scanner(System.in);
@@ -51,7 +52,8 @@ import com.project.user.*;
 				nowuserticket = new ArrayList<TicketReservation>();
 				nowusertickettoday = new ArrayList<TicketReservation>();
 				nowuserattraction = new ArrayList<AttractionReservation>();
-					
+				attraction = Load.loadAttraction();
+				
 				//로그인한 유저의 정보를 nowuser 배열에 저장
 				for (int i=0; i<list.size(); i++) {
 					if (list.get(i).getId().equals(login.loginId)) {
@@ -220,6 +222,7 @@ import com.project.user.*;
 	 * 어트랙션 예매 정보, 조회 및 취소를 할 수 있다.
 	 * @throws Exception 
 	 */
+		public static String attractionName;
 		public static void attractionreserveinfo() throws Exception {
 		
 			System.out.println("\t\t\t\t\t================================================================================================");
@@ -229,14 +232,17 @@ import com.project.user.*;
 			if(!nowuserattraction.isEmpty()) {
 			System.out.println("\t\t\t\t\t\t\t\t[번호]      [날짜]      [시간]  [놀이기구]  [예약 인원]");			
 			for (int i=0; i<nowuserattraction.size(); i++) {
-
+				String seq = nowuserattraction.get(i).getAttractionNum();
+				attraction.stream()
+						  .filter(a -> seq.equals(a.getSeq()))
+						  .forEach(a -> attractionName = a.getName());
 				System.out.printf("\t\t\t\t\t\t\t\t  %d       %s    %s:00      %s           %s\r\n"
 														  , i+1
 														  ,	nowuserattraction.get(i).getDate().substring(0,4) + "-" + 
 															nowuserattraction.get(i).getDate().substring(4,6) + "-" + 
 														    nowuserattraction.get(i).getDate().substring(6,8)
 														  ,	nowuserattraction.get(i).getHour()
-														  ,	nowuserattraction.get(i).getAttractionNum()
+														  ,	attractionName
 														  ,	nowuserattraction.get(i).getCount());
 				
 			}
