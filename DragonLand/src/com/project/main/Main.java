@@ -62,7 +62,9 @@ public class Main {
 					ascii();
 					System.out.println("\t\t\t\t\t\t\t\t\t안녕히가세요~~");
 					System.out.println("\t\t\t\t\t\t\t\t\t다음에 또 놀러오세요~!");
-					
+					scan.nextLine();
+					scan.nextLine();
+					scan.nextLine();
 					loop=false;
 				}else {
 					System.out.println("\t\t\t\t\t\t\t\t\t\t다시 입력해주세요.");
