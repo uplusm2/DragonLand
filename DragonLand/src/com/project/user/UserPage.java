@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 import com.project.data.*;
 import com.project.login.login;
 import com.project.main.Load;
+import com.project.main.Main;
 import com.project.main.Save;
 import com.project.user.*;
 
@@ -548,9 +549,9 @@ import com.project.user.*;
 					if (input2.equalsIgnoreCase("Y")) {
 							userdelete();
 							System.out.println("\t\t\t\t\t\t\t\t\t회원 탈퇴가 정상적으로 처리되었습니다. 이용해 주셔서 감사합니다.");
-							System.out.println("\t\t\t\t\t\t\t\t\t엔터를 누르면 로그인 창으로 이동합니다.");
+							System.out.println("\t\t\t\t\t\t\t\t\t엔터를 누르면 메인으로 이동합니다.");
 							scan.nextLine();
-							login.login();
+							Main.main(null);
 					} else if (input2.equalsIgnoreCase("N")) {
 							System.out.println("\t\t\t\t\t\t\t\t\t회원 탈퇴에 동의하지 않으셨습니다.");
 							System.out.println("\t\t\t\t\t\t\t\t\t엔터를 누르면 개인정보 확인 창으로 이동합니다.");			
